@@ -1,0 +1,74 @@
+{
+  "account": "control_cap3_stress",
+  "scope": "development_screening_under_proxy_rules",
+  "initial_equity": 100,
+  "ending_equity": "101.7177978896884637468",
+  "net_return": 0.01717797889688466,
+  "cagr": 0.03436376076633563,
+  "max_adverse_bound_drawdown": 0.040080503993443206,
+  "daily_sharpe_zero_risk_free": 0.5393807491984245,
+  "daily_sortino_zero_target": 1.021665111223797,
+  "calmar": 0.8573684794970945,
+  "holding_limit_hours": 72,
+  "round_trips": 28,
+  "win_rate": 0.2857142857142857,
+  "profit_factor": 1.2203922417590352,
+  "fees": "0.8869402140",
+  "funding": "-0.2325918963115362532",
+  "gross_turnover": "1184.183690",
+  "annual": {
+    "2023": {
+      "start_equity": 100.0,
+      "end_equity": 101.71779788968847,
+      "return": 0.01717797889688466
+    }
+  },
+  "signals": {
+    "BNBUSDT_long": 52,
+    "DOGEUSDT_long": 57,
+    "LINKUSDT_long": 88,
+    "XRPUSDT_long": 42,
+    "SOLUSDT_long": 64,
+    "AVAXUSDT_long": 62,
+    "ADAUSDT_long": 62,
+    "ETHUSDT_long": 38,
+    "BTCUSDT_long": 51,
+    "BNBUSDT_short": 35,
+    "AVAXUSDT_short": 41,
+    "BTCUSDT_short": 30,
+    "XRPUSDT_short": 29,
+    "DOGEUSDT_short": 23,
+    "ADAUSDT_short": 41,
+    "LINKUSDT_short": 33,
+    "ETHUSDT_short": 35,
+    "LTCUSDT_short": 38,
+    "LTCUSDT_long": 52,
+    "SOLUSDT_short": 24
+  },
+  "rejections": {
+    "R002:higher_4h_direction_mismatch": 299,
+    "R004:efficiency_below_threshold": 178,
+    "SIG001:overextended_breakout": 385,
+    "Entry rejected: budget_or_minimum_order": 7
+  },
+  "liquidation_proxy_events": 1,
+  "execution_ambiguities": 1,
+  "halt_reasons": [
+    "liquidation_required:AVAXUSDT"
+  ],
+  "formal_selection_eligible": false,
+  "holdout_read": false,
+  "research_design": "R010-P1-v1",
+  "entry_filter": "closed_4h_ema20_ema50",
+  "entry_filter_counts": {
+    "higher_4h_direction_mismatch": 299,
+    "higher_4h_pass": 598,
+    "efficiency_reject": 178,
+    "efficiency_pass": 420,
+    "extension_pass": 35,
+    "R010P1:signal_same_direction_cap_pass": 35,
+    "R010P1:fill_same_direction_cap_pass": 35,
+    "extension_reject": 385
+  },
+  "only_entry_rule_changed": true
+}
