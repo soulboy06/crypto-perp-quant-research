@@ -1,0 +1,93 @@
+{
+  "account": "candidate_stop3atr_base",
+  "scope": "development_screening_under_proxy_rules",
+  "initial_equity": 100,
+  "ending_equity": "106.0886032166792491135",
+  "net_return": 0.06088603216679256,
+  "cagr": 0.04007757379418653,
+  "max_adverse_bound_drawdown": 0.07637963566769043,
+  "daily_sharpe_zero_risk_free": 0.6938953423573325,
+  "daily_sortino_zero_target": 1.357073276009868,
+  "calmar": 0.5247154355194162,
+  "holding_limit_hours": 72,
+  "round_trips": 97,
+  "win_rate": 0.30927835051546393,
+  "profit_factor": 1.3201418782211671,
+  "fees": "1.6875400620",
+  "funding": "-0.2481867213207508865",
+  "gross_turnover": "2812.566770",
+  "annual": {
+    "2024": {
+      "start_equity": 100.0,
+      "end_equity": 100.16687590221645,
+      "return": 0.0016687590221644566
+    },
+    "2025": {
+      "start_equity": 100.16687590221645,
+      "end_equity": 106.08860321667925,
+      "return": 0.05911861841676713
+    }
+  },
+  "signals": {
+    "SOLUSDT_long": 319,
+    "AVAXUSDT_long": 405,
+    "BTCUSDT_long": 354,
+    "ETHUSDT_long": 341,
+    "BNBUSDT_long": 388,
+    "XRPUSDT_long": 296,
+    "DOGEUSDT_long": 309,
+    "LINKUSDT_long": 405,
+    "ADAUSDT_long": 286,
+    "LTCUSDT_long": 383,
+    "BTCUSDT_short": 294,
+    "ETHUSDT_short": 264,
+    "BNBUSDT_short": 276,
+    "AVAXUSDT_short": 389,
+    "DOGEUSDT_short": 297,
+    "SOLUSDT_short": 313,
+    "XRPUSDT_short": 286,
+    "LINKUSDT_short": 378,
+    "LTCUSDT_short": 294,
+    "ADAUSDT_short": 340
+  },
+  "rejections": {
+    "SIG001:overextended_breakout": 2778,
+    "R002:higher_4h_direction_mismatch": 2339,
+    "Entry rejected: budget_or_minimum_order": 162,
+    "R004:efficiency_below_threshold": 1220,
+    "R010P1:signal_same_direction_cap": 16,
+    "stop_outside_assumed_liquidation_buffer": 5
+  },
+  "liquidation_proxy_events": 0,
+  "execution_ambiguities": 0,
+  "halt_reasons": [],
+  "formal_selection_eligible": false,
+  "holdout_read": false,
+  "research_design": "R013-v1",
+  "entry_filter": "closed_4h_ema20_ema50",
+  "entry_filter_counts": {
+    "higher_4h_pass": 4278,
+    "efficiency_pass": 3058,
+    "extension_reject": 2778,
+    "higher_4h_direction_mismatch": 2339,
+    "extension_pass": 280,
+    "R010P1:signal_same_direction_cap_pass": 264,
+    "R010P1:fill_same_direction_cap_pass": 264,
+    "efficiency_reject": 1220,
+    "R010P1:signal_same_direction_cap_reject": 16
+  },
+  "only_entry_rule_changed": true,
+  "case": "efficiency24",
+  "parent_strategy": "R002_trend",
+  "only_changed_field": "stop3atr",
+  "changed_value": "stop3atr",
+  "sizing_diagnostics": {
+    "reserve_passed": 97,
+    "reserve_rejected": 162,
+    "rejected_binding:stop_risk": 162,
+    "rejected_filter:below_min_notional": 162,
+    "rejected_filter:rounded_quantity_zero": 81,
+    "rejected_filter:below_min_quantity": 81
+  },
+  "trailing_diagnostics": {}
+}

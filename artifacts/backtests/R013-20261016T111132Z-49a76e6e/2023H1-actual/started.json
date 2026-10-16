@@ -1,0 +1,22 @@
+{
+  "design_id": "R013-v1",
+  "case": "2023H1-actual",
+  "window": {
+    "id": "2023H1",
+    "warmup_start": "2022-11-01T00:00:00Z",
+    "start": "2023-01-01T00:00:00Z",
+    "end_exclusive": "2023-07-01T00:00:00Z",
+    "corpus_scope": "reproduction"
+  },
+  "proxy_scenario": null,
+  "input_sha256": "8db4dc73c3cc67adf7c5fd37f482db86921463cb8e19ef0636726dbdd17ac01d",
+  "data_manifest": "artifacts/data/universe_runs/UNIVERSE-DATA-20261016T044037Z-0a87479e/manifest.json",
+  "data_manifest_sha256": "f8340babfc9649ec9e2d2194f1e0e00abc7d9f1cf1368a7b4c6fe0fa54b293f0",
+  "funding_multiplier": 1,
+  "historical_order_filters_verified": false,
+  "historical_margin_rules_verified": false,
+  "strict_mark_price_coverage": true,
+  "formal_selection_eligible": false,
+  "independent_validation": false,
+  "holdout_read": false
+}

@@ -1,0 +1,61 @@
+{
+  "account": "candidate_stop3atr_stress",
+  "scope": "development_screening_under_proxy_rules",
+  "initial_equity": 100,
+  "ending_equity": "99.166752931380777521",
+  "net_return": -0.00833247068619225,
+  "cagr": -0.01646134151974088,
+  "max_adverse_bound_drawdown": 0.039144158742706256,
+  "daily_sharpe_zero_risk_free": -0.34758155563897847,
+  "daily_sortino_zero_target": -0.5650817015521434,
+  "calmar": -0.4205312375708707,
+  "holding_limit_hours": 72,
+  "round_trips": 29,
+  "win_rate": 0.3448275862068966,
+  "profit_factor": 0.8647845210644186,
+  "fees": "0.4383829920",
+  "funding": "-0.079444076619222479",
+  "gross_turnover": "730.638320",
+  "annual": {
+    "2024": {
+      "start_equity": 100.0,
+      "end_equity": 99.16675293138077,
+      "return": -0.00833247068619225
+    }
+  },
+  "signals": {
+    "SOLUSDT_long": 118,
+    "AVAXUSDT_long": 164,
+    "BTCUSDT_long": 124,
+    "ETHUSDT_long": 115,
+    "BNBUSDT_long": 130,
+    "XRPUSDT_long": 108,
+    "DOGEUSDT_long": 112,
+    "LINKUSDT_long": 165,
+    "ADAUSDT_long": 113,
+    "LTCUSDT_long": 158,
+    "BTCUSDT_short": 87,
+    "ETHUSDT_short": 87,
+    "BNBUSDT_short": 80,
+    "AVAXUSDT_short": 113,
+    "DOGEUSDT_short": 65,
+    "SOLUSDT_short": 95,
+    "XRPUSDT_short": 69,
+    "LINKUSDT_short": 123,
+    "LTCUSDT_short": 97,
+    "ADAUSDT_short": 101
+  },
+  "rejections": {
+    "SIG001:overextended_breakout": 1021,
+    "R002:higher_4h_direction_mismatch": 721,
+    "Entry rejected: budget_or_minimum_order": 67,
+    "R004:efficiency_below_threshold": 384,
+    "R010P1:signal_same_direction_cap": 1,
+    "stop_outside_assumed_liquidation_buffer": 1
+  },
+  "liquidation_proxy_events": 0,
+  "execution_ambiguities": 0,
+  "halt_reasons": [],
+  "formal_selection_eligible": false,
+  "holdout_read": false
+}

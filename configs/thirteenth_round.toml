@@ -1,0 +1,54 @@
+design_id = "R013-v1"
+baseline = "R010-P1-v1"
+candidate_cases = ["hold168", "stop3atr", "confirm2"]
+cost_scenarios = ["base", "stress"]
+maximum_candidate_families = 3
+new_candidate_cost_configurations = 6
+accounts_per_run = 8
+maximum_account_executions = 72
+parameter_search = false
+combine_changes = false
+formal_selection_eligible = false
+holdout_locked = true
+automatic_strategy_replacement = false
+stop_after_prespecified_cases = true
+window_protocol = "configs/twelfth_round.toml"
+window_protocol_sha256 = "54a1b5fc59a3274fc283d26700bc3e5cb9cfa4a91bc6d2508f4486b59aa76dae"
+
+[hold168]
+changed_field = "strategies.trend.max_holding_hours"
+value = 168
+retained_exits = "hourly_EMA50_initial_2ATR_stop_account_protection"
+purpose = "test_a_calendar_week_deadline_without_changing_other_exits"
+
+[stop3atr]
+changed_field = "initial_stop_distance_only"
+atr_multiple = "3"
+per_trade_risk_fraction = "0.005"
+total_open_risk_fraction = "0.01"
+quantity_policy = "unchanged_risk_preview_wider_stop_reduces_quantity_no_forced_minimum_order"
+stop_adjustment_after_entry = false
+holding_hours = 72
+
+[confirm2]
+changed_field = "entry_requires_two_consecutive_original_SIG001_qualified_hours_same_side"
+consecutive_hours = 2
+holding_hours = 72
+initial_stop_atr = "2"
+no_future_candle = true
+confirmation_before_slot_reservation = true
+exits_unaffected = true
+
+[diagnostics]
+primary = "net_account_CAGR_and_mean_net_trade_R"
+R_definition = "net_trade_pnl_divided_by_quantity_times_absolute_entry_price_minus_initial_stop"
+R_denominator_excludes_cost_buffers = true
+R_is_not_guaranteed_maximum_loss = true
+win_rate = "fraction_of_closed_trades_with_net_pnl_gt_zero_not_direction_forecast_accuracy"
+direction_hit_rate = "actual_filled_entries_raw_trade_open_to_same_minute_open_24h_later_signed_return_gt_zero"
+direction_horizon_hours = 24
+direction_missing_labels = "exclude_entries_whose_24h_target_reaches_or_exceeds_window_end_report_count_no_2026_read"
+direction_labels_feed_trading = false
+report_all_cases_and_windows = true
+ordinary_bootstrap_selection_adjusted = false
+prior_history = "2023_2025_already_observed_all_results_exploratory"

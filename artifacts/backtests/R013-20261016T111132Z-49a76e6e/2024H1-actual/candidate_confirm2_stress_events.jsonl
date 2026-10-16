@@ -1,0 +1,13 @@
+{"id": "candidate_confirm2_stress-4", "type": "reserve", "time_us": 1710586860000000, "symbol": "SOLUSDT", "side": "long", "order_id": "SOLUSDT-1710586860000000", "reference_price": "195.4000", "stop_price": "185.7300"}
+{"id": "candidate_confirm2_stress-5", "type": "fill", "time_us": 1710586860000000, "order_id": "SOLUSDT-1710586860000000", "quantity": "0.04", "price": "195.4000", "mark_price": "195.29300000"}
+{"id": "candidate_confirm2_stress-6", "type": "funding", "time_us": 1710604800000000, "symbol": "SOLUSDT", "mark_price": "195.29940885", "rate": "0.00015327", "exact_mark": true, "source_available_us": 1710604800000000}
+{"id": "candidate_confirm2_stress-7", "type": "exit", "time_us": 1710611219999999, "symbol": "SOLUSDT", "quantity": "0.04", "price": "185.6100", "mark_price": "185.53427581", "reason": "stop"}
+{"id": "candidate_confirm2_stress-8", "type": "reserve", "time_us": 1710759660000000, "symbol": "SOLUSDT", "side": "long", "order_id": "SOLUSDT-1710759660000000", "reference_price": "208.7700", "stop_price": "199.4800"}
+{"id": "candidate_confirm2_stress-9", "type": "fill", "time_us": 1710759660000000, "order_id": "SOLUSDT-1710759660000000", "quantity": "0.04", "price": "208.7700", "mark_price": "208.61309274"}
+{"id": "candidate_confirm2_stress-10", "type": "exit", "time_us": 1710775079999999, "symbol": "SOLUSDT", "quantity": "0.04", "price": "199.3600", "mark_price": "199.15100000", "reason": "stop"}
+{"id": "candidate_confirm2_stress-11", "type": "reserve", "time_us": 1718960460000000, "symbol": "ETHUSDT", "side": "short", "order_id": "ETHUSDT-1718960460000000", "reference_price": "3458.83", "stop_price": "3513.03"}
+{"id": "candidate_confirm2_stress-12", "type": "fill", "time_us": 1718960460000000, "order_id": "ETHUSDT-1718960460000000", "quantity": "0.007", "price": "3458.83", "mark_price": "3460.98000000"}
+{"id": "candidate_confirm2_stress-13", "type": "reserve", "time_us": 1718960460000000, "symbol": "SOLUSDT", "side": "short", "order_id": "SOLUSDT-1718960460000000", "reference_price": "130.1400", "stop_price": "133.5600"}
+{"id": "candidate_confirm2_stress-14", "type": "fill", "time_us": 1718960460000000, "order_id": "SOLUSDT-1718960460000000", "quantity": "0.12", "price": "130.1400", "mark_price": "130.24000000"}
+{"id": "candidate_confirm2_stress-15", "type": "exit", "time_us": 1718962619999999, "symbol": "ETHUSDT", "quantity": "0.007", "price": "3515.14", "mark_price": "3512.06334436", "reason": "stop"}
+{"id": "candidate_confirm2_stress-16", "type": "exit", "time_us": 1718982239999999, "symbol": "SOLUSDT", "quantity": "0.12", "price": "133.6500", "mark_price": "133.69982046", "reason": "stop"}

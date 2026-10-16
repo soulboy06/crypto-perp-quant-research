@@ -1,0 +1,87 @@
+{
+  "account": "candidate_hold168_stress",
+  "scope": "development_screening_under_proxy_rules",
+  "initial_equity": 100,
+  "ending_equity": "101.0345312271350939234",
+  "net_return": 0.010345312271350826,
+  "cagr": 0.020626367357591047,
+  "max_adverse_bound_drawdown": 0.040080503993443206,
+  "daily_sharpe_zero_risk_free": 0.333471384022409,
+  "daily_sortino_zero_target": 0.614536627609571,
+  "calmar": 0.5146234528629013,
+  "holding_limit_hours": 168,
+  "round_trips": 28,
+  "win_rate": 0.2857142857142857,
+  "profit_factor": 1.1329309947065629,
+  "fees": "0.8850947280",
+  "funding": "-0.3012940448649060766",
+  "gross_turnover": "1181.107880",
+  "annual": {
+    "2023": {
+      "start_equity": 100.0,
+      "end_equity": 101.03453122713509,
+      "return": 0.010345312271350826
+    }
+  },
+  "signals": {
+    "BNBUSDT_long": 52,
+    "DOGEUSDT_long": 57,
+    "LINKUSDT_long": 88,
+    "XRPUSDT_long": 42,
+    "SOLUSDT_long": 64,
+    "AVAXUSDT_long": 62,
+    "ADAUSDT_long": 57,
+    "ETHUSDT_long": 38,
+    "BTCUSDT_long": 51,
+    "BNBUSDT_short": 35,
+    "AVAXUSDT_short": 41,
+    "BTCUSDT_short": 30,
+    "XRPUSDT_short": 29,
+    "DOGEUSDT_short": 23,
+    "ADAUSDT_short": 41,
+    "LINKUSDT_short": 33,
+    "ETHUSDT_short": 35,
+    "LTCUSDT_short": 38,
+    "LTCUSDT_long": 52,
+    "SOLUSDT_short": 24
+  },
+  "rejections": {
+    "R002:higher_4h_direction_mismatch": 299,
+    "R004:efficiency_below_threshold": 175,
+    "SIG001:overextended_breakout": 383,
+    "Entry rejected: budget_or_minimum_order": 7
+  },
+  "liquidation_proxy_events": 1,
+  "execution_ambiguities": 1,
+  "halt_reasons": [
+    "liquidation_required:AVAXUSDT"
+  ],
+  "formal_selection_eligible": false,
+  "holdout_read": false,
+  "research_design": "R013-v1",
+  "entry_filter": "closed_4h_ema20_ema50",
+  "entry_filter_counts": {
+    "higher_4h_direction_mismatch": 299,
+    "higher_4h_pass": 593,
+    "efficiency_reject": 175,
+    "efficiency_pass": 418,
+    "extension_pass": 35,
+    "R010P1:signal_same_direction_cap_pass": 35,
+    "R010P1:fill_same_direction_cap_pass": 35,
+    "extension_reject": 383
+  },
+  "only_entry_rule_changed": true,
+  "case": "efficiency24",
+  "parent_strategy": "R002_trend",
+  "only_changed_field": "hold168",
+  "changed_value": "hold168",
+  "sizing_diagnostics": {
+    "reserve_passed": 28,
+    "reserve_rejected": 7,
+    "rejected_binding:stop_risk": 7,
+    "rejected_filter:rounded_quantity_zero": 6,
+    "rejected_filter:below_min_quantity": 6,
+    "rejected_filter:below_min_notional": 7
+  },
+  "trailing_diagnostics": {}
+}
