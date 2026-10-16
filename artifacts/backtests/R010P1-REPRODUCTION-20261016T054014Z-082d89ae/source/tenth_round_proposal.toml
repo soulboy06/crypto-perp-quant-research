@@ -1,0 +1,147 @@
+# R010-v1-proposal: 十币独立信号 + 分层风控（草案，未验证）
+#
+# 状态：proposal。不是冻结基准，不替换任何现有默认配置。
+# 本文件所有分组参数均为"起点假设"，不是调参结果，未经样本外验证不得用于实盘或选模。
+# 开发期（2023-01-01 至 2024-07-01）已被前 9 轮实验污染，禁止在本文件参数上做开发期参数搜索。
+# 修正（2026-10-16）：2024H2–2025 不能称为全策略样本外——BTC/ETH 多轮实验已用过这些年份。
+# 本文件所称验证为"扩展验证"；真正的全策略样本外为 2026（继续冻结）。见 [validation]。
+
+design_id = "R010-v1-proposal"
+parent_design = "UNIV-001-v1"
+signal_parent = "SIG-001-v1"
+scope = "ten_symbol_independent_signals_grouped_parameters_correlation_budget_proposal_not_validated"
+parameter_search = false
+combine_changes = false
+holdout_locked = true
+formal_selection_eligible = false
+stop_after_prespecified_cases = true
+# 修正（2026-10-16）：4 个账户 =（原方案对照 + 新方案）×（base + stress），同期同窗口配对比较。
+# 原方案（UNIV-001/SIG-001）在 2024H2–2025 窗口重跑作为基准对照，不许用 2023–2024H1 的旧结果直接比年化/Calmar。
+maximum_accounts = 4
+cost_scenarios = ["base", "stress"]
+
+[universe]
+symbols = ["BTCUSDT", "ETHUSDT", "BNBUSDT", "SOLUSDT", "XRPUSDT", "DOGEUSDT", "ADAUSDT", "LINKUSDT", "AVAXUSDT", "LTCUSDT"]
+# 分组依据：市值体量与历史波动结构（定性分组，不是聚类结果）
+# A=大盘（假突破少，沿用已验证参数）；B=中盘；C=高波动山寨（假突破多，需更严过滤）
+groups = ["A", "B", "C"]
+group_a_symbols = ["BTCUSDT", "ETHUSDT"]
+group_b_symbols = ["BNBUSDT", "SOLUSDT", "LINKUSDT"]
+group_c_symbols = ["XRPUSDT", "DOGEUSDT", "ADAUSDT", "AVAXUSDT", "LTCUSDT"]
+
+# ---- 信号层：每币独立信号，分组参数 ----
+# 以下数值是起点假设（prior），不是优化结果。选择逻辑见 docs/第十轮方案草案.md。
+[signal.group_a]
+breakout_hours = 48
+atr_stop_multiple = "2.0"
+minimum_efficiency_er24 = "0.30"
+chase_distance_atr_cap = "2.0"
+ema_trend = 200
+direction_filter_4h = true
+hypothesis = "large_cap_breakout_parameters_reuse_validated_BTC_ETH_settings_not_proven_for_others"
+
+[signal.group_b]
+breakout_hours = 48
+atr_stop_multiple = "2.5"
+minimum_efficiency_er24 = "0.35"
+chase_distance_atr_cap = "2.0"
+ema_trend = 200
+direction_filter_4h = true
+hypothesis = "mid_cap_wider_stop_and_higher_efficiency_to_filter_whipsaws_not_proven"
+
+[signal.group_c]
+breakout_hours = 72
+atr_stop_multiple = "3.0"
+minimum_efficiency_er24 = "0.40"
+chase_distance_atr_cap = "2.0"
+ema_trend = 200
+direction_filter_4h = true
+hypothesis = "high_volatility_small_cap_longer_breakout_window_and_stricter_filters_not_proven"
+
+# ---- 仓位层：ATR 归一化（沿用现有 risk.preview 机制，不新造公式） ----
+# 仓位 = 单笔风险预算 / 风险率；风险率含 |price-stop|/price，stop = close ± atr_stop_multiple×ATR14。
+# 因此每组不同的 atr_stop_multiple 自动实现按波动率的差异化仓位，无需额外代码。
+[sizing]
+method = "existing_risk_preview_stop_distance_normalized"
+per_trade_risk_fraction = "0.005"
+note = "group_c_stop_3xATR_means_smaller_position_than_group_a_at_same_risk_budget"
+
+# ---- 组合层：同向持仓上限（新增，需代码支持） ----
+# 背景：UNIV-001 实测 98.35% 多持仓时间为全同向；加密主流币在风险事件中相关性趋向 1，
+# 加币不等于分散。本上限承认相关性、限制伪分散变相加杠杆，不声称消除相关性。
+# 修正（2026-10-16）：只数"已持有"不够——空仓时多币同批发出信号会全部通过。
+# 必须计入同批待成交订单，并在实际成交时重新检查。
+[portfolio]
+max_same_direction_positions = 3
+# 计数口径（修正 2026-10-16 第二轮评审）：不能把当前订单自己算进去，否则合法订单会被误拒。
+# 信号时刻：统计 已持仓 + 同批其他待成交（不含当前订单）；若 ≥ 上限则跳过并记拒单原因，
+#   否则为当前订单预留一个名额。
+# 成交时刻：排除当前订单后重数（已持仓 + 其他待成交）；若（计数 + 1）> 上限则跳过，
+#   否则成交，并把预留名额转换为持仓。
+signal_time_count = "held_plus_other_pending_excluding_current"
+signal_time_rule = "if_count_ge_cap_skip_and_log_else_reserve_one_slot_for_current"
+fill_time_count = "held_plus_other_pending_excluding_current"
+fill_time_rule = "if_count_plus_one_gt_cap_skip_else_fill_and_convert_reservation_to_held"
+opposite_direction_unaffected = true
+# 备选（更精细，需实现相关性计算，当前不采用）：dynamic_correlation_budget
+# alternative = "skip_when_mean_pairwise_correlation_of_open_positions_above_threshold"
+
+# ---- 目标函数：风险调整后收益，不是 raw return ----
+[objective]
+primary = "calmar_ratio"
+definition = "annualized_net_return_divided_by_max_drawdown"
+constraints = ["max_drawdown_le_0.20", "stop_equity_usd_ge_50", "both_cost_scenarios_must_pass"]
+not_objective = "raw_expected_return_maximization"
+not_objective_reason = "unconstrained_return_maximization_implies_max_leverage_and_concentration"
+
+# ---- 风控（沿用，不变） ----
+[risk]
+initial_usdt = "100"
+stop_equity_usdt = "50"
+per_trade_risk_fraction = "0.005"
+total_open_risk_fraction = "0.01"
+baseline_gross_leverage_cap = "1"
+maximum_effective_leverage = "10"
+drawdown_halt_fraction = "0.20"
+
+# ---- 验证纪律（强制） ----
+[validation]
+development_period = "2023-01-01_to_2024-07-01_locked_reference_only_no_parameter_search"
+# 修正（2026-10-16）：2024H2–2025 是"扩展验证"，不是全策略样本外。
+# BTC/ETH 的 R001–R009 已用过这些年份；8 个新币在该窗口的数据完整性也待验收。
+# 真正的全策略独立样本外是 2026，全程冻结，任何候选在 2026 解冻前不得宣称验证通过。
+validation_window = "2024-07-01_to_2026-01-01_extension_validation_not_independent_holdout"
+true_holdout = "2026_frozen"
+holdout_requirement = "data_completeness_acceptance_before_any_validation_run"
+baseline_control = "rerun_UNIV001_or_SIG001_on_same_window_as_control_no_cross_window_annualized_comparison"
+gates_both_costs = ["positive_net", "minimum_30_trades", "cagr_improvement_ge_1pp_vs_phase_baseline",
+    "max_drawdown_le_0.20", "no_halts_liquidations_ambiguities",
+    "calmar_not_decreasing_vs_phase_baseline", "bootstrap_14d_block_2000_resamples_lower_bound_positive"]
+bootstrap_seed = 20261016
+# 引用：Bailey et al. 关于回测过拟合。多次在相同开发历史上试规则会增加选择偏差。
+overfitting_warning = "any_parameter_change_after_seeing_holdout_results_invalidates_the_holdout"
+
+# ---- 分阶段实验（修正 2026-10-16：一次只改一个变量） ----
+# 原草案把分组参数、放宽止损、加强过滤、限制同向仓位四个改动捆在一起：
+# 即使结果改善，也无法归因是哪个改动起作用。拆分为两阶段。
+# 修正（2026-10-16 第二轮评审）：对照基准必须唯一确定。
+# Phase 1 是"在 SIG-001 上只加仓位限制"，对照只能是同期 SIG-001（不是 UNIV-001）；
+# Phase 2 是"在 Phase 1 上加分组参数"，对照只能是同期 Phase 1。
+[phases]
+phase_1 = "only_add_same_direction_cap_on_SIG001_keep_all_other_params_identical"
+phase_1_baseline = "same_window_SIG001_rerun"
+phase_1_purpose = "isolate_the_effect_of_correlation_budget"
+phase_2 = "add_grouped_parameters_only_if_phase_1_passes_gates"
+phase_2_baseline = "same_window_phase_1_rerun"
+phase_2_purpose = "evaluate_grouped_parameter_rules_as_a_package"
+phase_2_limitation = "cannot_attribute_improvement_to_individual_parameters_within_the_package"
+phase_rule = "do_not_combine_phases_do_not_skip_phase_1"
+
+# ---- 实现前置：引擎当前不支持以下能力，需代码变更后才能运行 ----
+[implementation_notes]
+required_code_changes = [
+  "per_symbol_or_per_group_plan: UniverseAccount.decisions 当前使用全局 plan，需支持每币/每组独立信号参数",
+  "same_direction_counter: 入场前统计当前同向持仓数，达上限时跳过并记录拒单原因",
+  "group_parameter_resolution: config['signal'][group] 到每币的解析逻辑",
+]
+no_live_trading = true
