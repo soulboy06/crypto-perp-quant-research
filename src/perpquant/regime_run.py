@@ -27,6 +27,8 @@ def regime_window_config(root, scope):
     plan = tomllib.loads((root / 'configs/eleventh_round.toml').read_text(encoding='utf-8'))
     universe = tomllib.loads((root / 'configs/universe_expansion.toml').read_text(encoding='utf-8'))
     config = tomllib.loads((root / 'configs/first_round.toml').read_text(encoding='utf-8'))
+    # R011 is a ten-coin experiment: override the two-coin symbols from first_round.toml.
+    config['market']['symbols'] = list(universe['market']['symbols'])
     window = plan[scope]
     config['data']['warmup_start'] = window['warmup_start']
     config['data']['development_start'] = window['start']
@@ -58,13 +60,68 @@ def corpus(root, scope, plan, config):
     return reference, old
 
 
+def evaluate_gates(metrics, cfg):
+    """Compute acceptance gates from config [gates].
+
+    Compares each candidate (regime) account against its control (cap3) pair
+    within the same cost scenario. Returns per-pair pass/fail dict.
+    'completed' in summary means the run finished; 'gates' says if it passed.
+    """
+    by_name = {m['account']: m for m in metrics}
+    min_trades = int(cfg.get('minimum_trades', 30))
+    min_cagr_imp = float(cfg.get('minimum_cagr_improvement', '0.01'))
+    max_dd = float(cfg.get('maximum_drawdown', '0.20'))
+    results = {}
+    for cost in ('base', 'stress'):
+        ctrl = by_name.get(f'control_cap3_{cost}')
+        cand = by_name.get(f'candidate_regime_{cost}')
+        if not ctrl or not cand:
+            results[cost] = {'evaluated': False, 'reason': 'missing_account_pair'}
+            continue
+        checks = {}
+        # 1. Minimum trades.
+        checks['min_trades'] = cand.get('trades', 0) >= min_trades
+        # 2. Positive net.
+        checks['positive_net'] = cand.get('net_return', 0) > 0 if cfg.get('require_positive_net') else True
+        # 3. CAGR improvement >= threshold.
+        cagr_c = ctrl.get('cagr', ctrl.get('net_return', 0))
+        cagr_k = cand.get('cagr', cand.get('net_return', 0))
+        checks['cagr_improvement'] = (cagr_k - cagr_c) >= min_cagr_imp
+        # 4. Drawdown within limit.
+        checks['drawdown_limit'] = cand.get('max_drawdown', 1) <= max_dd
+        # 5. Calmar non-decreasing.
+        def calmar(m):
+            dd = m.get('max_drawdown', 0)
+            ret = m.get('net_return', m.get('cagr', 0))
+            return ret / dd if dd > 0 else 0
+        checks['calmar_non_decreasing'] = calmar(cand) >= calmar(ctrl) if cfg.get('require_non_decreasing_calmar') else True
+        # 6. No halts/liquidations/ambiguities.
+        checks['no_halts'] = True
+        for m in (ctrl, cand):
+            for key in ('halts', 'liquidations', 'ambiguities'):
+                if m.get(key):
+                    checks['no_halts'] = False
+        results[cost] = {'evaluated': True, 'checks': checks,
+                         'passed': all(checks.values())}
+    results['overall_passed'] = all(v.get('passed', False) for v in results.values()
+                                    if isinstance(v, dict) and v.get('evaluated'))
+    return results
+
+
 def run(root, scope='extension'):
     root = Path(root).resolve()
     plan, universe, config = regime_window_config(root, scope)
     signal, _, _ = load_signal_plan(root)
-    # Reuse Phase 1's prepared data manifest (same universe, same window).
-    pointer_path = root / 'artifacts/data/phase1_latest.json'
-    require(pointer_path.is_file(), 'Prepare Phase 1 extension data first')
+    # Select data manifest per scope: prefer proxy-data manifest (PR #2),
+    # fall back to phase1_latest. Never silently use the wrong window's data.
+    pointer_path = None
+    for candidate in plan[scope].get('data_pointer_candidates', ['artifacts/data/phase1_latest.json']):
+        cand = root / candidate
+        if cand.is_file():
+            pointer_path = cand
+            break
+    require(pointer_path is not None, 'No data manifest found for scope ' + scope)
+    print(json.dumps({'data_pointer': str(pointer_path.relative_to(root))}))
     pointer = json.loads(pointer_path.read_text(encoding='utf-8'))
     manifest_path = root / pointer['manifest']
     manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
@@ -174,10 +231,15 @@ def run(root, scope='extension'):
                 regime_audit[a.name] = {
                     'final_adx': {s: round(r.adx, 4) for s, r in a.regimes.items()},
                     'regime_allows': a.regime_allows, 'regime_blocks': a.regime_blocks}
+        # Acceptance gates (config [gates]): compute pass/fail per account pair.
+        gates_cfg = plan.get('gates', {})
+        gates = evaluate_gates(metrics, gates_cfg)
         summary = {**metadata, 'status': 'completed', 'accounts': metrics,
-                   'regime_audit': regime_audit, 'runtime_seconds': time.monotonic() - clock}
+                   'regime_audit': regime_audit, 'gates': gates,
+                   'runtime_seconds': time.monotonic() - clock}
         preserve(folder / 'summary.json', json.dumps(summary, ensure_ascii=False, indent=2).encode())
-        print(json.dumps({'completed': str(folder), 'regime_audit': regime_audit}), flush=True)
+        print(json.dumps({'completed': str(folder), 'regime_audit': regime_audit,
+                          'gates': gates}), flush=True)
         return folder, summary
     except Exception as exc:
         for a in accounts:
