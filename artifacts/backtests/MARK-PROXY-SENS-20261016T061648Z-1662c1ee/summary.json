@@ -1,0 +1,160 @@
+{
+  "run_id": "MARK-PROXY-SENS-20261016T061648Z-1662c1ee",
+  "status": "completed",
+  "policy_id": "R010-MARK-PROXY-v2",
+  "window": {
+    "warmup_start": "2024-05-01T00:00:00Z",
+    "start": "2024-07-01T00:00:00Z",
+    "end_exclusive": "2026-01-01T00:00:00Z",
+    "scope": "extension_validation_not_independent_holdout"
+  },
+  "runs": {
+    "spot": {
+      "summary": "artifacts/backtests/R010P1-EXTENSION-SPOT-F1-20261016T061403Z-84b5c67e/summary.json",
+      "sha256": "998a4966325fa532e1219b358bcf0c816f83c08aca020ab10e06115654c16d11"
+    },
+    "ffill": {
+      "summary": "artifacts/backtests/R010P1-EXTENSION-FFILL-F1-20261016T061404Z-9c4fb696/summary.json",
+      "sha256": "621ddf7143f7950be15f9f94652dc034a4bd8b1456aa36c3faa0f7fcc0a61492"
+    }
+  },
+  "differences_spot_minus_ffill": {
+    "control_sig001_base": {
+      "ending_equity_spot_minus_ffill": "0E-19",
+      "net_return_difference": 0.0,
+      "cagr_difference": 0.0,
+      "max_drawdown_difference": 0.0,
+      "fee_difference": "0E-10",
+      "funding_difference": "0E-19",
+      "round_trip_counts_spot_ffill": [
+        122,
+        122
+      ],
+      "trade_rows_identical": true,
+      "daily_equity_identical": true,
+      "hourly_equity_identical": true,
+      "maximum_absolute_daily_equity_difference": "0E-9",
+      "proxy_liquidation_events_spot_ffill": [
+        0,
+        0
+      ],
+      "execution_ambiguities_spot_ffill": [
+        0,
+        0
+      ],
+      "halt_reasons_spot_ffill": [
+        [],
+        []
+      ]
+    },
+    "control_sig001_stress": {
+      "ending_equity_spot_minus_ffill": "0E-19",
+      "net_return_difference": 0.0,
+      "cagr_difference": 0.0,
+      "max_drawdown_difference": 0.0,
+      "fee_difference": "0E-10",
+      "funding_difference": "0E-19",
+      "round_trip_counts_spot_ffill": [
+        121,
+        121
+      ],
+      "trade_rows_identical": true,
+      "daily_equity_identical": true,
+      "hourly_equity_identical": true,
+      "maximum_absolute_daily_equity_difference": "0E-9",
+      "proxy_liquidation_events_spot_ffill": [
+        0,
+        0
+      ],
+      "execution_ambiguities_spot_ffill": [
+        0,
+        0
+      ],
+      "halt_reasons_spot_ffill": [
+        [],
+        []
+      ]
+    },
+    "candidate_cap3_base": {
+      "ending_equity_spot_minus_ffill": "0E-19",
+      "net_return_difference": 0.0,
+      "cagr_difference": 0.0,
+      "max_drawdown_difference": 0.0,
+      "fee_difference": "0E-10",
+      "funding_difference": "0E-19",
+      "round_trip_counts_spot_ffill": [
+        122,
+        122
+      ],
+      "trade_rows_identical": true,
+      "daily_equity_identical": true,
+      "hourly_equity_identical": true,
+      "maximum_absolute_daily_equity_difference": "0E-9",
+      "proxy_liquidation_events_spot_ffill": [
+        0,
+        0
+      ],
+      "execution_ambiguities_spot_ffill": [
+        0,
+        0
+      ],
+      "halt_reasons_spot_ffill": [
+        [],
+        []
+      ]
+    },
+    "candidate_cap3_stress": {
+      "ending_equity_spot_minus_ffill": "0E-19",
+      "net_return_difference": 0.0,
+      "cagr_difference": 0.0,
+      "max_drawdown_difference": 0.0,
+      "fee_difference": "0E-10",
+      "funding_difference": "0E-19",
+      "round_trip_counts_spot_ffill": [
+        121,
+        121
+      ],
+      "trade_rows_identical": true,
+      "daily_equity_identical": true,
+      "hourly_equity_identical": true,
+      "maximum_absolute_daily_equity_difference": "0E-9",
+      "proxy_liquidation_events_spot_ffill": [
+        0,
+        0
+      ],
+      "execution_ambiguities_spot_ffill": [
+        0,
+        0
+      ],
+      "halt_reasons_spot_ffill": [
+        [],
+        []
+      ]
+    }
+  },
+  "affected_coin_positions_over_gap": {
+    "control_sig001_base": {
+      "spot": [],
+      "ffill": []
+    },
+    "control_sig001_stress": {
+      "spot": [],
+      "ffill": []
+    },
+    "candidate_cap3_base": {
+      "spot": [],
+      "ffill": []
+    },
+    "candidate_cap3_stress": {
+      "spot": [],
+      "ffill": []
+    }
+  },
+  "original_numeric_gates_pass_both_proxy_scenarios_both_costs": false,
+  "strict_mark_price_coverage": false,
+  "exact_gap_error_measured": false,
+  "independent_validation": false,
+  "formal_selection_eligible": false,
+  "holdout_read": false,
+  "phase_2_started": false
+}

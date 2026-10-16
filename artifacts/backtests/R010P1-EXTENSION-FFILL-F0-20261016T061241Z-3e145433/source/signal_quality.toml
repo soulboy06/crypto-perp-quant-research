@@ -1,0 +1,46 @@
+design_id = "SIG-001-v1"
+parent_design = "UNIV-001-v1"
+baseline_run = "UNIV-20261016T044113Z-18a106d5"
+candidate_case = "extension2atr"
+new_candidate_cost_configurations = 2
+reproduction_control_accounts = 2
+maximum_accounts = 4
+cost_scenarios = ["base", "stress"]
+maximum_directional_extension_atr = "2"
+mean_lookback_hours = 20
+atr_lookback_hours = 14
+formula = "side_sign*(closed_hour_close-closed_hour_SMA20)/closed_hour_ATR14_le_2"
+entry_only = true
+parameter_search = false
+combine_changes = false
+holdout_locked = true
+formal_selection_eligible = false
+development_start = "2023-01-01T00:00:00Z"
+development_end_exclusive = "2024-07-01T00:00:00Z"
+date_scope = "same_common_complete_window_as_parent_not_full_2023_2025"
+no_coin_removal_or_performance_ranking = true
+costs_and_risk_unchanged = true
+stop_after_prespecified_case = true
+threshold_basis = "single_mechanistic_default_declared_before_candidate_results_not_proven_optimum"
+
+[screen]
+require_positive_net_each_cost = true
+minimum_roundtrips_each_cost = 30
+maximum_drawdown = "0.20"
+require_zero_halts_liquidations_execution_ambiguities = true
+minimum_cagr_improvement_percentage_points = "1"
+minimum_improved_halfyears_of_three = 2
+minimum_period_return = "-0.10"
+require_non_decreasing_calmar = true
+bootstrap_block_days = 14
+bootstrap_resamples = 2000
+bootstrap_seed = 20261016
+require_positive_bootstrap_lower_improvement = true
+uncertainty_scope = "conditional_development_not_multiple_selection_adjusted_or_independent_validation"
+
+[attribution]
+classify_every_saved_baseline_entry_by_same_time_gate = true
+report_filtered_winners_and_losers = true
+baseline_entry_pnl_is = "saved_original_path_accounting_diagnostic_not_causal_or_additive_counterfactual_return"
+do_not_use_baseline_future_pnl_for_candidate_decisions = true
+report_all_candidates_even_if_failed = true

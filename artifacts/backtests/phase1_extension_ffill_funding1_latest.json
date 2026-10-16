@@ -1,0 +1,11 @@
+{
+  "run_id": "R010P1-EXTENSION-FFILL-F1-20261016T062258Z-aba83c3f",
+  "scope": "extension_validation_with_explicit_mark_proxy_not_independent_holdout",
+  "summary": "artifacts/backtests/R010P1-EXTENSION-FFILL-F1-20261016T062258Z-aba83c3f/summary.json",
+  "summary_sha256": "ead7c911bb5742e9da00127e063e83c049452327ccab11a153f1885da106f939",
+  "report": "artifacts/backtests/R010P1-EXTENSION-FFILL-F1-20261016T062258Z-aba83c3f/comparison.md",
+  "extension_numerical_gate_passed": false,
+  "formal_selection_eligible": false,
+  "proxy_scenario": "ffill",
+  "funding_multiplier": 1
+}
