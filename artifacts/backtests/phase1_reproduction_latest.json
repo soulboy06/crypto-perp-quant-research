@@ -1,0 +1,9 @@
+{
+  "run_id": "R010P1-REPRODUCTION-20261016T054014Z-082d89ae",
+  "scope": "development_implementation_diagnostic_not_extension_acceptance",
+  "summary": "artifacts/backtests/R010P1-REPRODUCTION-20261016T054014Z-082d89ae/summary.json",
+  "summary_sha256": "b1f816edd29f7d4c57c45349713f61f6a6cd322cef8043d1bdd2b6a98f1913fb",
+  "report": "artifacts/backtests/R010P1-REPRODUCTION-20261016T054014Z-082d89ae/comparison.md",
+  "extension_numerical_gate_passed": false,
+  "formal_selection_eligible": false
+}

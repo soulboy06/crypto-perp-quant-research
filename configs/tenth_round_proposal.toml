@@ -113,7 +113,7 @@ development_period = "2023-01-01_to_2024-07-01_locked_reference_only_no_paramete
 validation_window = "2024-07-01_to_2026-01-01_extension_validation_not_independent_holdout"
 true_holdout = "2026_frozen"
 holdout_requirement = "data_completeness_acceptance_before_any_validation_run"
-baseline_control = "rerun_UNIV001_or_SIG001_on_same_window_as_control_no_cross_window_annualized_comparison"
+baseline_control = "use_unique_same_window_phase_baseline_from_phases_section"
 gates_both_costs = ["positive_net", "minimum_30_trades", "cagr_improvement_ge_1pp_vs_phase_baseline",
     "max_drawdown_le_0.20", "no_halts_liquidations_ambiguities",
     "calmar_not_decreasing_vs_phase_baseline", "bootstrap_14d_block_2000_resamples_lower_bound_positive"]
