@@ -1,0 +1,54 @@
+# R011-v1: per-coin market regime filter (each coin's daily ADX14 > 25 gates its own new entries).
+# Status: proposal. Not a frozen baseline. No parameter search.
+# Design doc: docs/第十一轮方案草案.md
+design_id = "R011-v1-percoin"
+proposal = "R011-v1-percoin-proposal"
+baseline = "R010-P1-v1"
+phase = 1
+maximum_accounts_per_run = 4
+cost_scenarios = ["base", "stress"]
+parameter_search = false
+formal_selection_eligible = false
+holdout_locked = true
+phase_2_enabled = false
+
+[regime]
+indicator = "wilder_adx_14"
+timeframe = "daily_utc_midnight"
+scope = "per_coin_each_symbol_own_adx"
+threshold = "25.0"
+threshold_source = "wilder_textbook_not_tuned"
+gate = "block_new_entries_when_coin_not_trending"
+exits_unaffected = true
+fail_closed_when_adx_none = true
+warmup_days_minimum = 28
+
+[extension]
+warmup_start = "2024-05-01T00:00:00Z"
+start = "2024-07-01T00:00:00Z"
+end_exclusive = "2026-01-01T00:00:00Z"
+scope = "extension_validation_not_independent_holdout"
+# Requires PR #2. phase1_run.corpus validates the selected spot/ffill scenario,
+# its manifest hash, all normalized data hashes, funding and the 14-bar whitelist.
+# Run both scenarios; do not select a proxy according to strategy returns.
+
+[reproduction]
+warmup_start = "2022-11-01T00:00:00Z"
+start = "2023-01-01T00:00:00Z"
+end_exclusive = "2024-07-01T00:00:00Z"
+scope = "development_implementation_diagnostic_not_extension_acceptance"
+# Uses the frozen SIG-001 reference manifest; no extension-pointer fallback.
+
+[gates]
+minimum_trades = 30
+minimum_cagr_improvement = "0.01"
+maximum_drawdown = "0.20"
+bootstrap_block_days = 14
+bootstrap_resamples = 2000
+bootstrap_seed = 20261016
+require_positive_net = true
+require_no_halts_liquidations_ambiguities = true
+require_non_decreasing_calmar = true
+require_positive_bootstrap_lower = true
+baseline_control = "same_window_R010P1_rerun"
+bootstrap_scope = "conditional_diagnostic_not_selection_adjusted_or_independent_validation"
