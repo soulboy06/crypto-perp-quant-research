@@ -1,0 +1,12 @@
+{"id": "candidate_confirm2_stress-2", "type": "reserve", "time_us": 1738778460000000, "symbol": "SOLUSDT", "side": "short", "order_id": "SOLUSDT-1738778460000000", "reference_price": "197.4100", "stop_price": "204.9400"}
+{"id": "candidate_confirm2_stress-3", "type": "fill", "time_us": 1738778460000000, "order_id": "SOLUSDT-1738778460000000", "quantity": "0.05", "price": "197.4100", "mark_price": "197.58000000"}
+{"id": "candidate_confirm2_stress-4", "type": "funding", "time_us": 1738800000001000, "symbol": "SOLUSDT", "mark_price": "196.03000000", "rate": "-0.00004538", "exact_mark": true, "source_available_us": 1738800000001000}
+{"id": "candidate_confirm2_stress-5", "type": "funding", "time_us": 1738828800001000, "symbol": "SOLUSDT", "mark_price": "201.92000000", "rate": "-0.00001671", "exact_mark": true, "source_available_us": 1738828800001000}
+{"id": "candidate_confirm2_stress-6", "type": "funding", "time_us": 1738857600000000, "symbol": "SOLUSDT", "mark_price": "191.15523484", "rate": "0.00006857", "exact_mark": true, "source_available_us": 1738857600000000}
+{"id": "candidate_confirm2_stress-7", "type": "funding", "time_us": 1738886400000000, "symbol": "SOLUSDT", "mark_price": "189.46996868", "rate": "0.00002703", "exact_mark": true, "source_available_us": 1738886400000000}
+{"id": "candidate_confirm2_stress-8", "type": "funding", "time_us": 1738915200000000, "symbol": "SOLUSDT", "mark_price": "192.42000000", "rate": "0.00000695", "exact_mark": true, "source_available_us": 1738915200000000}
+{"id": "candidate_confirm2_stress-9", "type": "exit", "time_us": 1738922460000000, "symbol": "SOLUSDT", "quantity": "0.05", "price": "197.7000", "mark_price": "197.56000000", "reason": "hourly_exit"}
+{"id": "candidate_confirm2_stress-10", "type": "reserve", "time_us": 1747965660000000, "symbol": "ADAUSDT", "side": "long", "order_id": "ADAUSDT-1747965660000000", "reference_price": "0.81680", "stop_price": "0.79910"}
+{"id": "candidate_confirm2_stress-11", "type": "fill", "time_us": 1747965660000000, "order_id": "ADAUSDT-1747965660000000", "quantity": "23", "price": "0.81680", "mark_price": "0.81630000"}
+{"id": "candidate_confirm2_stress-12", "type": "funding", "time_us": 1747987200000000, "symbol": "ADAUSDT", "mark_price": "0.80840000", "rate": "0.00010000", "exact_mark": true, "source_available_us": 1747987200000000}
+{"id": "candidate_confirm2_stress-13", "type": "exit", "time_us": 1748000819999999, "symbol": "ADAUSDT", "quantity": "23", "price": "0.79860", "mark_price": "0.79916059", "reason": "stop"}

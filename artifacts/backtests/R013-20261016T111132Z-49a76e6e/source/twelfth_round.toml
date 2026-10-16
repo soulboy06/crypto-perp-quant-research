@@ -1,0 +1,102 @@
+design_id = "R012-v1"
+baseline = "R010-P1-v1"
+candidate = "weekly_risk_normalized_momentum_priority"
+parameter_search = false
+formal_selection_eligible = false
+holdout_locked = true
+automatic_strategy_replacement = false
+maximum_candidate_families = 1
+new_candidate_cost_configurations = 2
+maximum_account_executions = 36
+accounts_per_run = 4
+cost_scenarios = ["base", "stress"]
+proxy_scenarios = ["spot", "ffill"]
+stop_after_prespecified_cases = true
+
+[priority]
+lookback_hours = 168
+formula = "side_sign*sum_168_hourly_log_returns/(sample_stdev_168_hourly_log_returns*sqrt(168))"
+side_sign_long = 1
+side_sign_short = -1
+effect = "sort_same_hour_existing_SIG001_entries_before_direction_slot_reservation"
+exits_first = true
+tie_break = "original_fixed_symbol_order"
+missing_or_zero_volatility = "score_unavailable_place_last_in_original_order_do_not_drop_signal"
+no_threshold = true
+new_entry_filter = false
+fit_parameters = false
+
+[continuous]
+id = "extension"
+warmup_start = "2024-05-01T00:00:00Z"
+start = "2024-07-01T00:00:00Z"
+end_exclusive = "2026-01-01T00:00:00Z"
+corpus_scope = "extension"
+
+[[rolling_windows]]
+id = "2023H1"
+warmup_start = "2022-11-01T00:00:00Z"
+start = "2023-01-01T00:00:00Z"
+end_exclusive = "2023-07-01T00:00:00Z"
+corpus_scope = "reproduction"
+
+[[rolling_windows]]
+id = "2023H2"
+warmup_start = "2023-05-01T00:00:00Z"
+start = "2023-07-01T00:00:00Z"
+end_exclusive = "2024-01-01T00:00:00Z"
+corpus_scope = "reproduction"
+
+[[rolling_windows]]
+id = "2024H1"
+warmup_start = "2023-11-01T00:00:00Z"
+start = "2024-01-01T00:00:00Z"
+end_exclusive = "2024-07-01T00:00:00Z"
+corpus_scope = "reproduction"
+
+[[rolling_windows]]
+id = "2024H2"
+warmup_start = "2024-05-01T00:00:00Z"
+start = "2024-07-01T00:00:00Z"
+end_exclusive = "2025-01-01T00:00:00Z"
+corpus_scope = "extension"
+
+[[rolling_windows]]
+id = "2025H1"
+warmup_start = "2024-11-01T00:00:00Z"
+start = "2025-01-01T00:00:00Z"
+end_exclusive = "2025-07-01T00:00:00Z"
+corpus_scope = "extension"
+
+[[rolling_windows]]
+id = "2025H2"
+warmup_start = "2025-05-01T00:00:00Z"
+start = "2025-07-01T00:00:00Z"
+end_exclusive = "2026-01-01T00:00:00Z"
+corpus_scope = "extension"
+
+[gates]
+minimum_trades = 30
+minimum_cagr_improvement = "0.01"
+maximum_drawdown = "0.20"
+bootstrap_block_days = 14
+bootstrap_resamples = 2000
+bootstrap_seed = 20261016
+require_positive_net = true
+require_no_halts_liquidations_ambiguities = true
+require_non_decreasing_calmar = true
+require_positive_bootstrap_lower = true
+minimum_improved_rolling_windows_each_cost = 4
+require_positive_median_rolling_improvement = true
+require_all_rolling_candidates_safe = true
+bootstrap_scope = "observed_history_conditional_diagnostic_not_selection_adjusted"
+
+[validation]
+scope = "all_2023_2025_history_already_observed_exploration_only"
+rolling_accounts_reset_to_100 = true
+rolling_results_not_spliced_into_investable_equity = true
+no_training_or_parameter_refit = true
+deduplicate_only_identical_input_fingerprints_before_backtests = true
+failures_logged_and_no_new_variants_after_results = true
+future_confirmation = "requires_new_unseen_data_or_forward_simulation_not_this_history"
+true_holdout = "2026_locked_do_not_read"
