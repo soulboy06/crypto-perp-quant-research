@@ -1,0 +1,429 @@
+{
+  "policy_id": "R010-MARK-PROXY-v2",
+  "all_funding_sensitivities_immaterial": false,
+  "archive_only_nine_partitions_conditionally_accepted_for_this_research": false,
+  "archive_only_exception_no_longer_needed": true,
+  "funding_REST_verified": true,
+  "archive_accuracy_proven": false,
+  "thresholds": {
+    "multipliers": [
+      0,
+      1,
+      2
+    ],
+    "scope": "all_funding_cashflows_in_full_extension_window_both_payments_and_receipts",
+    "unchanged_funding_risk_buffer": true,
+    "archive_only_whitelist": [
+      "LTCUSDT/2025-11",
+      "BNBUSDT/2025-12",
+      "SOLUSDT/2025-12",
+      "XRPUSDT/2025-12",
+      "DOGEUSDT/2025-12",
+      "ADAUSDT/2025-12",
+      "LINKUSDT/2025-12",
+      "AVAXUSDT/2025-12",
+      "LTCUSDT/2025-12"
+    ],
+    "archive_only_rest_verified": false,
+    "archive_only_is_provisional_until_sensitivity_review": true,
+    "maximum_end_equity_range_usdt": "0.10",
+    "maximum_cagr_range": "0.001",
+    "maximum_drawdown_range": "0.001",
+    "require_same_trade_decisions_excluding_quantity_and_PnL": true,
+    "require_same_halts_liquidations_ambiguities_and_numeric_gate": true,
+    "materiality_is": "prespecified_research_screen_not_statistical_proof_of_data_accuracy"
+  },
+  "diagnostics": {
+    "spot/control_sig001_base": {
+      "checks": {
+        "equity_range": false,
+        "cagr_range": false,
+        "drawdown_range": false,
+        "same_trade_decisions": true,
+        "same_halts": true,
+        "same_liquidations": true,
+        "same_ambiguities": true,
+        "same_numeric_gate_verdict": true
+      },
+      "immaterial": false,
+      "end_equity_range_usdt": "0.8318444736156588862",
+      "cagr_range": 0.005349230557969209,
+      "drawdown_range": 0.0018512757173504563,
+      "end_equity_f0_f1_f2": [
+        "110.8694117940000000000",
+        "110.4094590669330444928",
+        "110.0375673203843411138"
+      ],
+      "fees_f0_f1_f2": [
+        "3.1840782060",
+        "3.1793354760",
+        "3.1597942020"
+      ],
+      "funding_f0_f1_f2": [
+        "0E-19",
+        "-0.4755254570669555072",
+        "-0.9478684776156588862"
+      ]
+    },
+    "spot/control_sig001_stress": {
+      "checks": {
+        "equity_range": false,
+        "cagr_range": false,
+        "drawdown_range": false,
+        "same_trade_decisions": false,
+        "same_halts": true,
+        "same_liquidations": true,
+        "same_ambiguities": true,
+        "same_numeric_gate_verdict": true
+      },
+      "immaterial": false,
+      "end_equity_range_usdt": "0.5502969506088688704",
+      "cagr_range": 0.0035690598413344876,
+      "drawdown_range": 0.005169200488097894,
+      "end_equity_f0_f1_f2": [
+        "107.9505559680000000000",
+        "107.6118566463406317897",
+        "107.4002590173911311296"
+      ],
+      "fees_f0_f1_f2": [
+        "2.9016640320",
+        "2.8977076140",
+        "2.8654089240"
+      ],
+      "funding_f0_f1_f2": [
+        "0E-19",
+        "-0.3964857396593682103",
+        "-0.7804320586088688704"
+      ]
+    },
+    "spot/candidate_cap3_base": {
+      "checks": {
+        "equity_range": false,
+        "cagr_range": false,
+        "drawdown_range": false,
+        "same_trade_decisions": true,
+        "same_halts": true,
+        "same_liquidations": true,
+        "same_ambiguities": true,
+        "same_numeric_gate_verdict": true
+      },
+      "immaterial": false,
+      "end_equity_range_usdt": "0.8318444736156588862",
+      "cagr_range": 0.005349230557969209,
+      "drawdown_range": 0.0018512757173504563,
+      "end_equity_f0_f1_f2": [
+        "110.8694117940000000000",
+        "110.4094590669330444928",
+        "110.0375673203843411138"
+      ],
+      "fees_f0_f1_f2": [
+        "3.1840782060",
+        "3.1793354760",
+        "3.1597942020"
+      ],
+      "funding_f0_f1_f2": [
+        "0E-19",
+        "-0.4755254570669555072",
+        "-0.9478684776156588862"
+      ]
+    },
+    "spot/candidate_cap3_stress": {
+      "checks": {
+        "equity_range": false,
+        "cagr_range": false,
+        "drawdown_range": false,
+        "same_trade_decisions": false,
+        "same_halts": true,
+        "same_liquidations": true,
+        "same_ambiguities": true,
+        "same_numeric_gate_verdict": true
+      },
+      "immaterial": false,
+      "end_equity_range_usdt": "0.5502969506088688704",
+      "cagr_range": 0.0035690598413344876,
+      "drawdown_range": 0.005169200488097894,
+      "end_equity_f0_f1_f2": [
+        "107.9505559680000000000",
+        "107.6118566463406317897",
+        "107.4002590173911311296"
+      ],
+      "fees_f0_f1_f2": [
+        "2.9016640320",
+        "2.8977076140",
+        "2.8654089240"
+      ],
+      "funding_f0_f1_f2": [
+        "0E-19",
+        "-0.3964857396593682103",
+        "-0.7804320586088688704"
+      ]
+    },
+    "ffill/control_sig001_base": {
+      "checks": {
+        "equity_range": false,
+        "cagr_range": false,
+        "drawdown_range": false,
+        "same_trade_decisions": true,
+        "same_halts": true,
+        "same_liquidations": true,
+        "same_ambiguities": true,
+        "same_numeric_gate_verdict": true
+      },
+      "immaterial": false,
+      "end_equity_range_usdt": "0.8318444736156588862",
+      "cagr_range": 0.005349230557969209,
+      "drawdown_range": 0.0018512757173504563,
+      "end_equity_f0_f1_f2": [
+        "110.8694117940000000000",
+        "110.4094590669330444928",
+        "110.0375673203843411138"
+      ],
+      "fees_f0_f1_f2": [
+        "3.1840782060",
+        "3.1793354760",
+        "3.1597942020"
+      ],
+      "funding_f0_f1_f2": [
+        "0E-19",
+        "-0.4755254570669555072",
+        "-0.9478684776156588862"
+      ]
+    },
+    "ffill/control_sig001_stress": {
+      "checks": {
+        "equity_range": false,
+        "cagr_range": false,
+        "drawdown_range": false,
+        "same_trade_decisions": false,
+        "same_halts": true,
+        "same_liquidations": true,
+        "same_ambiguities": true,
+        "same_numeric_gate_verdict": true
+      },
+      "immaterial": false,
+      "end_equity_range_usdt": "0.5502969506088688704",
+      "cagr_range": 0.0035690598413344876,
+      "drawdown_range": 0.005169200488097894,
+      "end_equity_f0_f1_f2": [
+        "107.9505559680000000000",
+        "107.6118566463406317897",
+        "107.4002590173911311296"
+      ],
+      "fees_f0_f1_f2": [
+        "2.9016640320",
+        "2.8977076140",
+        "2.8654089240"
+      ],
+      "funding_f0_f1_f2": [
+        "0E-19",
+        "-0.3964857396593682103",
+        "-0.7804320586088688704"
+      ]
+    },
+    "ffill/candidate_cap3_base": {
+      "checks": {
+        "equity_range": false,
+        "cagr_range": false,
+        "drawdown_range": false,
+        "same_trade_decisions": true,
+        "same_halts": true,
+        "same_liquidations": true,
+        "same_ambiguities": true,
+        "same_numeric_gate_verdict": true
+      },
+      "immaterial": false,
+      "end_equity_range_usdt": "0.8318444736156588862",
+      "cagr_range": 0.005349230557969209,
+      "drawdown_range": 0.0018512757173504563,
+      "end_equity_f0_f1_f2": [
+        "110.8694117940000000000",
+        "110.4094590669330444928",
+        "110.0375673203843411138"
+      ],
+      "fees_f0_f1_f2": [
+        "3.1840782060",
+        "3.1793354760",
+        "3.1597942020"
+      ],
+      "funding_f0_f1_f2": [
+        "0E-19",
+        "-0.4755254570669555072",
+        "-0.9478684776156588862"
+      ]
+    },
+    "ffill/candidate_cap3_stress": {
+      "checks": {
+        "equity_range": false,
+        "cagr_range": false,
+        "drawdown_range": false,
+        "same_trade_decisions": false,
+        "same_halts": true,
+        "same_liquidations": true,
+        "same_ambiguities": true,
+        "same_numeric_gate_verdict": true
+      },
+      "immaterial": false,
+      "end_equity_range_usdt": "0.5502969506088688704",
+      "cagr_range": 0.0035690598413344876,
+      "drawdown_range": 0.005169200488097894,
+      "end_equity_f0_f1_f2": [
+        "107.9505559680000000000",
+        "107.6118566463406317897",
+        "107.4002590173911311296"
+      ],
+      "fees_f0_f1_f2": [
+        "2.9016640320",
+        "2.8977076140",
+        "2.8654089240"
+      ],
+      "funding_f0_f1_f2": [
+        "0E-19",
+        "-0.3964857396593682103",
+        "-0.7804320586088688704"
+      ]
+    }
+  },
+  "unverified_partition_exposure": {
+    "spot/control_sig001_base": {
+      "0": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "0E-19"
+      },
+      "1": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "-0.0063517918002158480"
+      },
+      "2": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "-0.0127252793218721360"
+      }
+    },
+    "spot/control_sig001_stress": {
+      "0": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "0E-19"
+      },
+      "1": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "-0.0055960836964271480"
+      },
+      "2": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "-0.0111660349541272960"
+      }
+    },
+    "spot/candidate_cap3_base": {
+      "0": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "0E-19"
+      },
+      "1": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "-0.0063517918002158480"
+      },
+      "2": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "-0.0127252793218721360"
+      }
+    },
+    "spot/candidate_cap3_stress": {
+      "0": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "0E-19"
+      },
+      "1": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "-0.0055960836964271480"
+      },
+      "2": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "-0.0111660349541272960"
+      }
+    },
+    "ffill/control_sig001_base": {
+      "0": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "0E-19"
+      },
+      "1": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "-0.0063517918002158480"
+      },
+      "2": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "-0.0127252793218721360"
+      }
+    },
+    "ffill/control_sig001_stress": {
+      "0": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "0E-19"
+      },
+      "1": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "-0.0055960836964271480"
+      },
+      "2": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "-0.0111660349541272960"
+      }
+    },
+    "ffill/candidate_cap3_base": {
+      "0": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "0E-19"
+      },
+      "1": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "-0.0063517918002158480"
+      },
+      "2": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "-0.0127252793218721360"
+      }
+    },
+    "ffill/candidate_cap3_stress": {
+      "0": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "0E-19"
+      },
+      "1": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "-0.0055960836964271480"
+      },
+      "2": {
+        "funding_events_with_position": 17,
+        "cashflow_usdt": "-0.0111660349541272960"
+      }
+    }
+  },
+  "runs": {
+    "spot_funding0": {
+      "summary": "artifacts/backtests/R010P1-EXTENSION-SPOT-F0-20261016T062135Z-1a3f79ba/summary.json",
+      "sha256": "6faff73043ee820e6999cf9929f49c1f250a0607f707172211607b141fb43712"
+    },
+    "ffill_funding0": {
+      "summary": "artifacts/backtests/R010P1-EXTENSION-FFILL-F0-20261016T062135Z-f126bb92/summary.json",
+      "sha256": "4f36e71aa43f6741eb47afea02f8b5f0c883c404955163467863922ba4d94a0d"
+    },
+    "spot_funding1": {
+      "summary": "artifacts/backtests/R010P1-EXTENSION-SPOT-F1-20261016T062257Z-2844b1da/summary.json",
+      "sha256": "48875d5e8480a794f341908b92b3eb3c1ae20ff3732bab5b6c97e9c1e4dac85d"
+    },
+    "ffill_funding1": {
+      "summary": "artifacts/backtests/R010P1-EXTENSION-FFILL-F1-20261016T062258Z-aba83c3f/summary.json",
+      "sha256": "ead7c911bb5742e9da00127e063e83c049452327ccab11a153f1885da106f939"
+    },
+    "spot_funding2": {
+      "summary": "artifacts/backtests/R010P1-EXTENSION-SPOT-F2-20261016T062421Z-184841d7/summary.json",
+      "sha256": "542a5996969f3b8893fa408b267a40c319e7046f33df2f576f7fcf144ade9328"
+    },
+    "ffill_funding2": {
+      "summary": "artifacts/backtests/R010P1-EXTENSION-FFILL-F2-20261016T062423Z-d69b6f3a/summary.json",
+      "sha256": "fd927441f2360808e8c2a5c263499f44bbb9b360fa17abea996d9c4d8a9ad873"
+    }
+  },
+  "formal_selection_eligible": false,
+  "phase_2_started": false,
+  "holdout_read": false
+}

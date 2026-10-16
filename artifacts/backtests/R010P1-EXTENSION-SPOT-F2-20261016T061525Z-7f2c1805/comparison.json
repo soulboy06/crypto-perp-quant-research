@@ -1,0 +1,62 @@
+{
+  "run_id": "R010P1-EXTENSION-SPOT-F2-20261016T061525Z-7f2c1805",
+  "scope": "extension_validation_with_explicit_mark_proxy_not_independent_holdout",
+  "comparisons": {
+    "base": {
+      "checks": {
+        "positive_net": true,
+        "minimum_trades": true,
+        "minimum_cagr_improvement": false,
+        "maximum_drawdown": true,
+        "no_halts_liquidations_ambiguities": true,
+        "calmar_non_decreasing": true,
+        "bootstrap_lower_positive": false
+      },
+      "bootstrap": {
+        "method": "paired_circular_moving_block_daily_log_returns",
+        "block_days": 14,
+        "resamples": 2000,
+        "seed": 20261016,
+        "cagr_improvement_lower_95": 0.0,
+        "cagr_improvement_upper_95": 0.0,
+        "cagr_improvement_median": 0.0,
+        "independent_validation": false,
+        "selection_adjusted": false,
+        "probability_of_future_profit": null
+      },
+      "numerical_checks_passed": false
+    },
+    "stress": {
+      "checks": {
+        "positive_net": true,
+        "minimum_trades": true,
+        "minimum_cagr_improvement": false,
+        "maximum_drawdown": true,
+        "no_halts_liquidations_ambiguities": true,
+        "calmar_non_decreasing": true,
+        "bootstrap_lower_positive": false
+      },
+      "bootstrap": {
+        "method": "paired_circular_moving_block_daily_log_returns",
+        "block_days": 14,
+        "resamples": 2000,
+        "seed": 20261016,
+        "cagr_improvement_lower_95": 0.0,
+        "cagr_improvement_upper_95": 0.0,
+        "cagr_improvement_median": 0.0,
+        "independent_validation": false,
+        "selection_adjusted": false,
+        "probability_of_future_profit": null
+      },
+      "numerical_checks_passed": false
+    }
+  },
+  "proxy_scenario": "spot",
+  "numeric_gate_uses_proxy_marks": true,
+  "funding_multiplier": 2,
+  "extension_numerical_gate_passed": false,
+  "formal_selection_eligible": false,
+  "holdout_read": false,
+  "phase_2_started": false,
+  "reproduction_does_not_authorize_phase_2": true
+}

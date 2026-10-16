@@ -23,7 +23,7 @@ from .phase1_data import window_config
 from .uncertainty import paired_cagr_diagnostic
 
 
-def corpus(root, scope, plan, config):
+def corpus(root, scope, plan, config, proxy_scenario=None):
     reference = root / 'artifacts/backtests' / plan['baseline_reproduction_run']
     old = json.loads((reference / 'summary.json').read_text(encoding='utf-8'))
     require(old['status'] == 'completed' and old['research_design_id'] == 'SIG-001-v1',
@@ -36,7 +36,17 @@ def corpus(root, scope, plan, config):
                  'signals.py', 'universe_engine.py', 'signal_quality.py', 'research4.py'):
         require(sha(Path(__file__).with_name(name).read_bytes()) == old['source_sha256'][name],
                 'Frozen source changed: ' + name)
-    if scope == 'reproduction':
+    require(proxy_scenario in (None, 'spot', 'ffill'), 'Unknown proxy sensitivity')
+    require(proxy_scenario is None or scope == 'extension', 'Proxies only permitted in extension window')
+    if proxy_scenario is not None:
+        from .mark_proxy import load_policy
+        policy = load_policy(root)
+        pointer_path = root / 'artifacts/data/mark_proxy_latest.json'
+        require(pointer_path.is_file(), 'Prepare authorized mark-proxy data first')
+        pointer = json.loads(pointer_path.read_text(encoding='utf-8'))['scenarios'][proxy_scenario]
+        path = root / pointer['manifest']
+        require(sha(path.read_bytes()) == pointer['sha256'], 'Proxy manifest changed')
+    elif scope == 'reproduction':
         path = root / old['data_manifest']
         require(sha(path.read_bytes()) == old['data_manifest_sha256'], 'Old corpus changed')
     else:
@@ -48,8 +58,20 @@ def corpus(root, scope, plan, config):
     manifest = json.loads(path.read_text(encoding='utf-8'))
     require(not manifest['holdout_history_requested'], 'Frozen holdout data forbidden')
     if scope == 'extension':
-        require(manifest['complete_extension_coverage'],
-                'Extension data incomplete: no extension backtest is permitted')
+        if proxy_scenario is None:
+            require(manifest['complete_extension_coverage'],
+                    'Extension data incomplete: no extension backtest is permitted')
+        else:
+            require(manifest['scenario'] == proxy_scenario and manifest['complete_with_explicit_proxy']
+                    and manifest['strict_mark_price_coverage'] is False
+                    and manifest['proxy_policy'] == policy
+                    and manifest['proxy_policy_sha256'] == sha((root / 'configs/mark_proxy.toml').read_bytes())
+                    and manifest['proxy_bar_count'] == 14, 'Proxy data binding or coverage differs')
+            actual = {(x['symbol'], b['open_time_us']) for x in manifest['results']
+                      for b in x.get('proxy_bars', [])}
+            expected = {(s, stamp_us(t)) for s in policy['affected_symbols']
+                        for t in policy['gap_open_times_utc']}
+            require(actual == expected, 'Proxy timestamp whitelist differs')
         require(manifest['window'] == plan['extension'] and manifest['plan_sha256'] ==
                 sha((root / 'configs/phase1.toml').read_bytes()), 'Extension data binding differs')
     index = {(x['symbol'], x['kind'], x['period']): x for x in manifest['results']
@@ -65,11 +87,13 @@ def corpus(root, scope, plan, config):
     return path, manifest, index, reference
 
 
-def run(root, scope='extension'):
+def run(root, scope='extension', *, proxy_scenario=None, funding_multiplier=1):
     root = Path(root).resolve()
     plan, universe, config = window_config(root, scope)
+    require(type(funding_multiplier) is int and funding_multiplier in (0, 1, 2)
+            and (proxy_scenario is not None or funding_multiplier == 1), 'Unapproved funding sensitivity')
     signal, _, _ = load_signal_plan(root)
-    manifest_path, manifest, index, reference = corpus(root, scope, plan, config)
+    manifest_path, manifest, index, reference = corpus(root, scope, plan, config, proxy_scenario)
     snapshot = json.loads((root / manifest['rules_path']).read_text(encoding='utf-8'))
     policy = tomllib.loads((root / 'configs/execution_policy.toml').read_text(encoding='utf-8'))
     start, end = [stamp_us(config['data'][key]) for key in ('development_start', 'development_end')]
@@ -83,7 +107,10 @@ def run(root, scope='extension'):
                                        filters['MIN_NOTIONAL']['notional'], (tier,), start, end,
                                        'R010P1_CURRENT_RULES_PROXY_NOT_HISTORICAL')
         ticks[symbol], fees[symbol] = D(filters['PRICE_FILTER']['tickSize']), D(x['liquidationFee'])
-    run_id = 'R010P1-' + scope.upper() + '-' + datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ') + '-' + uuid4().hex[:8]
+    scope_tag = scope.upper() + ('-' + proxy_scenario.upper() if proxy_scenario else '')
+    if proxy_scenario:
+        scope_tag += '-F' + str(funding_multiplier)
+    run_id = 'R010P1-' + scope_tag + '-' + datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ') + '-' + uuid4().hex[:8]
     folder = root / 'artifacts/backtests' / run_id
     folder.mkdir(parents=True, exist_ok=False)
     sources = {}
@@ -96,9 +123,23 @@ def run(root, scope='extension'):
     for name in ('phase1.toml', 'tenth_round_proposal.toml', 'signal_quality.toml',
                  'first_round.toml', 'execution_policy.toml', 'data_policy.toml', 'universe_expansion.toml'):
         preserve(folder / 'source' / name, (root / 'configs' / name).read_bytes())
+    if proxy_scenario:
+        for name in ('mark_proxy.py', 'proxy_sensitivity.py', 'funding_rest_recovery.py'):
+            body = Path(__file__).with_name(name).read_bytes()
+            sources[name] = sha(body)
+            preserve(folder / 'source' / name, body)
+        preserve(folder / 'source/mark_proxy.toml', (root / 'configs/mark_proxy.toml').read_bytes())
+        preserve(folder / 'source/test_mark_proxy.py', (root / 'tests/test_mark_proxy.py').read_bytes())
     preserve(folder / 'source/test_phase1.py', (root / 'tests/test_phase1.py').read_bytes())
     metadata = {'run_id': run_id, 'research_design_id': plan['design_id'], 'phase': 1,
-                'scope': plan[scope]['scope'], 'run_scope': scope, 'window': plan[scope], 'plan': plan,
+                'scope': manifest['scope'] if proxy_scenario else plan[scope]['scope'],
+                'run_scope': scope, 'proxy_scenario': proxy_scenario,
+                'funding_multiplier': funding_multiplier,
+                'funding_rest_verified_all_partitions': manifest.get('funding_rest_verified_all_partitions', True),
+                'archive_only_funding_partitions': manifest.get('archive_only_funding_partitions', []),
+                'funding_rest_recovered_partitions': manifest.get('funding_rest_recovered_partitions', []),
+                'strict_mark_price_coverage': not bool(proxy_scenario),
+                'proxy_bar_count': manifest.get('proxy_bar_count', 0), 'window': plan[scope], 'plan': plan,
                 'data_manifest': relative(root, manifest_path), 'data_manifest_sha256': sha(manifest_path.read_bytes()),
                 'source_sha256': sources, 'rules_sha256': manifest['rules_sha256'],
                 'baseline': 'same_window_SIG001_rerun', 'new_candidate_cost_configurations': 2,
@@ -116,6 +157,8 @@ def run(root, scope='extension'):
         with gzip.open(root / manifest['funding_valuation_path'], 'rt', encoding='utf-8') as f:
             funding = list(csv.DictReader(f))
         require(all(start <= int(x['event_time_us']) < end for x in funding), 'Funding outside window')
+        if funding_multiplier != 1:
+            funding = [{**x, 'rate': str(D(x['rate']) * funding_multiplier)} for x in funding]
         fund_index, previous = 0, None
         hours = {s: FourthHour() for s in SYMBOLS}
         print(json.dumps({'run_id': run_id, 'scope': metadata['scope'],
@@ -150,7 +193,7 @@ def run(root, scope='extension'):
                     if closed:
                         for a in accounts:
                             a.decisions(t + MINUTE, features)
-            print(json.dumps({'through': period, 'equity': {a.name: str(a.ledger.equity) for a in accounts},
+            print(json.dumps({'run_id': run_id, 'through': period, 'equity': {a.name: str(a.ledger.equity) for a in accounts},
                               'trades': {a.name: len(a.trades) for a in accounts}}), flush=True)
         require(fund_index == len(funding), 'Funding not consumed')
         metrics = [a.finish(folder) for a in accounts]
@@ -207,6 +250,9 @@ def report(root, folder, summary):
                              'numerical_checks_passed': all(checks.values())}
     accepted = summary['run_scope'] == 'extension' and all(x['numerical_checks_passed'] for x in comparisons.values())
     payload = {'run_id': summary['run_id'], 'scope': summary['scope'], 'comparisons': comparisons,
+               'proxy_scenario': summary.get('proxy_scenario'),
+               'numeric_gate_uses_proxy_marks': bool(summary.get('proxy_scenario')),
+               'funding_multiplier': summary.get('funding_multiplier', 1),
                'extension_numerical_gate_passed': accepted, 'formal_selection_eligible': False,
                'holdout_read': False, 'phase_2_started': False,
                'reproduction_does_not_authorize_phase_2': True}
@@ -218,6 +264,11 @@ def report(root, folder, summary):
              '2026历史未读取。当前币池存在幸存者偏差；历史订单过滤器和维保规则仍为代理。分钟不利路径回撤不保证覆盖真实路径，停机后持有现金不等于持续交易稳定。', '',
              '| 策略 | 成本 | 期末USDT | 累计收益 | 窗口折算年化 | 不利路径最大回撤 | 交易数 | 代理强平／歧义 |',
              '|---|---|---:|---:|---:|---:|---:|---:|']
+    if summary.get('proxy_scenario'):
+        funding_status = ('全部资金费分区已获REST复核，先前9个分区的例外已解除。' if
+                          summary.get('funding_rest_verified_all_partitions') else
+                          '另有9个资金费分区仅获官方归档校验、未获REST复核。')
+        lines[2:2] = [f"**显式标记价代理场景：{summary['proxy_scenario']}，资金费倍率{summary['funding_multiplier']}，替代14根分钟标记K线；真实标记价未恢复。{funding_status}须与所有其他敏感性场景一起评估，不能挑选更高收益的一组。**", '']
     for name, label in [('control_sig001', 'SIG-001同期对照'), ('candidate_cap3', '同向最多3仓')]:
         for cost in ('base', 'stress'):
             m = metrics[name + '_' + cost]
@@ -238,7 +289,12 @@ def report(root, folder, summary):
                'summary_sha256': sha((folder / 'summary.json').read_bytes()),
                'report': relative(root, folder / 'comparison.md'),
                'extension_numerical_gate_passed': accepted, 'formal_selection_eligible': False}
-    (root / 'artifacts/backtests' / ('phase1_' + summary['run_scope'] + '_latest.json')).write_text(
+    pointer['proxy_scenario'] = summary.get('proxy_scenario')
+    pointer['funding_multiplier'] = summary.get('funding_multiplier', 1)
+    report_scope = summary['run_scope'] + ('_' + summary['proxy_scenario'] if summary.get('proxy_scenario') else '')
+    if summary.get('proxy_scenario'):
+        report_scope += '_funding' + str(summary['funding_multiplier'])
+    (root / 'artifacts/backtests' / ('phase1_' + report_scope + '_latest.json')).write_text(
         json.dumps(pointer, ensure_ascii=False, indent=2), encoding='utf-8')
-    (root / 'docs' / ('Phase1_' + summary['run_scope'] + '_结果.md')).write_text(
+    (root / 'docs' / ('Phase1_' + report_scope + '_结果.md')).write_text(
         '\n'.join(lines), encoding='utf-8')

@@ -1,0 +1,21 @@
+{
+  "reason": "global_funding_0_vs_1_already_exceeds_prespecified_0.10USDT_screen",
+  "normal_documented_lower_limit_requests_after_cooldown": [
+    {
+      "url": "https://fapi.binance.com/fapi/v1/fundingRate?symbol=SOLUSDT&startTime=1764547200000&endTime=1767225599999&limit=100",
+      "ok": true,
+      "rows": 93,
+      "first_time": 1764547200000,
+      "last_time": 1767196800001
+    },
+    {
+      "url": "https://fapi.binance.com/fapi/v1/fundingRate?symbol=LTCUSDT&startTime=1761955200000&endTime=1764547199999&limit=100",
+      "ok": true,
+      "rows": 90,
+      "first_time": 1761955200001,
+      "last_time": 1764518400004
+    }
+  ],
+  "verification_recovered": false,
+  "holdout_read": false
+}

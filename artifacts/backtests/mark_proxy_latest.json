@@ -1,0 +1,8 @@
+{
+  "summary": "artifacts/backtests/MARK-PROXY-SENS-20261016T062546Z-4ac1fc42/summary.json",
+  "sha256": "5bd8d5dc65db1a226c62489bd25cb45a3093a266bb6fbdd64824ace22cda4062",
+  "funding_sensitivity": "artifacts/backtests/MARK-PROXY-SENS-20261016T062546Z-4ac1fc42/funding_sensitivity.json",
+  "funding_sensitivity_sha256": "0b77d7b751e9cf58ab4c453de72e49f94c7285c825d62bf13da3959f101d17da",
+  "report": "docs/\u6807\u8bb0\u4ef7\u4ee3\u7406\u654f\u611f\u6027\u7ed3\u679c.md",
+  "formal_selection_eligible": false
+}

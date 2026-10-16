@@ -1,0 +1,11 @@
+{
+  "run_id": "R010P1-EXTENSION-SPOT-F0-20261016T062135Z-1a3f79ba",
+  "scope": "extension_validation_with_explicit_mark_proxy_not_independent_holdout",
+  "summary": "artifacts/backtests/R010P1-EXTENSION-SPOT-F0-20261016T062135Z-1a3f79ba/summary.json",
+  "summary_sha256": "6faff73043ee820e6999cf9929f49c1f250a0607f707172211607b141fb43712",
+  "report": "artifacts/backtests/R010P1-EXTENSION-SPOT-F0-20261016T062135Z-1a3f79ba/comparison.md",
+  "extension_numerical_gate_passed": false,
+  "formal_selection_eligible": false,
+  "proxy_scenario": "spot",
+  "funding_multiplier": 0
+}
