@@ -1,0 +1,13 @@
+policy_id = "DATA-001-v1"
+parent_design = "R001-v1"
+declared_date = "2026-10-15"
+funding_event_time = "preserve_original_calc_time"
+exact_settlement_mark_priority = true
+missing_settlement_mark = "last_closed_mark_1m"
+maximum_proxy_age_seconds = 60
+allow_future_candle_close = false
+allow_zero_price_fill = false
+allow_missing_mark_skip = false
+price_proxy_is_exact = false
+full_development_verified = false
+historical_margin_rules_verified = false

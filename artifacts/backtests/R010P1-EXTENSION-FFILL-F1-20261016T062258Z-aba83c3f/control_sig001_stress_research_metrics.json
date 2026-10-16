@@ -1,0 +1,88 @@
+{
+  "account": "control_sig001_stress",
+  "scope": "development_screening_under_proxy_rules",
+  "initial_equity": 100,
+  "ending_equity": "107.6118566463406317897",
+  "net_return": 0.07611856646340631,
+  "cagr": 0.049982473803538596,
+  "max_adverse_bound_drawdown": 0.08497604234542812,
+  "daily_sharpe_zero_risk_free": 0.6172198284393497,
+  "daily_sortino_zero_target": 1.2248729010128447,
+  "calmar": 0.5881948891001483,
+  "holding_limit_hours": 72,
+  "round_trips": 121,
+  "win_rate": 0.2727272727272727,
+  "profit_factor": 1.2302268131816778,
+  "fees": "2.8977076140",
+  "funding": "-0.3964857396593682103",
+  "gross_turnover": "4829.512690",
+  "annual": {
+    "2024": {
+      "start_equity": 100.0,
+      "end_equity": 100.00118914526593,
+      "return": 1.1891452659229529e-05
+    },
+    "2025": {
+      "start_equity": 100.00118914526593,
+      "end_equity": 107.61185664634063,
+      "return": 0.076105770002586
+    }
+  },
+  "signals": {
+    "SOLUSDT_long": 336,
+    "AVAXUSDT_long": 398,
+    "BTCUSDT_long": 354,
+    "ETHUSDT_long": 321,
+    "BNBUSDT_long": 390,
+    "XRPUSDT_long": 296,
+    "DOGEUSDT_long": 309,
+    "LINKUSDT_long": 395,
+    "ADAUSDT_long": 286,
+    "LTCUSDT_long": 373,
+    "BTCUSDT_short": 294,
+    "ETHUSDT_short": 263,
+    "BNBUSDT_short": 278,
+    "AVAXUSDT_short": 384,
+    "DOGEUSDT_short": 298,
+    "SOLUSDT_short": 315,
+    "XRPUSDT_short": 288,
+    "LINKUSDT_short": 375,
+    "LTCUSDT_short": 294,
+    "ADAUSDT_short": 340
+  },
+  "rejections": {
+    "SIG001:overextended_breakout": 2753,
+    "R002:higher_4h_direction_mismatch": 2339,
+    "Entry rejected: budget_or_minimum_order": 150,
+    "R004:efficiency_below_threshold": 1224
+  },
+  "liquidation_proxy_events": 0,
+  "execution_ambiguities": 0,
+  "halt_reasons": [],
+  "formal_selection_eligible": false,
+  "holdout_read": false,
+  "research_design": "SIG-001-v1",
+  "entry_filter": "closed_4h_ema20_ema50",
+  "entry_filter_counts": {
+    "higher_4h_pass": 4248,
+    "efficiency_pass": 3024,
+    "extension_reject": 2753,
+    "higher_4h_direction_mismatch": 2339,
+    "extension_pass": 271,
+    "efficiency_reject": 1224
+  },
+  "only_entry_rule_changed": true,
+  "case": "efficiency24",
+  "parent_strategy": "R002_trend",
+  "only_changed_field": "additional_entry_directional_SMA20_distance_over_ATR14",
+  "changed_value": "directional_extension_atr_le_2",
+  "sizing_diagnostics": {
+    "reserve_passed": 121,
+    "reserve_rejected": 150,
+    "rejected_binding:stop_risk": 150,
+    "rejected_filter:below_min_notional": 150,
+    "rejected_filter:rounded_quantity_zero": 96,
+    "rejected_filter:below_min_quantity": 96
+  },
+  "trailing_diagnostics": {}
+}

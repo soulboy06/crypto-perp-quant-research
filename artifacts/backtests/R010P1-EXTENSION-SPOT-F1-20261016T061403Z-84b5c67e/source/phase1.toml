@@ -1,0 +1,45 @@
+design_id = "R010-P1-v1"
+proposal = "R010-v1-proposal"
+baseline = "SIG-001-v1"
+baseline_reproduction_run = "SIG001-20261016T045339Z-9b2fe0a6"
+phase = 1
+maximum_accounts_per_run = 4
+cost_scenarios = ["base", "stress"]
+maximum_same_direction_positions = 3
+parameter_search = false
+formal_selection_eligible = false
+holdout_locked = true
+phase_2_enabled = false
+entry_priority = "original_fixed_symbol_order_no_performance_ranking"
+signal_slots = "held_plus_other_pending_same_side_excluding_current"
+fill_slots = "held_plus_other_pending_excluding_current_plus_one_le_cap"
+failed_fill_policy = "release_slot_no_backfill_of_previously_rejected_signals"
+scheduled_exit_policy = "count_position_until_actual_exit_no_advance_credit"
+true_holdout_start = "2026-01-01T00:00:00Z"
+
+[extension]
+warmup_start = "2024-05-01T00:00:00Z"
+start = "2024-07-01T00:00:00Z"
+end_exclusive = "2026-01-01T00:00:00Z"
+scope = "extension_validation_not_independent_holdout"
+
+[reproduction]
+warmup_start = "2022-11-01T00:00:00Z"
+start = "2023-01-01T00:00:00Z"
+end_exclusive = "2024-07-01T00:00:00Z"
+scope = "development_implementation_diagnostic_not_extension_acceptance"
+require_SIG001_trades_and_daily_equity_exact_match_both_costs = true
+
+[gates]
+minimum_trades = 30
+minimum_cagr_improvement = "0.01"
+maximum_drawdown = "0.20"
+bootstrap_block_days = 14
+bootstrap_resamples = 2000
+bootstrap_seed = 20261016
+require_positive_net = true
+require_no_halts_liquidations_ambiguities = true
+require_non_decreasing_calmar = true
+require_positive_bootstrap_lower = true
+baseline_control = "same_window_SIG001_rerun"
+bootstrap_scope = "conditional_diagnostic_not_selection_adjusted_or_independent_validation"

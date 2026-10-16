@@ -1,0 +1,19 @@
+{
+  "run_id": "MARK-PROXY-REST-RECOVERED-20261016T061924Z-d5198124",
+  "scenarios": {
+    "spot": {
+      "manifest": "artifacts/data/mark_proxy_runs/MARK-PROXY-REST-RECOVERED-20261016T061924Z-d5198124/spot_manifest.json",
+      "sha256": "4132481cea7b8228b18d080cb3e6a42c1585410104acd8de12c7e6ceac4917b4",
+      "complete_with_explicit_proxy": true
+    },
+    "ffill": {
+      "manifest": "artifacts/data/mark_proxy_runs/MARK-PROXY-REST-RECOVERED-20261016T061924Z-d5198124/ffill_manifest.json",
+      "sha256": "0a5e8e1a396117e051fd1a69a7d0310b18fd2f62986d5a52cf26f3dd8e0198e0",
+      "complete_with_explicit_proxy": true
+    }
+  },
+  "funding_rest_verified_all_partitions": true,
+  "strict_mark_price_coverage": false,
+  "holdout_read": false,
+  "formal_selection_eligible": false
+}
