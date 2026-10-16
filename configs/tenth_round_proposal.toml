@@ -1,0 +1,114 @@
+# R010-v1-proposal: 十币独立信号 + 分层风控（草案，未验证）
+#
+# 状态：proposal。不是冻结基准，不替换任何现有默认配置。
+# 本文件所有分组参数均为"起点假设"，不是调参结果，未经样本外验证不得用于实盘或选模。
+# 开发期（2023-01-01 至 2024-07-01）已被前 9 轮实验污染，禁止在本文件参数上做开发期参数搜索。
+# 任何候选必须先通过 2024H2-2025 样本外验证（见 [validation]）。
+
+design_id = "R010-v1-proposal"
+parent_design = "UNIV-001-v1"
+signal_parent = "SIG-001-v1"
+scope = "ten_symbol_independent_signals_grouped_parameters_correlation_budget_proposal_not_validated"
+parameter_search = false
+combine_changes = false
+holdout_locked = true
+formal_selection_eligible = false
+stop_after_prespecified_cases = true
+maximum_accounts = 2
+cost_scenarios = ["base", "stress"]
+
+[universe]
+symbols = ["BTCUSDT", "ETHUSDT", "BNBUSDT", "SOLUSDT", "XRPUSDT", "DOGEUSDT", "ADAUSDT", "LINKUSDT", "AVAXUSDT", "LTCUSDT"]
+# 分组依据：市值体量与历史波动结构（定性分组，不是聚类结果）
+# A=大盘（假突破少，沿用已验证参数）；B=中盘；C=高波动山寨（假突破多，需更严过滤）
+groups = ["A", "B", "C"]
+group_a_symbols = ["BTCUSDT", "ETHUSDT"]
+group_b_symbols = ["BNBUSDT", "SOLUSDT", "LINKUSDT"]
+group_c_symbols = ["XRPUSDT", "DOGEUSDT", "ADAUSDT", "AVAXUSDT", "LTCUSDT"]
+
+# ---- 信号层：每币独立信号，分组参数 ----
+# 以下数值是起点假设（prior），不是优化结果。选择逻辑见 docs/第十轮方案草案.md。
+[signal.group_a]
+breakout_hours = 48
+atr_stop_multiple = "2.0"
+minimum_efficiency_er24 = "0.30"
+chase_distance_atr_cap = "2.0"
+ema_trend = 200
+direction_filter_4h = true
+hypothesis = "large_cap_breakout_parameters_reuse_validated_BTC_ETH_settings_not_proven_for_others"
+
+[signal.group_b]
+breakout_hours = 48
+atr_stop_multiple = "2.5"
+minimum_efficiency_er24 = "0.35"
+chase_distance_atr_cap = "2.0"
+ema_trend = 200
+direction_filter_4h = true
+hypothesis = "mid_cap_wider_stop_and_higher_efficiency_to_filter_whipsaws_not_proven"
+
+[signal.group_c]
+breakout_hours = 72
+atr_stop_multiple = "3.0"
+minimum_efficiency_er24 = "0.40"
+chase_distance_atr_cap = "2.0"
+ema_trend = 200
+direction_filter_4h = true
+hypothesis = "high_volatility_small_cap_longer_breakout_window_and_stricter_filters_not_proven"
+
+# ---- 仓位层：ATR 归一化（沿用现有 risk.preview 机制，不新造公式） ----
+# 仓位 = 单笔风险预算 / 风险率；风险率含 |price-stop|/price，stop = close ± atr_stop_multiple×ATR14。
+# 因此每组不同的 atr_stop_multiple 自动实现按波动率的差异化仓位，无需额外代码。
+[sizing]
+method = "existing_risk_preview_stop_distance_normalized"
+per_trade_risk_fraction = "0.005"
+note = "group_c_stop_3xATR_means_smaller_position_than_group_a_at_same_risk_budget"
+
+# ---- 组合层：同向持仓上限（新增，需代码支持） ----
+# 背景：UNIV-001 实测 98.35% 多持仓时间为全同向；加密主流币在风险事件中相关性趋向 1，
+# 加币不等于分散。本上限承认相关性、限制伪分散变相加杠杆，不声称消除相关性。
+[portfolio]
+max_same_direction_positions = 3
+same_direction_definition = "open_positions_with_same_side_long_or_short_counted_at_signal_time"
+skip_policy = "skip_new_same_direction_signal_when_at_cap_log_reject_reason"
+opposite_direction_unaffected = true
+# 备选（更精细，需实现相关性计算，当前不采用）：dynamic_correlation_budget
+# alternative = "skip_when_mean_pairwise_correlation_of_open_positions_above_threshold"
+
+# ---- 目标函数：风险调整后收益，不是 raw return ----
+[objective]
+primary = "calmar_ratio"
+definition = "annualized_net_return_divided_by_max_drawdown"
+constraints = ["max_drawdown_le_0.20", "stop_equity_usd_ge_50", "both_cost_scenarios_must_pass"]
+not_objective = "raw_expected_return_maximization"
+not_objective_reason = "unconstrained_return_maximization_implies_max_leverage_and_concentration"
+
+# ---- 风控（沿用，不变） ----
+[risk]
+initial_usdt = "100"
+stop_equity_usdt = "50"
+per_trade_risk_fraction = "0.005"
+total_open_risk_fraction = "0.01"
+baseline_gross_leverage_cap = "1"
+maximum_effective_leverage = "10"
+drawdown_halt_fraction = "0.20"
+
+# ---- 验证纪律（强制） ----
+[validation]
+development_period = "2023-01-01_to_2024-07-01_locked_reference_only_no_parameter_search"
+holdout_period = "2024-07-01_to_2026-01-01"
+holdout_requirement = "data_completeness_acceptance_before_any_holdout_run"
+gates_both_costs = ["positive_net", "minimum_30_trades", "cagr_improvement_ge_1pp_vs_UNIV001",
+    "max_drawdown_le_0.20", "no_halts_liquidations_ambiguities",
+    "calmar_not_decreasing", "bootstrap_14d_block_2000_resamples_lower_bound_positive"]
+bootstrap_seed = 20261016
+# 引用：Bailey et al. 关于回测过拟合。多次在相同开发历史上试规则会增加选择偏差。
+overfitting_warning = "any_parameter_change_after_seeing_holdout_results_invalidates_the_holdout"
+
+# ---- 实现前置：引擎当前不支持以下能力，需代码变更后才能运行 ----
+[implementation_notes]
+required_code_changes = [
+  "per_symbol_or_per_group_plan: UniverseAccount.decisions 当前使用全局 plan，需支持每币/每组独立信号参数",
+  "same_direction_counter: 入场前统计当前同向持仓数，达上限时跳过并记录拒单原因",
+  "group_parameter_resolution: config['signal'][group] 到每币的解析逻辑",
+]
+no_live_trading = true
