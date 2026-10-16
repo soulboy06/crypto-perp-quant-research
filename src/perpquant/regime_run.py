@@ -165,14 +165,15 @@ def run(root, scope='extension'):
                               'trades': {a.name: len(a.trades) for a in accounts}}), flush=True)
         require(fund_index == len(funding), 'Funding not consumed')
         metrics = [a.finish(folder) for a in accounts]
-        # Regime audit: ADX readiness and gate counts must be sane.
+        # Regime audit: every coin's ADX must be ready; gate counts sane.
         regime_audit = {}
         for a in accounts:
             if isinstance(a, RegimeAccount):
-                require(a.regime.adx is not None, 'Regime ADX never became ready')
-                regime_audit[a.name] = {'final_adx': a.regime.adx,
-                                       'regime_allows': a.regime_allows,
-                                       'regime_blocks': a.regime_blocks}
+                not_ready = [s for s, r in a.regimes.items() if r.adx is None]
+                require(not not_ready, 'Regime ADX never ready: ' + ','.join(not_ready))
+                regime_audit[a.name] = {
+                    'final_adx': {s: round(r.adx, 4) for s, r in a.regimes.items()},
+                    'regime_allows': a.regime_allows, 'regime_blocks': a.regime_blocks}
         summary = {**metadata, 'status': 'completed', 'accounts': metrics,
                    'regime_audit': regime_audit, 'runtime_seconds': time.monotonic() - clock}
         preserve(folder / 'summary.json', json.dumps(summary, ensure_ascii=False, indent=2).encode())
