@@ -1,0 +1,75 @@
+design_id = "R008-v1"
+parent_design = "R004-v1"
+baseline_run = "R004-20261015T081913Z-2a03f944"
+baseline_case = "efficiency24"
+maximum_accounts = 4
+candidate_cases = ["risk05", "risk10"]
+cost_scenarios = ["base", "stress"]
+parameter_search = false
+combine_changes = false
+holdout_locked = true
+formal_selection_eligible = false
+stop_after_prespecified_cases = true
+scope = "risk_budget_sensitivity_not_new_alpha_or_independent_validation"
+default_config_modified = false
+
+[risk05]
+changed_field = "risk.per_trade_risk_fraction"
+value = "0.005"
+role = "reproduction_control_reuses_existing_candidate_not_new_strategy"
+
+[risk10]
+changed_field = "risk.per_trade_risk_fraction"
+value = "0.01"
+role = "higher_single_trade_risk_simulation_only"
+
+[efficiency24]
+lookback_hours = 24
+minimum_efficiency = "0.30"
+formula = "abs(close_t-close_t_minus_24)/sum_24_absolute_hourly_close_changes"
+zero_path_policy = "reject"
+
+[diagnostics]
+require_control_financial_reproduction = true
+compare_cagr_drawdown_calmar_years = true
+compare_minimum_order_rejections = true
+compare_trade_size_and_time_in_market = true
+exposure_proxy = "entry_quantity_times_entry_price_integrated_over_actual_holding_time_not_margin_or_mark_to_market_exposure"
+compare_matching_trade_keys = "symbol_side_entry_time_exit_time_exit_reason"
+bootstrap_block_days = 14
+bootstrap_resamples = 2000
+bootstrap_seed = 20261015
+bootstrap_interval_percent = 95
+uncertainty_is = "conditional_observed_development_not_selection_adjusted_or_future_profit_probability"
+report_all_accounts = true
+report_top_five_winner_concentration = true
+report_execution_ambiguities = true
+automatic_default_risk_increase = false
+
+[unchanged]
+initial_usdt = "100"
+stop_equity_usdt = "50"
+total_open_risk_fraction = "0.01"
+daily_loss_pause_fraction = "0.03"
+drawdown_halt_fraction = "0.20"
+free_collateral_reserve_fraction = "0.20"
+baseline_gross_leverage_cap = "1"
+maximum_effective_leverage = "10"
+venue_leverage = "10"
+max_symbol_leverage = "5"
+holding_hours = 72
+signal = "R004_efficiency24_same_48h_breakout_EMA200_closed4h_EMA20_EMA50_ER24_ge_0.30"
+exit = "original_1h_EMA50_initial_2ATR14_stop_72h_deadline_account_guards_no_trailing"
+entry_delay_seconds = 60
+costs = "original_base_stress_actual_funding"
+data = "2023-2025_observed_development_2022NovDec_warmup_2026_locked"
+
+[research_context]
+prior_distinct_valid_candidate_cost_configurations = 30
+prior_valid_account_executions = 30
+prior_superseded_debug_accounts = 8
+new_distinct_candidate_cost_configurations = 2
+reproduction_control_accounts = 2
+new_account_executions = 4
+risk_increase_is = "return_risk_tradeoff_not_new_signal_edge"
+independent_validation_claimed = false

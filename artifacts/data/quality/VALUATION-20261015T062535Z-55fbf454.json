@@ -1,0 +1,65 @@
+{
+  "run_id": "VALUATION-20261015T062535Z-55fbf454",
+  "scope": "funding_proxy_availability_for_2023_01_01_only",
+  "events_checked": 6,
+  "policy_id": "DATA-001-v1",
+  "policy_sha256": "ce01b61c0b19ab540a32433f5a87872a9f28f2e7ec24e89025fd5367f474ae4a",
+  "source_sha256": "3b15d8039ee8a49dcdc21e5b693d8c66a87aa63e26dd093c785ae4da6e8996c4",
+  "manifest_sha256": {
+    "artifacts\\data\\manifests\\SAMPLE-20261015T061308Z-a752e6fa.json": "600f90a7c4adb59326d99a79b9071c2b94c9b93d448689f4f42647896547d976",
+    "artifacts\\data\\manifests\\BOUNDARY-20261015T062421Z-17c4a437.json": "e18c3f4cf7d341b9623325ff9fe69c2f7ad91391156a660428775d531799b72f"
+  },
+  "holdout_history_read": false,
+  "exact_settlement_prices_recovered": false,
+  "full_development_coverage": false,
+  "events": [
+    {
+      "symbol": "BTCUSDT",
+      "event_time_us": 1672531200000000,
+      "proxy_mark": "16537.50000000",
+      "source_available_us": 1672531200000000,
+      "age_us": 0,
+      "exact_settlement_mark": false
+    },
+    {
+      "symbol": "BTCUSDT",
+      "event_time_us": 1672560000008000,
+      "proxy_mark": "16519.50000000",
+      "source_available_us": 1672560000000000,
+      "age_us": 8000,
+      "exact_settlement_mark": false
+    },
+    {
+      "symbol": "BTCUSDT",
+      "event_time_us": 1672588800000000,
+      "proxy_mark": "16553.10000000",
+      "source_available_us": 1672588800000000,
+      "age_us": 0,
+      "exact_settlement_mark": false
+    },
+    {
+      "symbol": "ETHUSDT",
+      "event_time_us": 1672531200000000,
+      "proxy_mark": "1196.06135559",
+      "source_available_us": 1672531200000000,
+      "age_us": 0,
+      "exact_settlement_mark": false
+    },
+    {
+      "symbol": "ETHUSDT",
+      "event_time_us": 1672560000008000,
+      "proxy_mark": "1195.07000000",
+      "source_available_us": 1672560000000000,
+      "age_us": 8000,
+      "exact_settlement_mark": false
+    },
+    {
+      "symbol": "ETHUSDT",
+      "event_time_us": 1672588800000000,
+      "proxy_mark": "1196.63739174",
+      "source_available_us": 1672588800000000,
+      "age_us": 0,
+      "exact_settlement_mark": false
+    }
+  ]
+}

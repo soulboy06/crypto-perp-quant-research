@@ -1,0 +1,639 @@
+{
+  "preparation_id": "FACTORS-20261015T082843Z-b4dfcd92",
+  "status": "completed",
+  "plan_sha256": "650b091887311fd858b639ce01276b4e5bd16203d9063653aa9337ff1dc3631d",
+  "source_manifest_sha256": "95335c1759e2ebc4a543b5d91551ef26665df9b3b65b07a6fb4c6e5337e31cf7",
+  "source_manifest": "artifacts/data/full_runs/RECONCILED-20261015T065056Z-d83c78dc/manifest.json",
+  "sources": [
+    {
+      "symbol": "BTCUSDT",
+      "period": "2022-11",
+      "path": "data/raw/klines/BTCUSDT/2022-11/96916aba47f230a9bc68cd3fd98d0d352e1fd8f23c16c515107c4d965a2067a3/BTCUSDT-1m-2022-11.zip",
+      "sha256": "96916aba47f230a9bc68cd3fd98d0d352e1fd8f23c16c515107c4d965a2067a3",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2022-12",
+      "path": "data/raw/klines/BTCUSDT/2022-12/0f4788019cdb29f4db7b03d9efefce099d7adf49c0daf70a144b814b292bf577/BTCUSDT-1m-2022-12.zip",
+      "sha256": "0f4788019cdb29f4db7b03d9efefce099d7adf49c0daf70a144b814b292bf577",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2023-01",
+      "path": "data/raw/klines/BTCUSDT/2023-01/b7b04483464b36c89f519bf35d6461d278c709577562108b6a00fb786b92e6a6/BTCUSDT-1m-2023-01.zip",
+      "sha256": "b7b04483464b36c89f519bf35d6461d278c709577562108b6a00fb786b92e6a6",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2023-02",
+      "path": "data/raw/klines/BTCUSDT/2023-02/b62ca5df57b1715109cb1fd57097529b28410fb36b0db5bd41dbefe7e070db68/BTCUSDT-1m-2023-02.zip",
+      "sha256": "b62ca5df57b1715109cb1fd57097529b28410fb36b0db5bd41dbefe7e070db68",
+      "timestamp_unit": "ms",
+      "rows": 40320
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2023-03",
+      "path": "data/raw/klines/BTCUSDT/2023-03/1cb47aae71e941d3e9d333f9c96723eb35c8b4a7ec90e819c59a7c02f89b03bb/BTCUSDT-1m-2023-03.zip",
+      "sha256": "1cb47aae71e941d3e9d333f9c96723eb35c8b4a7ec90e819c59a7c02f89b03bb",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2023-04",
+      "path": "data/raw/klines/BTCUSDT/2023-04/2c22e2e460bf0e41884bf71031eebf60224ba470b25777a4d17ddc9298390650/BTCUSDT-1m-2023-04.zip",
+      "sha256": "2c22e2e460bf0e41884bf71031eebf60224ba470b25777a4d17ddc9298390650",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2023-05",
+      "path": "data/raw/klines/BTCUSDT/2023-05/cf9e0ab390e3872ddb9d807ad161933a28e374e09dbee2b9addf659856d1e656/BTCUSDT-1m-2023-05.zip",
+      "sha256": "cf9e0ab390e3872ddb9d807ad161933a28e374e09dbee2b9addf659856d1e656",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2023-06",
+      "path": "data/raw/klines/BTCUSDT/2023-06/8dac3fe301198e752b257817542a7ded393dbe00b604f67aba6bc0090778ae95/BTCUSDT-1m-2023-06.zip",
+      "sha256": "8dac3fe301198e752b257817542a7ded393dbe00b604f67aba6bc0090778ae95",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2023-07",
+      "path": "data/raw/klines/BTCUSDT/2023-07/5cc84c767c9f4d1fa3cb3d33bd009a0b5e3a445e9c89ad2ef259c90b0365cbc3/BTCUSDT-1m-2023-07.zip",
+      "sha256": "5cc84c767c9f4d1fa3cb3d33bd009a0b5e3a445e9c89ad2ef259c90b0365cbc3",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2023-08",
+      "path": "data/raw/klines/BTCUSDT/2023-08/8d77e6f898fba3aa5bf643d128e0aaa1b722ea6881cd26a3d19088705117a1d7/BTCUSDT-1m-2023-08.zip",
+      "sha256": "8d77e6f898fba3aa5bf643d128e0aaa1b722ea6881cd26a3d19088705117a1d7",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2023-09",
+      "path": "data/raw/klines/BTCUSDT/2023-09/ea43f6e612b54e165c47ea30955b8d9e825b1d3ad1846f12c03ad0f0fced9029/BTCUSDT-1m-2023-09.zip",
+      "sha256": "ea43f6e612b54e165c47ea30955b8d9e825b1d3ad1846f12c03ad0f0fced9029",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2023-10",
+      "path": "data/raw/klines/BTCUSDT/2023-10/153f1322695d16a12cab261b7798045323d9f893b19d35d95ffe94a62530b4de/BTCUSDT-1m-2023-10.zip",
+      "sha256": "153f1322695d16a12cab261b7798045323d9f893b19d35d95ffe94a62530b4de",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2023-11",
+      "path": "data/raw/klines/BTCUSDT/2023-11/63aa156170b2316927ae4c4928cc78866934a02b4bbc14c730b5fe4790383a80/BTCUSDT-1m-2023-11.zip",
+      "sha256": "63aa156170b2316927ae4c4928cc78866934a02b4bbc14c730b5fe4790383a80",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2023-12",
+      "path": "data/raw/klines/BTCUSDT/2023-12/947ea9b1c5dfa301f1d5ff89d28f3ee49bc73eef2cfa1f0dc4024048458eb60b/BTCUSDT-1m-2023-12.zip",
+      "sha256": "947ea9b1c5dfa301f1d5ff89d28f3ee49bc73eef2cfa1f0dc4024048458eb60b",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2024-01",
+      "path": "data/raw/klines/BTCUSDT/2024-01/21eeac04a76a7a35b10467e5e752fb2f8cff77cdeb57df6b50a23ce8d69bb190/BTCUSDT-1m-2024-01.zip",
+      "sha256": "21eeac04a76a7a35b10467e5e752fb2f8cff77cdeb57df6b50a23ce8d69bb190",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2024-02",
+      "path": "data/raw/klines/BTCUSDT/2024-02/1407acbf8ad99911bdf582805699b7e85fdbc346dbe12618ce8b6369f0d8058d/BTCUSDT-1m-2024-02.zip",
+      "sha256": "1407acbf8ad99911bdf582805699b7e85fdbc346dbe12618ce8b6369f0d8058d",
+      "timestamp_unit": "ms",
+      "rows": 41760
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2024-03",
+      "path": "data/raw/klines/BTCUSDT/2024-03/040b8e448e4243072b88b0d9908dfebed91bba943b75f4e831fa5337a2e1dab9/BTCUSDT-1m-2024-03.zip",
+      "sha256": "040b8e448e4243072b88b0d9908dfebed91bba943b75f4e831fa5337a2e1dab9",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2024-04",
+      "path": "data/raw/klines/BTCUSDT/2024-04/6a41f002da0c8e3f60bd46c841ea4ed766fb195764ad3b6b10e4f508d29c2eb7/BTCUSDT-1m-2024-04.zip",
+      "sha256": "6a41f002da0c8e3f60bd46c841ea4ed766fb195764ad3b6b10e4f508d29c2eb7",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2024-05",
+      "path": "data/raw/klines/BTCUSDT/2024-05/42de617ed643def54b5a2c3fceb7cd2edec91aafaa01104a097b2ded5c5122d4/BTCUSDT-1m-2024-05.zip",
+      "sha256": "42de617ed643def54b5a2c3fceb7cd2edec91aafaa01104a097b2ded5c5122d4",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2024-06",
+      "path": "data/raw/klines/BTCUSDT/2024-06/93499da4990fec5471bb0d73c91116e7d20a8b2697d7a4491665d6d1b8e85c85/BTCUSDT-1m-2024-06.zip",
+      "sha256": "93499da4990fec5471bb0d73c91116e7d20a8b2697d7a4491665d6d1b8e85c85",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2024-07",
+      "path": "data/raw/klines/BTCUSDT/2024-07/97f9cd5104a33828c5c2d8d03a2796d600102ab88737d1c6da515b9609540c3c/BTCUSDT-1m-2024-07.zip",
+      "sha256": "97f9cd5104a33828c5c2d8d03a2796d600102ab88737d1c6da515b9609540c3c",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2024-08",
+      "path": "data/raw/klines/BTCUSDT/2024-08/f69dbcebfd7108dc97825bd6c35d8d9a51745082f66617cb69de888e867e8e89/BTCUSDT-1m-2024-08.zip",
+      "sha256": "f69dbcebfd7108dc97825bd6c35d8d9a51745082f66617cb69de888e867e8e89",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2024-09",
+      "path": "data/raw/klines/BTCUSDT/2024-09/16fe2e13728236bfbd3efee99671612daadeea3b62dfd55d8874feae9faa4946/BTCUSDT-1m-2024-09.zip",
+      "sha256": "16fe2e13728236bfbd3efee99671612daadeea3b62dfd55d8874feae9faa4946",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2024-10",
+      "path": "data/raw/klines/BTCUSDT/2024-10/aa8c79ad120a8d870e23276d1ad5966f99f59bc0a1886ef5927a3808a5efee36/BTCUSDT-1m-2024-10.zip",
+      "sha256": "aa8c79ad120a8d870e23276d1ad5966f99f59bc0a1886ef5927a3808a5efee36",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2024-11",
+      "path": "data/raw/klines/BTCUSDT/2024-11/9c3dad038f4b043ec51d4200f57d15a0a07b3fc32b3ea3dca6a96543b9624941/BTCUSDT-1m-2024-11.zip",
+      "sha256": "9c3dad038f4b043ec51d4200f57d15a0a07b3fc32b3ea3dca6a96543b9624941",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2024-12",
+      "path": "data/raw/klines/BTCUSDT/2024-12/bfce141d2a152c2b94d85b797fe18ebfa195fa0e6091a7ccc06663ae1309466f/BTCUSDT-1m-2024-12.zip",
+      "sha256": "bfce141d2a152c2b94d85b797fe18ebfa195fa0e6091a7ccc06663ae1309466f",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2025-01",
+      "path": "data/raw/klines/BTCUSDT/2025-01/b69ca5b2c2d1ae00d68d2790d09138cb2a44085ff19e0da5dc98b569ea7e489e/BTCUSDT-1m-2025-01.zip",
+      "sha256": "b69ca5b2c2d1ae00d68d2790d09138cb2a44085ff19e0da5dc98b569ea7e489e",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2025-02",
+      "path": "data/raw/klines/BTCUSDT/2025-02/d84ca981d06ee6491e16597f8d43955f62cab399a9f4b6efc2ee1b4d3a37f0fc/BTCUSDT-1m-2025-02.zip",
+      "sha256": "d84ca981d06ee6491e16597f8d43955f62cab399a9f4b6efc2ee1b4d3a37f0fc",
+      "timestamp_unit": "ms",
+      "rows": 40320
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2025-03",
+      "path": "data/raw/klines/BTCUSDT/2025-03/4837163333c9c9978255b8870a5a6de1bc48bd22a6c72fef54665a8d4e70b4df/BTCUSDT-1m-2025-03.zip",
+      "sha256": "4837163333c9c9978255b8870a5a6de1bc48bd22a6c72fef54665a8d4e70b4df",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2025-04",
+      "path": "data/raw/klines/BTCUSDT/2025-04/87bca047ca7e8b1d27913091255018e121210276726c5aa445e85da6f56e2dcc/BTCUSDT-1m-2025-04.zip",
+      "sha256": "87bca047ca7e8b1d27913091255018e121210276726c5aa445e85da6f56e2dcc",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2025-05",
+      "path": "data/raw/klines/BTCUSDT/2025-05/7acab7e40a74db53a2d6c35373ebe327eefa85b98f8c92fbe58755881e3841ee/BTCUSDT-1m-2025-05.zip",
+      "sha256": "7acab7e40a74db53a2d6c35373ebe327eefa85b98f8c92fbe58755881e3841ee",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2025-06",
+      "path": "data/raw/klines/BTCUSDT/2025-06/78872b32c4d0bbc2d89a0459539b90cff47de08a9a56fdf8d233943a32e78efc/BTCUSDT-1m-2025-06.zip",
+      "sha256": "78872b32c4d0bbc2d89a0459539b90cff47de08a9a56fdf8d233943a32e78efc",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2025-07",
+      "path": "data/raw/klines/BTCUSDT/2025-07/cf5fe0891c80e68d2d613eb5457100b7d886eee8cc913ccdd96ef45e757a5aaf/BTCUSDT-1m-2025-07.zip",
+      "sha256": "cf5fe0891c80e68d2d613eb5457100b7d886eee8cc913ccdd96ef45e757a5aaf",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2025-08",
+      "path": "data/raw/klines/BTCUSDT/2025-08/eaf41354fc1aa96eac94ee50b3fda603cd595f95030ebf30b2ab5bea7a4462c3/BTCUSDT-1m-2025-08.zip",
+      "sha256": "eaf41354fc1aa96eac94ee50b3fda603cd595f95030ebf30b2ab5bea7a4462c3",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2025-09",
+      "path": "data/raw/klines/BTCUSDT/2025-09/c296ba45c215934e9750ca82846c7b5d14be661649d8e4423eac834cf57330dc/BTCUSDT-1m-2025-09.zip",
+      "sha256": "c296ba45c215934e9750ca82846c7b5d14be661649d8e4423eac834cf57330dc",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2025-10",
+      "path": "data/raw/klines/BTCUSDT/2025-10/bb7f53350fe27b6d8e38b5856ffc43f9ecda9d568d5bf31d0db0cd011da7100f/BTCUSDT-1m-2025-10.zip",
+      "sha256": "bb7f53350fe27b6d8e38b5856ffc43f9ecda9d568d5bf31d0db0cd011da7100f",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2025-11",
+      "path": "data/raw/klines/BTCUSDT/2025-11/981da0b054f99b959fe6245fb363336b46908d358f37251d59bad308f375bc54/BTCUSDT-1m-2025-11.zip",
+      "sha256": "981da0b054f99b959fe6245fb363336b46908d358f37251d59bad308f375bc54",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "BTCUSDT",
+      "period": "2025-12",
+      "path": "data/raw/klines/BTCUSDT/2025-12/2d5b2e1887dac1dfe450010877de7203a72e19df7a771067b980bbb07ad3069c/BTCUSDT-1m-2025-12.zip",
+      "sha256": "2d5b2e1887dac1dfe450010877de7203a72e19df7a771067b980bbb07ad3069c",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2022-11",
+      "path": "data/raw/klines/ETHUSDT/2022-11/28c780ededdc1f725869a5bc91edbaf570941b8d3e9fdd8ad815d32d74e07c16/ETHUSDT-1m-2022-11.zip",
+      "sha256": "28c780ededdc1f725869a5bc91edbaf570941b8d3e9fdd8ad815d32d74e07c16",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2022-12",
+      "path": "data/raw/klines/ETHUSDT/2022-12/1e426fd43bd84ab244e8a47630d7b09084455dc68eee32eb5ccecd9950c68af6/ETHUSDT-1m-2022-12.zip",
+      "sha256": "1e426fd43bd84ab244e8a47630d7b09084455dc68eee32eb5ccecd9950c68af6",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2023-01",
+      "path": "data/raw/klines/ETHUSDT/2023-01/0f501c198dd70e9330e698d62fbaeaf8b4b94275a4157b859f9fc3de0498dfe4/ETHUSDT-1m-2023-01.zip",
+      "sha256": "0f501c198dd70e9330e698d62fbaeaf8b4b94275a4157b859f9fc3de0498dfe4",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2023-02",
+      "path": "data/raw/klines/ETHUSDT/2023-02/e19b3ba0cfb3121d51d0617a0b0f6889233d8d4e6ce6f391e573adfce2385c88/ETHUSDT-1m-2023-02.zip",
+      "sha256": "e19b3ba0cfb3121d51d0617a0b0f6889233d8d4e6ce6f391e573adfce2385c88",
+      "timestamp_unit": "ms",
+      "rows": 40320
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2023-03",
+      "path": "data/raw/klines/ETHUSDT/2023-03/277ce2cc1c7175df2d19ccebe081ff286bc3ef6eb028c698f86c4eca1b9b4989/ETHUSDT-1m-2023-03.zip",
+      "sha256": "277ce2cc1c7175df2d19ccebe081ff286bc3ef6eb028c698f86c4eca1b9b4989",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2023-04",
+      "path": "data/raw/klines/ETHUSDT/2023-04/b900eb2661c1559133d58ea820a9c54d2a3fb0054ba148c7f0d86a1a790b267a/ETHUSDT-1m-2023-04.zip",
+      "sha256": "b900eb2661c1559133d58ea820a9c54d2a3fb0054ba148c7f0d86a1a790b267a",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2023-05",
+      "path": "data/raw/klines/ETHUSDT/2023-05/5d75bb047ecbb013fabefd80e883b3dd6d21cd98bfbedb208147e5b2e7c395d6/ETHUSDT-1m-2023-05.zip",
+      "sha256": "5d75bb047ecbb013fabefd80e883b3dd6d21cd98bfbedb208147e5b2e7c395d6",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2023-06",
+      "path": "data/raw/klines/ETHUSDT/2023-06/726c301fe41f23a79eed5a09ff556ffb9dbdfb54ce2a66fe2737ae61c33d07c1/ETHUSDT-1m-2023-06.zip",
+      "sha256": "726c301fe41f23a79eed5a09ff556ffb9dbdfb54ce2a66fe2737ae61c33d07c1",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2023-07",
+      "path": "data/raw/klines/ETHUSDT/2023-07/cd3bcf0ed40e17b4c4cbce1f6af1c8fe2be309db2fecdfc7436f7c453a15e177/ETHUSDT-1m-2023-07.zip",
+      "sha256": "cd3bcf0ed40e17b4c4cbce1f6af1c8fe2be309db2fecdfc7436f7c453a15e177",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2023-08",
+      "path": "data/raw/klines/ETHUSDT/2023-08/b0f54f67f3135d3f64ea2ca9a95f01fb18031c1b6d7ffbf552aa37e4965bcee5/ETHUSDT-1m-2023-08.zip",
+      "sha256": "b0f54f67f3135d3f64ea2ca9a95f01fb18031c1b6d7ffbf552aa37e4965bcee5",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2023-09",
+      "path": "data/raw/klines/ETHUSDT/2023-09/1d57af68d4f8d652bb6a4d78cd50b6ceecb4aff4b19a2cb59c7d1cba005dc386/ETHUSDT-1m-2023-09.zip",
+      "sha256": "1d57af68d4f8d652bb6a4d78cd50b6ceecb4aff4b19a2cb59c7d1cba005dc386",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2023-10",
+      "path": "data/raw/klines/ETHUSDT/2023-10/d14f90cbc8075341cf1dfe9cfc29dc1689a0b3c3adcc0c3a35ca360a5c78f651/ETHUSDT-1m-2023-10.zip",
+      "sha256": "d14f90cbc8075341cf1dfe9cfc29dc1689a0b3c3adcc0c3a35ca360a5c78f651",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2023-11",
+      "path": "data/raw/klines/ETHUSDT/2023-11/5eeb6b99e8dc6889fe9d317f373f4f587c4c8d35de9ee2854a6471d6fd7b3e1b/ETHUSDT-1m-2023-11.zip",
+      "sha256": "5eeb6b99e8dc6889fe9d317f373f4f587c4c8d35de9ee2854a6471d6fd7b3e1b",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2023-12",
+      "path": "data/raw/klines/ETHUSDT/2023-12/6ebf84e9b991619d772af5d9835175c5e456688c33c72affa35b3aecbac30d09/ETHUSDT-1m-2023-12.zip",
+      "sha256": "6ebf84e9b991619d772af5d9835175c5e456688c33c72affa35b3aecbac30d09",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2024-01",
+      "path": "data/raw/klines/ETHUSDT/2024-01/7fa68ec5fedc6eef175ed0af6e9f252062f6ceaca016106c265e6e4b724b5ef2/ETHUSDT-1m-2024-01.zip",
+      "sha256": "7fa68ec5fedc6eef175ed0af6e9f252062f6ceaca016106c265e6e4b724b5ef2",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2024-02",
+      "path": "data/raw/klines/ETHUSDT/2024-02/de3f91fcd929d207b4382afd7a728c0f44527d6bdbcb0a585b01b0fe001e24ab/ETHUSDT-1m-2024-02.zip",
+      "sha256": "de3f91fcd929d207b4382afd7a728c0f44527d6bdbcb0a585b01b0fe001e24ab",
+      "timestamp_unit": "ms",
+      "rows": 41760
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2024-03",
+      "path": "data/raw/klines/ETHUSDT/2024-03/dd10515a9b010920bac628f2ec600405ff8e41de7d0f81694fbf391ca54b86b2/ETHUSDT-1m-2024-03.zip",
+      "sha256": "dd10515a9b010920bac628f2ec600405ff8e41de7d0f81694fbf391ca54b86b2",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2024-04",
+      "path": "data/raw/klines/ETHUSDT/2024-04/1856da8b501dbb831b9a5490e99be8564433c4a4d46de89200f0258c74dd4790/ETHUSDT-1m-2024-04.zip",
+      "sha256": "1856da8b501dbb831b9a5490e99be8564433c4a4d46de89200f0258c74dd4790",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2024-05",
+      "path": "data/raw/klines/ETHUSDT/2024-05/d512aa43b5b6a5168fa1b6242fe4cf01c88e51c78bb9f4d202f0ca2e42338f96/ETHUSDT-1m-2024-05.zip",
+      "sha256": "d512aa43b5b6a5168fa1b6242fe4cf01c88e51c78bb9f4d202f0ca2e42338f96",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2024-06",
+      "path": "data/raw/klines/ETHUSDT/2024-06/57e4b010904bbd754ee951ada7d9edd34bc4242379ae49fb66352e2c5f5cb525/ETHUSDT-1m-2024-06.zip",
+      "sha256": "57e4b010904bbd754ee951ada7d9edd34bc4242379ae49fb66352e2c5f5cb525",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2024-07",
+      "path": "data/raw/klines/ETHUSDT/2024-07/34a3729eb2f6dd1563715e085eb936a4034357d95cba2605b96cf1cb5c533b65/ETHUSDT-1m-2024-07.zip",
+      "sha256": "34a3729eb2f6dd1563715e085eb936a4034357d95cba2605b96cf1cb5c533b65",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2024-08",
+      "path": "data/raw/klines/ETHUSDT/2024-08/2ccc1d0c491c63a6bfbabda39e8bd41e555a87052d77120199133e9e81bbf36c/ETHUSDT-1m-2024-08.zip",
+      "sha256": "2ccc1d0c491c63a6bfbabda39e8bd41e555a87052d77120199133e9e81bbf36c",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2024-09",
+      "path": "data/raw/klines/ETHUSDT/2024-09/317e18ce04f6312b4a3de3b5504bef2001a92bf72cb8e4988e160ee327c9c737/ETHUSDT-1m-2024-09.zip",
+      "sha256": "317e18ce04f6312b4a3de3b5504bef2001a92bf72cb8e4988e160ee327c9c737",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2024-10",
+      "path": "data/raw/klines/ETHUSDT/2024-10/d1f340994285a075a97d7d0ed5e9aca3d82dadbba8f817b2f886188420a009f1/ETHUSDT-1m-2024-10.zip",
+      "sha256": "d1f340994285a075a97d7d0ed5e9aca3d82dadbba8f817b2f886188420a009f1",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2024-11",
+      "path": "data/raw/klines/ETHUSDT/2024-11/4170f68dd576e8af35ecc9b19808dcb673c0423838bd560c7c4c1fabefdad5ad/ETHUSDT-1m-2024-11.zip",
+      "sha256": "4170f68dd576e8af35ecc9b19808dcb673c0423838bd560c7c4c1fabefdad5ad",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2024-12",
+      "path": "data/raw/klines/ETHUSDT/2024-12/82018947075e35e5ac0a771bb97a22118008db2c6fb6a94f8c1a2c4ebb34d12b/ETHUSDT-1m-2024-12.zip",
+      "sha256": "82018947075e35e5ac0a771bb97a22118008db2c6fb6a94f8c1a2c4ebb34d12b",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2025-01",
+      "path": "data/raw/klines/ETHUSDT/2025-01/05e33ba3568c5381a36764097ea93917a7f1a93fadd1a0018e64bedb042526f6/ETHUSDT-1m-2025-01.zip",
+      "sha256": "05e33ba3568c5381a36764097ea93917a7f1a93fadd1a0018e64bedb042526f6",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2025-02",
+      "path": "data/raw/klines/ETHUSDT/2025-02/79c07ecaaa04a04d815f428d0617b84cc536afe95f5cb2fc62bd93c10c3adfa1/ETHUSDT-1m-2025-02.zip",
+      "sha256": "79c07ecaaa04a04d815f428d0617b84cc536afe95f5cb2fc62bd93c10c3adfa1",
+      "timestamp_unit": "ms",
+      "rows": 40320
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2025-03",
+      "path": "data/raw/klines/ETHUSDT/2025-03/82351bb41febb62d3680c761cf7cf9e29182435d9b4843e674ded63de3b29a32/ETHUSDT-1m-2025-03.zip",
+      "sha256": "82351bb41febb62d3680c761cf7cf9e29182435d9b4843e674ded63de3b29a32",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2025-04",
+      "path": "data/raw/klines/ETHUSDT/2025-04/75ea6a45c8bed04294449ff7d56f047c235a36fac176736816c01d6892bd8687/ETHUSDT-1m-2025-04.zip",
+      "sha256": "75ea6a45c8bed04294449ff7d56f047c235a36fac176736816c01d6892bd8687",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2025-05",
+      "path": "data/raw/klines/ETHUSDT/2025-05/a2560653e2f602444d2201e44e77cdba6e48233649d22fb7e8c703ce9fc6277a/ETHUSDT-1m-2025-05.zip",
+      "sha256": "a2560653e2f602444d2201e44e77cdba6e48233649d22fb7e8c703ce9fc6277a",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2025-06",
+      "path": "data/raw/klines/ETHUSDT/2025-06/189aa2e5daf3621f6f7f9fd58df763e0667592f3baf407270e0ad42399155c69/ETHUSDT-1m-2025-06.zip",
+      "sha256": "189aa2e5daf3621f6f7f9fd58df763e0667592f3baf407270e0ad42399155c69",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2025-07",
+      "path": "data/raw/klines/ETHUSDT/2025-07/e3af3ee3ac3251d313ad8987169d5c02bfd8c094bf047bbce9373eaf19ee479c/ETHUSDT-1m-2025-07.zip",
+      "sha256": "e3af3ee3ac3251d313ad8987169d5c02bfd8c094bf047bbce9373eaf19ee479c",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2025-08",
+      "path": "data/raw/klines/ETHUSDT/2025-08/8cd85f1c417c4c65cd32348f3e4e23c8b35dd4e5e59a20a187e2a74777bd6664/ETHUSDT-1m-2025-08.zip",
+      "sha256": "8cd85f1c417c4c65cd32348f3e4e23c8b35dd4e5e59a20a187e2a74777bd6664",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2025-09",
+      "path": "data/raw/klines/ETHUSDT/2025-09/dc1f5e05a0b873accd0ed2a854ee14086da03b08a581198b20b5658042c6dc5f/ETHUSDT-1m-2025-09.zip",
+      "sha256": "dc1f5e05a0b873accd0ed2a854ee14086da03b08a581198b20b5658042c6dc5f",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2025-10",
+      "path": "data/raw/klines/ETHUSDT/2025-10/c0b8d557384ce1cd77df8f08cb6775f350a531a1792fa9deceb05f51a3939438/ETHUSDT-1m-2025-10.zip",
+      "sha256": "c0b8d557384ce1cd77df8f08cb6775f350a531a1792fa9deceb05f51a3939438",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2025-11",
+      "path": "data/raw/klines/ETHUSDT/2025-11/2dd6ded997100a92d11394eddccc54f1070b0fcf029c5e126859b5af80f6329e/ETHUSDT-1m-2025-11.zip",
+      "sha256": "2dd6ded997100a92d11394eddccc54f1070b0fcf029c5e126859b5af80f6329e",
+      "timestamp_unit": "ms",
+      "rows": 43200
+    },
+    {
+      "symbol": "ETHUSDT",
+      "period": "2025-12",
+      "path": "data/raw/klines/ETHUSDT/2025-12/8fc3e01faeb240ed9f77e4ba8bbcdf42bb7b0c7004d35fe8010bd0fd9090e4a9/ETHUSDT-1m-2025-12.zip",
+      "sha256": "8fc3e01faeb240ed9f77e4ba8bbcdf42bb7b0c7004d35fe8010bd0fd9090e4a9",
+      "timestamp_unit": "ms",
+      "rows": 44640
+    }
+  ],
+  "outputs": [
+    {
+      "symbol": "BTCUSDT",
+      "path": "artifacts/factors/FACTORS-20261015T082843Z-b4dfcd92/BTCUSDT_hourly_volume.csv",
+      "sha256": "5432dff873edb1b87c57275f55779625d4e93ef5cb63a1be5d726f3cb78562b7",
+      "hours": 27768,
+      "first_available_us": 1667264400000000,
+      "last_available_us": 1767225600000000
+    },
+    {
+      "symbol": "ETHUSDT",
+      "path": "artifacts/factors/FACTORS-20261015T082843Z-b4dfcd92/ETHUSDT_hourly_volume.csv",
+      "sha256": "3f404c49a710afef6b16cb7f242c764a3baa0592cb5c47eb4140d83d51e337d7",
+      "hours": 27768,
+      "first_available_us": 1667264400000000,
+      "last_available_us": 1767225600000000
+    }
+  ],
+  "new_volume_fields_validated": true,
+  "raw_checksums_reused_not_rescanned": true,
+  "holdout_read": false,
+  "knowledge": "each_hour_fields_available_only_after_hour_close"
+}

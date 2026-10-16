@@ -1,0 +1,13 @@
+{
+  "run_id": "R007-20261015T091900Z-8e7520cb",
+  "research_design_id": "R007-v1",
+  "scope": "development_screening_proxy_rules",
+  "summary": "artifacts/backtests/R007-20261015T091900Z-8e7520cb/summary.json",
+  "report": "artifacts/backtests/R007-20261015T091900Z-8e7520cb/comparison_with_execution_note.md",
+  "summary_sha256": "df70ab4146e3cf6844c8212aac94d82d2de62223e179a45e4c9932ab680111ca",
+  "research_baseline_retained": "R002-20261015T074202Z-0befec75",
+  "retained_development_candidates": [],
+  "holdout_read": false,
+  "formal_selection_eligible": false,
+  "execution_timing_disclosure": "artifacts/backtests/R007-20261015T091900Z-8e7520cb/execution_timing_note.json"
+}

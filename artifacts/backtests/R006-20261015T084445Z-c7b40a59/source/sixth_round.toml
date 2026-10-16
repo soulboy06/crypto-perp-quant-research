@@ -1,0 +1,71 @@
+design_id = "R006-v1"
+parent_design = "R002-v1"
+baseline_run = "R002-20261015T074202Z-0befec75"
+reference_run = "R004-20261015T081913Z-2a03f944"
+reference_case = "efficiency24"
+flow_filter_run = "R005-20261015T083046Z-92fa588c"
+flow_filter_case = "taker_pressure"
+maximum_accounts = 2
+candidate_cases = ["flow_cross"]
+cost_scenarios = ["base", "stress"]
+parameter_search = false
+combine_changes = false
+holdout_locked = true
+formal_selection_eligible = false
+stop_after_prespecified_cases = true
+scope = "new_entry_mechanism_on_observed_development_not_independent_validation"
+
+[flow_cross]
+changed_field = "replace_48h_breakout_entry_with_hourly_taker_share_threshold_cross"
+value = "previous_lt_0.55_current_ge_0.55_long_previous_gt_0.45_current_le_0.45_short"
+long_threshold = "0.55"
+short_threshold = "0.45"
+price_state = "close_above_EMA200_for_long_below_for_short"
+retained_gate = "R002_completed_4h_EMA20_EMA50_direction"
+missing_policy = "current_or_immediately_previous_hour_zero_volume_or_missing_no_signal_reset_cross_history"
+cross_history = "only_two_consecutive_fully_closed_hours"
+original_breakout_required = false
+no_pyramiding = true
+hypothesis = "aggressive_flow_change_may_find_trend_entries_outside_price_breakouts"
+
+[diagnostics]
+reference_for_improvement = "R004_efficiency24_already_observed_development"
+halfyear_segments = 6
+minimum_improved_halfyears_each_cost = 4
+minimum_cagr_improvement_percentage_points_each_cost = "1"
+maximum_drawdown_increase_percentage_points_each_cost = "2"
+absolute_maximum_drawdown = "0.20"
+require_non_decreasing_calmar_each_cost = true
+bootstrap_block_days = 14
+bootstrap_resamples = 2000
+bootstrap_seed = 20261015
+bootstrap_interval_percent = 95
+require_positive_lower_improvement_bound_each_cost = true
+uncertainty_is = "conditional_development_diagnostic_not_selection_adjusted_confidence_or_future_probability"
+report_all_accounts = true
+report_new_filled_entries_outside_legacy_breakout = true
+report_top_five_winner_concentration = true
+report_sizing_rejections = true
+
+[unchanged]
+initial_usdt = "100"
+stop_equity_usdt = "50"
+per_trade_risk_fraction = "0.005"
+total_open_risk_fraction = "0.01"
+baseline_gross_leverage_cap = "1"
+maximum_effective_leverage = "10"
+holding_hours = 72
+exit = "EMA50_original_2ATR_stop_72h_deadline_account_guards"
+entry_delay_seconds = 60
+costs = "original_base_stress_actual_funding"
+data = "2023-2025_seen_development_2022NovDec_warmup_2026_locked"
+volume_preparation = "reuse_R005_audited_hourly_quote_and_taker_quote_volume"
+
+[research_context]
+prior_valid_candidate_cost_configurations = 24
+prior_superseded_debug_accounts = 8
+new_candidate_cost_configurations = 2
+threshold_selection = "reuse_previous_55_45_no_optimization_this_round"
+anti_overfit_limit = "one_mechanism_two_costs_no_added_variants_after_results"
+independent_validation_claimed = false
+factor_ic_claimed = false

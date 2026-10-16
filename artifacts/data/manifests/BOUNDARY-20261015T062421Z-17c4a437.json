@@ -1,0 +1,52 @@
+{
+  "run_id": "BOUNDARY-20261015T062421Z-17c4a437",
+  "scope": "development_sample_only",
+  "purpose": "causal_funding_mark_boundary",
+  "holdout_history_requested": false,
+  "complete_development_coverage": false,
+  "script_sha256": "791f448841f1c6cddbce865b229fe98497b39ab2ee5961079ad196d4c605b02c",
+  "results": [
+    {
+      "symbol": "BTCUSDT",
+      "kind": "markPriceKlines",
+      "period": "2022-12-31",
+      "url": "https://data.binance.vision/data/futures/um/daily/markPriceKlines/BTCUSDT/1m/BTCUSDT-1m-2022-12-31.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/daily/markPriceKlines/BTCUSDT/1m/BTCUSDT-1m-2022-12-31.zip.CHECKSUM",
+      "started_at_utc": "2026-10-15T06:24:11.478953+00:00",
+      "sha256": "184d4f6ab0ad523001c789e7177411a90197a9c66f75468e33944f536f507c78",
+      "bytes": 33461,
+      "path": "data/raw/markPriceKlines/BTCUSDT/2022-12-31/184d4f6ab0ad523001c789e7177411a90197a9c66f75468e33944f536f507c78/BTCUSDT-1m-2022-12-31.zip",
+      "checksum_path": "data/raw/markPriceKlines/BTCUSDT/2022-12-31/184d4f6ab0ad523001c789e7177411a90197a9c66f75468e33944f536f507c78/95c41f828f3e1d09061ed0aa2e09c966128dc262a992175eadc7c7db54961134.CHECKSUM",
+      "checksum_verified": true,
+      "csv_member": "BTCUSDT-1m-2022-12-31.csv",
+      "csv_sha256": "92266b208b086da03eb7eec0bf0e3a1d814bdf48498df74868ae3eb69e414e12",
+      "preview_lines": [
+        "open_time,open,high,low,close,volume,close_time,quote_volume,count,taker_buy_volume,taker_buy_quote_volume,ignore",
+        "1672444800000,16601.10000000,16609.80000000,16601.10000000,16607.60000000,0,1672444859999,0,60,0,0,0",
+        "1672444860000,16607.50000000,16607.60000000,16599.20000000,16603.60000000,0,1672444919999,0,60,0,0,0"
+      ],
+      "completed_at_utc": "2026-10-15T06:24:21.807212+00:00"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "kind": "markPriceKlines",
+      "period": "2022-12-31",
+      "url": "https://data.binance.vision/data/futures/um/daily/markPriceKlines/ETHUSDT/1m/ETHUSDT-1m-2022-12-31.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/daily/markPriceKlines/ETHUSDT/1m/ETHUSDT-1m-2022-12-31.zip.CHECKSUM",
+      "started_at_utc": "2026-10-15T06:24:11.479953+00:00",
+      "sha256": "ba0473961a4c9ffc66926646eb2705355548778745cab24a244699c69118e414",
+      "bytes": 31863,
+      "path": "data/raw/markPriceKlines/ETHUSDT/2022-12-31/ba0473961a4c9ffc66926646eb2705355548778745cab24a244699c69118e414/ETHUSDT-1m-2022-12-31.zip",
+      "checksum_path": "data/raw/markPriceKlines/ETHUSDT/2022-12-31/ba0473961a4c9ffc66926646eb2705355548778745cab24a244699c69118e414/6eac6d4542ceff10f536034489600f3661c02506568ca805f694da1ef290fe99.CHECKSUM",
+      "checksum_verified": true,
+      "csv_member": "ETHUSDT-1m-2022-12-31.csv",
+      "csv_sha256": "4e3ffb00581c717db2359ce34279355d659739df53660f8434d9f38abc2fc5b7",
+      "preview_lines": [
+        "open_time,open,high,low,close,volume,close_time,quote_volume,count,taker_buy_volume,taker_buy_quote_volume,ignore",
+        "1672444800000,1199.74803661,1200.31000000,1199.73498619,1199.93786841,0,1672444859999,0,60,0,0,0",
+        "1672444860000,1199.93640439,1199.93640439,1199.06907245,1199.48759293,0,1672444919999,0,60,0,0,0"
+      ],
+      "completed_at_utc": "2026-10-15T06:24:21.812628+00:00"
+    }
+  ]
+}

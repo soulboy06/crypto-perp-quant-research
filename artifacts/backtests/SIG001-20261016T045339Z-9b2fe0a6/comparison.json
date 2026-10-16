@@ -1,0 +1,137 @@
+{
+  "run_id": "SIG001-20261016T045339Z-9b2fe0a6",
+  "summary_sha256": "0bc7c7a7f3d3a78d4db1a6be925ea1d3de10e9f703a2fcb747650a9641129527",
+  "comparisons": {
+    "base": {
+      "checks": {
+        "positive_net": false,
+        "minimum_trades": true,
+        "drawdown": true,
+        "no_halts_liquidations_ambiguities": false,
+        "cagr_improved_at_least_1pp": true,
+        "calmar_non_decreasing": true,
+        "minimum_two_improved_halves": true,
+        "halfyear_floor": true,
+        "conditional_bootstrap_lower_positive": false
+      },
+      "numerical_gate_passed": false,
+      "baseline_halves": [
+        {
+          "halfyear": "2023H1",
+          "return": -0.1252779851795488
+        },
+        {
+          "halfyear": "2023H2",
+          "return": -0.02360751883458667
+        },
+        {
+          "halfyear": "2024H1",
+          "return": 0.0
+        }
+      ],
+      "candidate_halves": [
+        {
+          "halfyear": "2023H1",
+          "return": -0.08554642038212579
+        },
+        {
+          "halfyear": "2023H2",
+          "return": 0.029856686090729223
+        },
+        {
+          "halfyear": "2024H1",
+          "return": 0.0
+        }
+      ],
+      "bootstrap": {
+        "method": "paired_circular_moving_block_daily_log_returns",
+        "block_days": 14,
+        "resamples": 2000,
+        "seed": 20261016,
+        "cagr_improvement_lower_95": -0.07280474600883904,
+        "cagr_improvement_upper_95": 0.18842412565851707,
+        "cagr_improvement_median": 0.06218796469653743,
+        "independent_validation": false,
+        "selection_adjusted": false,
+        "probability_of_future_profit": null
+      },
+      "baseline_entry_filter_impact": {
+        "baseline_n": 140,
+        "blocked_n": 120,
+        "blocked_profitable_n": 27,
+        "blocked_profitable_net": 22.36838946187383,
+        "blocked_losing_n": 93,
+        "blocked_losing_net": -34.00020512017745,
+        "blocked_original_path_net": -11.631815658303617,
+        "not_causal_counterfactual": true
+      }
+    },
+    "stress": {
+      "checks": {
+        "positive_net": false,
+        "minimum_trades": true,
+        "drawdown": true,
+        "no_halts_liquidations_ambiguities": false,
+        "cagr_improved_at_least_1pp": true,
+        "calmar_non_decreasing": true,
+        "minimum_two_improved_halves": true,
+        "halfyear_floor": true,
+        "conditional_bootstrap_lower_positive": false
+      },
+      "numerical_gate_passed": false,
+      "baseline_halves": [
+        {
+          "halfyear": "2023H1",
+          "return": -0.13873317799702323
+        },
+        {
+          "halfyear": "2023H2",
+          "return": -0.01224262063388859
+        },
+        {
+          "halfyear": "2024H1",
+          "return": 0.0
+        }
+      ],
+      "candidate_halves": [
+        {
+          "halfyear": "2023H1",
+          "return": -0.08795002772972049
+        },
+        {
+          "halfyear": "2023H2",
+          "return": 0.018409375498022795
+        },
+        {
+          "halfyear": "2024H1",
+          "return": 0.0
+        }
+      ],
+      "bootstrap": {
+        "method": "paired_circular_moving_block_daily_log_returns",
+        "block_days": 14,
+        "resamples": 2000,
+        "seed": 20261016,
+        "cagr_improvement_lower_95": -0.0659613424252913,
+        "cagr_improvement_upper_95": 0.16886129806027728,
+        "cagr_improvement_median": 0.05537950930384811,
+        "independent_validation": false,
+        "selection_adjusted": false,
+        "probability_of_future_profit": null
+      },
+      "baseline_entry_filter_impact": {
+        "baseline_n": 138,
+        "blocked_n": 119,
+        "blocked_profitable_n": 26,
+        "blocked_profitable_net": 20.43155848842539,
+        "blocked_losing_n": 93,
+        "blocked_losing_net": -32.88977220080953,
+        "blocked_original_path_net": -12.458213712384142,
+        "not_causal_counterfactual": true
+      }
+    }
+  },
+  "numerical_gate_passed": false,
+  "formal_selection_eligible": false,
+  "holdout_read": false
+}

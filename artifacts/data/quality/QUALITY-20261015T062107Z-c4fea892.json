@@ -1,0 +1,103 @@
+{
+  "run_id": "QUALITY-20261015T062107Z-c4fea892",
+  "scope": "development_sample_only",
+  "sample_schema_and_coverage_passed": true,
+  "complete_development_coverage": false,
+  "execution_ready": false,
+  "missing_exact_funding_settlement_marks": 186,
+  "funding_valuation_policy_frozen": false,
+  "holdout_history_read": false,
+  "minute_grid_alignment": {
+    "BTCUSDT": true,
+    "ETHUSDT": true
+  },
+  "archive_manifest": "artifacts/data/manifests/SAMPLE-20261015T061308Z-a752e6fa.json",
+  "archive_manifest_sha256": "600f90a7c4adb59326d99a79b9071c2b94c9b93d448689f4f42647896547d976",
+  "funding_manifest": "artifacts/data/manifests/FUNDING-20261015T061607Z-330c77b5.json",
+  "funding_manifest_sha256": "514d2619cd9f9c1a8a1b91a6b000ce0780d4a7cfe3dedafbfa180d797f4ff8e4",
+  "source_sha256": "49180b3f5f0c6cc427704fe437c955bd25b037c31d6ae38914117f827a08773e",
+  "results": [
+    {
+      "symbol": "BTCUSDT",
+      "kind": "klines",
+      "period": "2023-01-01",
+      "first_open_us": 1672531200000000,
+      "last_open_us": 1672617540000000,
+      "last_available_us": 1672617600000000,
+      "volume_semantics": "traded_volume",
+      "rows": 1440,
+      "original_timestamp_unit": "ms",
+      "schema_and_coverage_passed": true,
+      "archive_sha256": "62185157e73a1293f3254044aa4be6e2392735ffcc476ea907b581a7b4d8137c"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "kind": "markPriceKlines",
+      "period": "2023-01-01",
+      "first_open_us": 1672531200000000,
+      "last_open_us": 1672617540000000,
+      "last_available_us": 1672617600000000,
+      "volume_semantics": "ignored_placeholder",
+      "rows": 1440,
+      "original_timestamp_unit": "ms",
+      "schema_and_coverage_passed": true,
+      "archive_sha256": "2ea00a4005b306c5ac2e207d35c42980b412489c93d8745c8add5cbcb9382e55"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "kind": "fundingRate",
+      "period": "2023-01",
+      "matching_events": 93,
+      "missing_exact_settlement_marks": 93,
+      "first_event_us": 1672531200000000,
+      "last_event_us": 1675180800007000,
+      "off_second_events": 60,
+      "maximum_subsecond_offset_us": 23000,
+      "rows": 93,
+      "original_timestamp_unit": "ms",
+      "schema_and_coverage_passed": true,
+      "archive_sha256": "05e3df32f28d0d50f4c5a280adee9368b4a66fc68c6ddca1b3277087ac0d19f5"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "kind": "klines",
+      "period": "2023-01-01",
+      "first_open_us": 1672531200000000,
+      "last_open_us": 1672617540000000,
+      "last_available_us": 1672617600000000,
+      "volume_semantics": "traded_volume",
+      "rows": 1440,
+      "original_timestamp_unit": "ms",
+      "schema_and_coverage_passed": true,
+      "archive_sha256": "2c03b4a67d78bfc4627d6b12c8e5978220340c773b3f7ddc4ce523328c72260e"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "kind": "markPriceKlines",
+      "period": "2023-01-01",
+      "first_open_us": 1672531200000000,
+      "last_open_us": 1672617540000000,
+      "last_available_us": 1672617600000000,
+      "volume_semantics": "ignored_placeholder",
+      "rows": 1440,
+      "original_timestamp_unit": "ms",
+      "schema_and_coverage_passed": true,
+      "archive_sha256": "39e8c3c5439352b809a7be44c03f56cf40961a4df2a24ece53343b178f314f99"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "kind": "fundingRate",
+      "period": "2023-01",
+      "matching_events": 93,
+      "missing_exact_settlement_marks": 93,
+      "first_event_us": 1672531200000000,
+      "last_event_us": 1675180800007000,
+      "off_second_events": 60,
+      "maximum_subsecond_offset_us": 23000,
+      "rows": 93,
+      "original_timestamp_unit": "ms",
+      "schema_and_coverage_passed": true,
+      "archive_sha256": "5647d5978092d220eb14e11c7854d86815d0eb6204197e37b4808cc599e986f3"
+    }
+  ]
+}

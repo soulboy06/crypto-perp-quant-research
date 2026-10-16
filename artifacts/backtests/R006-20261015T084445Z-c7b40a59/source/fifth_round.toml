@@ -1,0 +1,94 @@
+design_id = "R005-v1"
+parent_design = "R002-v1"
+baseline_run = "R002-20261015T074202Z-0befec75"
+reference_run = "R004-20261015T081913Z-2a03f944"
+reference_case = "efficiency24"
+maximum_accounts = 8
+candidate_cases = ["volume_confirm", "taker_pressure", "close_location", "funding_crowding"]
+cost_scenarios = ["base", "stress"]
+parameter_search = false
+combine_changes = false
+holdout_locked = true
+formal_selection_eligible = false
+stop_after_prespecified_cases = true
+scope = "single_factor_entry_filters_on_R002_development_not_general_factor_alpha_proof"
+
+[volume_confirm]
+changed_field = "additional_relative_quote_volume_entry_gate"
+value = "current_hour_quote_volume_ge_previous_24_hour_mean"
+lookback_hours = 24
+minimum_ratio = "1"
+zero_history_policy = "reject"
+hypothesis = "volume_participation_may_distinguish_supported_breakouts_from_thin_moves_not_proven"
+
+[taker_pressure]
+changed_field = "additional_directional_taker_buy_quote_share_entry_gate"
+value = "long_ge_0.55_short_le_0.45"
+long_minimum_buy_share = "0.55"
+short_maximum_buy_share = "0.45"
+zero_volume_policy = "reject"
+hypothesis = "directional_aggressive_flow_may_confirm_breakout_not_order_book_imbalance"
+
+[close_location]
+changed_field = "additional_signal_hour_close_range_location_gate"
+value = "long_ge_0.75_short_le_0.25"
+long_minimum_position = "0.75"
+short_maximum_position = "0.25"
+zero_range_policy = "reject"
+hypothesis = "breakout_close_near_hour_extreme_may_indicate_persistent_pressure"
+
+[funding_crowding]
+changed_field = "additional_last_settled_directional_funding_cost_gate"
+value = "signed_last_settled_rate_normalized_8h_le_0.0001"
+maximum_directional_rate_8h = "0.0001"
+knowledge_lag_seconds = 60
+maximum_age_hours = 24
+missing_policy = "reject"
+hypothesis = "avoid_expensive_crowded_direction_not_funding_arbitrage"
+knowledge_limit = "settlement_time_plus_60s_research_availability_assumption_actual_publication_latency_unverified"
+future_rate_forbidden = true
+
+[diagnostics]
+reference_for_improvement = "R004_efficiency24_saved_result_already_observed_not_independently_validated"
+halfyear_segments = 6
+minimum_improved_halfyears_each_cost = 4
+minimum_cagr_improvement_percentage_points_each_cost = "1"
+maximum_drawdown_increase_percentage_points_each_cost = "2"
+absolute_maximum_drawdown = "0.20"
+require_non_decreasing_calmar_each_cost = true
+bootstrap_block_days = 14
+bootstrap_resamples = 2000
+bootstrap_seed = 20261015
+bootstrap_interval_percent = 95
+require_positive_lower_improvement_bound_each_cost = true
+uncertainty_is = "conditional_development_diagnostic_not_selection_adjusted_confidence_or_future_probability"
+report_all_accounts = true
+report_top_five_winner_concentration = true
+
+[unchanged]
+initial_usdt = "100"
+stop_equity_usdt = "50"
+per_trade_risk_fraction = "0.005"
+total_open_risk_fraction = "0.01"
+baseline_gross_leverage_cap = "1"
+maximum_effective_leverage = "10"
+original_breakout_hours = 48
+holding_hours = 72
+exit = "EMA50_and_original_2ATR_stop_no_trailing"
+direction_gate = "R002_closed_4h_EMA20_EMA50"
+fees_and_slippage = "original_base_stress_actual_funding"
+data = "2023-2025_seen_development_2022NovDec_warmup_2026_locked"
+entry_delay_seconds = 60
+
+[research_context]
+prior_valid_candidate_cost_configurations = 16
+prior_superseded_debug_accounts = 8
+new_candidate_cost_configurations = 8
+thresholds_are = "one_default_per_factor_not_optimized"
+factor_status = "hypotheses_not_claimed_established_crypto_hourly_premia"
+factor_ic_claimed = false
+reference_crypto_momentum_attention = "https://www.nber.org/papers/w24877"
+reference_cross_section_not_two_coin_proof = "https://www.nber.org/papers/w25882"
+reference_official_fields = "https://github.com/binance/binance-public-data"
+reference_overfitting = "https://www.davidhbailey.com/dhbpapers/backtest-prob.pdf"
+deferred_factors = "open_interest_order_book_liquidations_attention_need_point_in_time_data_no_fabrication"

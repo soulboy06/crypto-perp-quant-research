@@ -1,0 +1,17 @@
+test_capital_stop_cancels_orders_and_cannot_be_reset_by_restart (test_ledger.LedgerTests.test_capital_stop_cancels_orders_and_cannot_be_reset_by_restart) ... ok
+test_day_pause_and_permanent_drawdown_survive_recovery (test_ledger.LedgerTests.test_day_pause_and_permanent_drawdown_survive_recovery) ... ok
+test_funding_draws_cash_before_isolated_and_does_not_hide_deficit (test_ledger.LedgerTests.test_funding_draws_cash_before_isolated_and_does_not_hide_deficit) ... ok
+test_funding_sign_proxy_validation_and_economic_duplicates (test_ledger.LedgerTests.test_funding_sign_proxy_validation_and_economic_duplicates) ... ok
+test_idempotency_conflicts_and_atomic_rejection (test_ledger.LedgerTests.test_idempotency_conflicts_and_atomic_rejection) ... ok
+test_journal_tampering_rules_binding_and_missing_rules_rejected (test_ledger.LedgerTests.test_journal_tampering_rules_binding_and_missing_rules_rejected) ... ok
+test_partial_fill_cancel_partial_exit_and_full_exit (test_ledger.LedgerTests.test_partial_fill_cancel_partial_exit_and_full_exit) ... ok
+test_rule_expiry_missing_midnight_and_stale_marks_fail_atomically (test_ledger.LedgerTests.test_rule_expiry_missing_midnight_and_stale_marks_fail_atomically) ... ok
+test_short_close_and_persistent_peak_drawdown (test_ledger.LedgerTests.test_short_close_and_persistent_peak_drawdown) ... ok
+test_two_symbols_share_cash_and_wallet_identity (test_ledger.LedgerTests.test_two_symbols_share_cash_and_wallet_identity) ... ok
+test_exact_monthly_inventory_and_leap_year (test_full_data.MonthlyGuardTests.test_exact_monthly_inventory_and_leap_year) ... ok
+test_holdout_and_wrong_universe_rejected_before_network (test_full_data.MonthlyGuardTests.test_holdout_and_wrong_universe_rejected_before_network) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.163s
+
+OK

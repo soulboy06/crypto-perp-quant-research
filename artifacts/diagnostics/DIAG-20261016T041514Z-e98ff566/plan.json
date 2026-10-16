@@ -1,0 +1,22 @@
+{
+  "design_id": "FOLLOWTHROUGH-001-v1",
+  "strategy_accounts_added": 0,
+  "baseline": "D:\\量化\\artifacts\\backtests\\R004-20261015T081913Z-2a03f944",
+  "baseline_summary_sha256": "62973721efb03066fc22fa153415724f8a26d700d3baba4e7b98b715bba18a26",
+  "source_sha256": "0597ba161cc128cbbb8362f0a2af8312555cef1ab0d492db1018df16886e725b",
+  "data_manifest_sha256": "95335c1759e2ebc4a543b5d91551ef26665df9b3b65b07a6fb4c6e5337e31cf7",
+  "holdout_read": false,
+  "parameter_search": false,
+  "shadow_exit_rules": "original 2ATR initial stop, EMA50 hourly exit plus60s, hard72h deadline",
+  "shadow_units": "one dollar initial price-to-stop risk, fractional quantity without order minimum/step",
+  "sample_rules": "all actual reserve rejects; also first rejected per symbol while no selected rejected shadow remains open; selection uses only information available at entry",
+  "costs": "original base/stress adverse fills with tick rounding, .0006 fee each side, actual settled funding",
+  "mfe_rules": "maximum favorable trade candle price with adverse exit rate and fee/funding estimate in fully held non-exit minutes only; threshold >0, >=.5R and >=1R fixed here",
+  "limitations": [
+    "shadow ignores shared funds, account protections, liquidation and sizing; not an account return",
+    "repeated rejection attempts overlap and are correlated; nonoverlap only within each symbol/cost sample",
+    "R excludes fee/gap/funding buffers and differs from configured total risk budget",
+    "MFE excludes exit minute, is a lower-coverage excursion estimate, not a guaranteed fill or executable rule",
+    "development data repeatedly observed; no independent out-of-sample inference"
+  ]
+}

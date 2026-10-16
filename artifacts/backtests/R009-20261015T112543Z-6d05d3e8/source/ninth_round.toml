@@ -1,0 +1,87 @@
+design_id = "R009-v1"
+parent_design = "R004-v1"
+baseline_run = "R004-20261015T081913Z-2a03f944"
+baseline_case = "efficiency24"
+reference_run = "R007-20261015T091900Z-8e7520cb"
+reference_case = "slow4h"
+maximum_accounts = 4
+candidate_cases = ["ema20_reclaim", "breakout_retest"]
+cost_scenarios = ["base", "stress"]
+parameter_search = false
+combine_changes = false
+holdout_locked = true
+formal_selection_eligible = false
+stop_after_prespecified_cases = true
+scope = "two_fixed_pullback_entry_hypotheses_observed_development_no_independent_validation"
+
+[ema20_reclaim]
+changed_field = "replace_breakout_with_trend_pullback_ema20_reclaim_entry"
+value = "previous_close_between_ema200_and_ema20_then_current_reclaims_ema20_with_ema200_direction"
+ema_hours = 20
+ema_initialization = "SMA_of_first20_closed_hourly_closes_then_alpha_2_over21"
+long_rule = "previous_close_gt_previous_EMA200_and_le_previous_EMA20_current_close_gt_current_EMA20_and_EMA200"
+short_rule = "previous_close_lt_previous_EMA200_and_ge_previous_EMA20_current_close_lt_current_EMA20_and_EMA200"
+previous_hour = "exactly_immediately_previous_closed_hour"
+additional_efficiency_filter = false
+hypothesis = "trend_resumption_after_pullback_may_avoid_chasing_breakout_prices_not_proven"
+
+[breakout_retest]
+changed_field = "replace_immediate_R004_breakout_entry_with_closed_hour_retest_confirmation"
+value = "arm_R004_efficiency_breakout_then_within_next6_closed_hours_touch_frozen_channel_boundary_and_close_back_in_direction"
+maximum_wait_hours = 6
+arm_rule = "R004_48h_breakout_EMA200_closed4h_direction_ER24_ge_0.30"
+frozen_level = "prior48h_high_for_long_prior48h_low_for_short_at_arm"
+long_retest = "later_hour_low_le_frozen_level_and_close_gt_frozen_level"
+short_retest = "later_hour_high_ge_frozen_level_and_close_lt_frozen_level"
+current_state = "must_keep_close_EMA200_and_latest_complete4h_direction_else_cancel_pending"
+pending_policy = "one_per_symbol_same_direction_does_not_refresh_wait_first_success_consumes_pending_no_rearm_on_success_hour"
+expiry_policy = "signal_at_arm_plus6h_allowed_later_expired_then_may_arm_new_valid_breakout"
+efficiency = "freeze_condition_at_arm_do_not_recheck_efficiency_at_retest"
+same_hour_retest_forbidden = true
+execution = "next_minute_after_signal_delay60s_adverse_open_never_assume_touch_price_fill"
+hypothesis = "wait_for_retest_instead_of_immediate_breakout_may_change_entry_price_and_quality_not_guarantee_better_fill"
+
+[diagnostics]
+reference_for_improvement = "R004_efficiency24_saved_development_not_independent"
+halfyear_segments = 6
+minimum_improved_halfyears_each_cost = 4
+minimum_cagr_improvement_percentage_points_each_cost = "1"
+maximum_drawdown_increase_percentage_points_each_cost = "2"
+absolute_maximum_drawdown = "0.20"
+require_non_decreasing_calmar_each_cost = true
+bootstrap_block_days = 14
+bootstrap_resamples = 2000
+bootstrap_seed = 20261015
+require_positive_lower_improvement_bound_each_cost = true
+uncertainty_is = "conditional_observed_development_not_selection_adjusted_or_future_probability"
+report_all_accounts = true
+report_execution_ambiguities = true
+report_entry_price_vs_arm_close_for_retest = true
+report_concentration_and_sizing_rejections = true
+automatic_default_strategy_change = false
+
+[unchanged]
+initial_usdt = "100"
+stop_equity_usdt = "50"
+per_trade_risk_fraction = "0.005"
+total_open_risk_fraction = "0.01"
+baseline_gross_leverage_cap = "1"
+maximum_effective_leverage = "10"
+drawdown_halt_fraction = "0.20"
+direction_gate = "latest_complete4h_EMA20_EMA50"
+exit = "original_hourly_EMA50_initial_2ATR14_stop_72h_deadline_account_guards"
+entry_delay_seconds = 60
+costs = "original_base_stress_actual_funding"
+data = "2023-2025_observed_development_2022NovDec_warmup_2026_locked"
+
+[research_context]
+prior_distinct_valid_candidate_cost_configurations = 32
+prior_valid_account_executions = 34
+prior_superseded_debug_accounts = 8
+new_distinct_candidate_cost_configurations = 4
+new_account_executions = 4
+thresholds_are = "one_default_per_hypothesis_not_optimized"
+independent_validation_claimed = false
+factor_ic_claimed = false
+reference_background_not_hourly_entry_proof = "https://www.nber.org/papers/w24877"
+reference_selection_bias = "https://www.davidhbailey.com/dhbpapers/backtest-prob.pdf"

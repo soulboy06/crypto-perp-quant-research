@@ -1,0 +1,103 @@
+{
+  "run_id": "SCREEN-20261015T071529Z-2ee50a78",
+  "cash_identity_checks": [
+    {
+      "account": "trend_base",
+      "closed_trade_cash_identity_error": "0E-19",
+      "holding_deadline_respected": true
+    },
+    {
+      "account": "trend_stress",
+      "closed_trade_cash_identity_error": "0E-19",
+      "holding_deadline_respected": true
+    },
+    {
+      "account": "mean_reversion_base",
+      "closed_trade_cash_identity_error": "0E-19",
+      "holding_deadline_respected": true
+    },
+    {
+      "account": "mean_reversion_stress",
+      "closed_trade_cash_identity_error": "0E-19",
+      "holding_deadline_respected": true
+    }
+  ],
+  "gate": {
+    "trend": {
+      "numerical_screen_passed": false,
+      "failed_conditions": [
+        "基础成本后净收益不为正",
+        "压力成本后净收益不为正",
+        "三个年度中正收益不足两个"
+      ],
+      "formal_selection_eligible": false
+    },
+    "mean_reversion": {
+      "numerical_screen_passed": false,
+      "failed_conditions": [
+        "基础成本后净收益不为正",
+        "压力成本后净收益不为正",
+        "三个年度中正收益不足两个",
+        "最差年度收益低于 -10%"
+      ],
+      "formal_selection_eligible": false
+    }
+  },
+  "breakdown": {
+    "trend_base": {
+      "by_symbol": {
+        "BTCUSDT": 6,
+        "ETHUSDT": 262
+      },
+      "by_exit": {
+        "hourly_exit": 90,
+        "stop": 152,
+        "time_limit": 25,
+        "account_protection": 1
+      }
+    },
+    "trend_stress": {
+      "by_symbol": {
+        "BTCUSDT": 2,
+        "ETHUSDT": 225
+      },
+      "by_exit": {
+        "hourly_exit": 73,
+        "stop": 134,
+        "time_limit": 20
+      }
+    },
+    "mean_reversion_base": {
+      "by_symbol": {
+        "ETHUSDT": 305,
+        "BTCUSDT": 8
+      },
+      "by_exit": {
+        "hourly_exit": 172,
+        "stop": 138,
+        "time_limit": 3
+      }
+    },
+    "mean_reversion_stress": {
+      "by_symbol": {
+        "ETHUSDT": 262,
+        "BTCUSDT": 5
+      },
+      "by_exit": {
+        "hourly_exit": 149,
+        "stop": 117,
+        "time_limit": 1
+      }
+    }
+  },
+  "new_execution_checks": 6,
+  "data_rehash_repeated": false,
+  "debug_runs_superseded": [
+    "SCREEN-20261015T070746Z-273758dc",
+    "SCREEN-20261015T071119Z-aee71b34"
+  ],
+  "unique_candidate_accounts": 4,
+  "implementation_passes": 3,
+  "total_account_initializations": 12,
+  "no_parameter_search": true
+}

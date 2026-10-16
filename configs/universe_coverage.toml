@@ -1,0 +1,10 @@
+policy_id = "UNIV-COVERAGE-001-v1"
+parent_design = "UNIV-001-v1"
+requested_full_end_exclusive = "2026-01-01T00:00:00Z"
+common_complete_end_exclusive = "2024-07-01T00:00:00Z"
+reason = "funding_REST_403_from_some_July2024_partitions_and_unrecoverable_observed_mark_gaps_on_2024Aug12"
+declared_before_any_expanded_universe_backtest = true
+same_dates_for_two_and_ten_coin_accounts = true
+date_selection_uses_returns = false
+full_2023_2025_result_claim_permitted = false
+allow_missing_price_fill = false

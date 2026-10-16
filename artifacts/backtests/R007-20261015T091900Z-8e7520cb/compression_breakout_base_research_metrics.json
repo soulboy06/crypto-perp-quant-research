@@ -1,0 +1,70 @@
+{
+  "account": "compression_breakout_base",
+  "scope": "development_screening_under_proxy_rules",
+  "initial_equity": 100,
+  "ending_equity": "96.4779875905405640749",
+  "net_return": -0.03522012409459441,
+  "cagr": -0.011869856393573186,
+  "max_adverse_bound_drawdown": 0.12260644913850068,
+  "daily_sharpe_zero_risk_free": -0.14007088677556556,
+  "daily_sortino_zero_target": -0.31264879312816324,
+  "calmar": -0.09681265934196143,
+  "holding_limit_hours": 72,
+  "round_trips": 230,
+  "win_rate": 0.14782608695652175,
+  "profit_factor": 0.934129334194734,
+  "fees": "8.115281646",
+  "funding": "-0.5373207634594359251",
+  "gross_turnover": "13525.46941",
+  "annual": {
+    "2023": {
+      "start_equity": 100.0,
+      "end_equity": 104.186906873096,
+      "return": 0.04186906873095997
+    },
+    "2024": {
+      "start_equity": 104.186906873096,
+      "end_equity": 95.02095852187253,
+      "return": -0.08797600990677246
+    },
+    "2025": {
+      "start_equity": 95.02095852187253,
+      "end_equity": 96.47798759054056,
+      "return": 0.015333765216993145
+    }
+  },
+  "signals": {
+    "BTCUSDT_long": 332,
+    "ETHUSDT_long": 239,
+    "ETHUSDT_short": 261,
+    "BTCUSDT_short": 236
+  },
+  "rejections": {
+    "R002:higher_4h_direction_mismatch": 278,
+    "Entry rejected: budget_or_minimum_order": 560
+  },
+  "liquidation_proxy_events": 0,
+  "execution_ambiguities": 0,
+  "halt_reasons": [],
+  "formal_selection_eligible": false,
+  "holdout_read": false,
+  "research_design": "R007-v1",
+  "entry_filter": "closed_4h_ema20_ema50",
+  "entry_filter_counts": {
+    "higher_4h_direction_mismatch": 278,
+    "higher_4h_pass": 790
+  },
+  "only_entry_rule_changed": true,
+  "case": "compression_breakout",
+  "parent_strategy": "R002_trend",
+  "only_changed_field": "replace_48h_breakout_with_preceding_compression_then_expansion_breakout",
+  "changed_value": "prior_6h_TR_mean_le_0.75_previous_nonoverlap_24h_TR_mean_then_current_TR_ge_1.5_recent_mean_and_close_breaks_prior_6h_range",
+  "sizing_diagnostics": {
+    "reserve_passed": 230,
+    "reserve_rejected": 560,
+    "rejected_binding:stop_risk": 560,
+    "rejected_filter:below_min_notional": 560,
+    "rejected_filter:rounded_quantity_zero": 337,
+    "rejected_filter:below_min_quantity": 337
+  }
+}

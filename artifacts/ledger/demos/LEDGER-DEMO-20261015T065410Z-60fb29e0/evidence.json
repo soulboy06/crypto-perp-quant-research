@@ -1,0 +1,62 @@
+{
+  "run_id": "LEDGER-DEMO-20261015T065410Z-60fb29e0",
+  "scope": "synthetic_accounting_exercise_only",
+  "historical_backtest": false,
+  "rules_are_synthetic": true,
+  "rule_fixture": {
+    "step": "0.01",
+    "min_quantity": "0.01",
+    "max_quantity": "100",
+    "min_notional": "5",
+    "tiers": [
+      {
+        "floor": "0",
+        "cap": "1000000",
+        "maintenance_rate": "0.005",
+        "cumulative_amount": "0",
+        "maximum_venue_leverage": "10"
+      }
+    ],
+    "valid_from_us": 0,
+    "valid_to_us": 2000000000000000,
+    "evidence_id": "SYNTHETIC_DEMO_NOT_BINANCE_RULES"
+  },
+  "initial_equity": "100",
+  "hand_expected_final_equity": "100.55182",
+  "observed_final_equity": "100.551820",
+  "identity_matches": true,
+  "journal_replay_matches": true,
+  "binding": {
+    "schema": "LEDGER-001-v1",
+    "config_sha256": "67a0f7a3baf1ecb2256f873583b29a0089b9cb90d9a23a8da9def6212c52020b",
+    "rules_sha256": "93d4a1dd5ac77cee6425b30a652b0c9b125fcd5c14fbf6abf1c3dfd26c27e0af",
+    "funding_policy": "available_first_credit_cash_research_v1",
+    "leverage_cap": "1",
+    "cost": "base",
+    "historical_rule_verification": "caller_responsibility_not_established_by_ledger"
+  },
+  "final_state": {
+    "cash": "100.551820",
+    "daily_paused": false,
+    "day": 19358,
+    "day_start_equity": "100",
+    "exposure_reduction_required": false,
+    "fees": "0.048120",
+    "funding": "-0.000060",
+    "funding_events": [
+      "BTCUSDT:1672560000000000",
+      "ETHUSDT:1672560000000000"
+    ],
+    "halt_reasons": [],
+    "last_time_us": 1672560060000000,
+    "order_ids": [
+      "BTCUSDT",
+      "ETHUSDT"
+    ],
+    "orders": {},
+    "peak_equity": "100.576000",
+    "positions": {},
+    "realized_pnl": "0.60",
+    "sequence": 10
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "run_id": "SAMPLE-20261015T061308Z-a752e6fa",
+  "scope": "development_sample_only",
+  "config_sha256": "671f1dad457754bc44c6c6c4be30c81433810d7dd83aededbd512b9c65836ffb",
+  "script_sha256": "8454617cd0d264cadf85c0290c07a7b8904e1719790b4ba2f779dffffb6db358",
+  "holdout_history_requested": false,
+  "complete_development_coverage": false,
+  "results": [
+    {
+      "symbol": "BTCUSDT",
+      "kind": "klines",
+      "period": "2023-01-01",
+      "url": "https://data.binance.vision/data/futures/um/daily/klines/BTCUSDT/1m/BTCUSDT-1m-2023-01-01.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/daily/klines/BTCUSDT/1m/BTCUSDT-1m-2023-01-01.zip.CHECKSUM",
+      "started_at_utc": "2026-10-15T06:13:08.232099+00:00",
+      "sha256": "62185157e73a1293f3254044aa4be6e2392735ffcc476ea907b581a7b4d8137c",
+      "bytes": 54209,
+      "path": "data/raw/klines/BTCUSDT/2023-01-01/62185157e73a1293f3254044aa4be6e2392735ffcc476ea907b581a7b4d8137c/BTCUSDT-1m-2023-01-01.zip",
+      "checksum_path": "data/raw/klines/BTCUSDT/2023-01-01/62185157e73a1293f3254044aa4be6e2392735ffcc476ea907b581a7b4d8137c/61013641c3ff604d40405f1801831dd267fed9142b439914f6b9be7f55e938b9.CHECKSUM",
+      "checksum_verified": true,
+      "csv_member": "BTCUSDT-1m-2023-01-01.csv",
+      "csv_sha256": "5043cd03f3dd25a3e188f32cf8ebb2049b5e08f6912bffde9773fb324616c53e",
+      "preview_lines": [
+        "open_time,open,high,low,close,volume,close_time,quote_volume,count,taker_buy_volume,taker_buy_quote_volume,ignore",
+        "1672531200000,16537.50,16538.00,16534.30,16538.00,170.576,1672531259999,2820697.45580,946,103.782,1716164.80590,0",
+        "1672531260000,16538.00,16538.00,16534.90,16534.90,44.287,1672531319999,732363.28620,570,19.098,315817.81330,0"
+      ],
+      "completed_at_utc": "2026-10-15T06:13:18.847977+00:00"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "kind": "markPriceKlines",
+      "period": "2023-01-01",
+      "url": "https://data.binance.vision/data/futures/um/daily/markPriceKlines/BTCUSDT/1m/BTCUSDT-1m-2023-01-01.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/daily/markPriceKlines/BTCUSDT/1m/BTCUSDT-1m-2023-01-01.zip.CHECKSUM",
+      "started_at_utc": "2026-10-15T06:13:08.232099+00:00",
+      "sha256": "2ea00a4005b306c5ac2e207d35c42980b412489c93d8745c8add5cbcb9382e55",
+      "bytes": 32912,
+      "path": "data/raw/markPriceKlines/BTCUSDT/2023-01-01/2ea00a4005b306c5ac2e207d35c42980b412489c93d8745c8add5cbcb9382e55/BTCUSDT-1m-2023-01-01.zip",
+      "checksum_path": "data/raw/markPriceKlines/BTCUSDT/2023-01-01/2ea00a4005b306c5ac2e207d35c42980b412489c93d8745c8add5cbcb9382e55/1717f67231b4370a707a2e4ea8d963bfff47e56bea68fde1ab4673cdca968d24.CHECKSUM",
+      "checksum_verified": true,
+      "csv_member": "BTCUSDT-1m-2023-01-01.csv",
+      "csv_sha256": "98f3f2fe91c5c48748da56ef3ab1fd9a54bf56fc06332b5f4ba0f5be4e2ea7ce",
+      "preview_lines": [
+        "open_time,open,high,low,close,volume,close_time,quote_volume,count,taker_buy_volume,taker_buy_quote_volume,ignore",
+        "1672531200000,16537.60000000,16538,16534.30000000,16538,0,1672531259999,0,60,0,0,0",
+        "1672531260000,16538,16538.35274674,16534.90000000,16534.90000000,0,1672531319999,0,60,0,0,0"
+      ],
+      "completed_at_utc": "2026-10-15T06:13:18.847463+00:00"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "kind": "fundingRate",
+      "period": "2023-01",
+      "url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2023-01.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2023-01.zip.CHECKSUM",
+      "started_at_utc": "2026-10-15T06:13:08.233212+00:00",
+      "sha256": "05e3df32f28d0d50f4c5a280adee9368b4a66fc68c6ddca1b3277087ac0d19f5",
+      "bytes": 863,
+      "path": "data/raw/fundingRate/BTCUSDT/2023-01/05e3df32f28d0d50f4c5a280adee9368b4a66fc68c6ddca1b3277087ac0d19f5/BTCUSDT-fundingRate-2023-01.zip",
+      "checksum_path": "data/raw/fundingRate/BTCUSDT/2023-01/05e3df32f28d0d50f4c5a280adee9368b4a66fc68c6ddca1b3277087ac0d19f5/5951057db013466a734bf89cba088c9d35fe902bc1393756f4efeef253199230.CHECKSUM",
+      "checksum_verified": true,
+      "csv_member": "BTCUSDT-fundingRate-2023-01.csv",
+      "csv_sha256": "b83a5af331578615875966fb227bfe8e2583e252837310c9bcfb8efa56ba2895",
+      "preview_lines": [
+        "calc_time,funding_interval_hours,last_funding_rate",
+        "1672531200000,8,0.00010000",
+        "1672560000008,8,0.00010000"
+      ],
+      "completed_at_utc": "2026-10-15T06:13:18.846406+00:00"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "kind": "klines",
+      "period": "2023-01-01",
+      "url": "https://data.binance.vision/data/futures/um/daily/klines/ETHUSDT/1m/ETHUSDT-1m-2023-01-01.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/daily/klines/ETHUSDT/1m/ETHUSDT-1m-2023-01-01.zip.CHECKSUM",
+      "started_at_utc": "2026-10-15T06:13:18.846406+00:00",
+      "sha256": "2c03b4a67d78bfc4627d6b12c8e5978220340c773b3f7ddc4ce523328c72260e",
+      "bytes": 57717,
+      "path": "data/raw/klines/ETHUSDT/2023-01-01/2c03b4a67d78bfc4627d6b12c8e5978220340c773b3f7ddc4ce523328c72260e/ETHUSDT-1m-2023-01-01.zip",
+      "checksum_path": "data/raw/klines/ETHUSDT/2023-01-01/2c03b4a67d78bfc4627d6b12c8e5978220340c773b3f7ddc4ce523328c72260e/f139a3dcda025b34e647dcadb79acc9b44d5d754c6ca2ff463ae7f3835996995.CHECKSUM",
+      "checksum_verified": true,
+      "csv_member": "ETHUSDT-1m-2023-01-01.csv",
+      "csv_sha256": "46ef85a8ac18572c070b51f95664392fd42bf59c7b88c8efdb955d26f6019ea2",
+      "preview_lines": [
+        "open_time,open,high,low,close,volume,close_time,quote_volume,count,taker_buy_volume,taker_buy_quote_volume,ignore",
+        "1672531200000,1196.10,1196.10,1195.77,1196.03,1478.893,1672531259999,1768554.73307,941,572.907,685110.62203,0",
+        "1672531260000,1196.02,1196.27,1196.02,1196.03,737.356,1672531319999,881981.67387,608,392.259,469202.34138,0"
+      ],
+      "completed_at_utc": "2026-10-15T06:13:28.823639+00:00"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "kind": "markPriceKlines",
+      "period": "2023-01-01",
+      "url": "https://data.binance.vision/data/futures/um/daily/markPriceKlines/ETHUSDT/1m/ETHUSDT-1m-2023-01-01.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/daily/markPriceKlines/ETHUSDT/1m/ETHUSDT-1m-2023-01-01.zip.CHECKSUM",
+      "started_at_utc": "2026-10-15T06:13:18.847463+00:00",
+      "sha256": "39e8c3c5439352b809a7be44c03f56cf40961a4df2a24ece53343b178f314f99",
+      "bytes": 32226,
+      "path": "data/raw/markPriceKlines/ETHUSDT/2023-01-01/39e8c3c5439352b809a7be44c03f56cf40961a4df2a24ece53343b178f314f99/ETHUSDT-1m-2023-01-01.zip",
+      "checksum_path": "data/raw/markPriceKlines/ETHUSDT/2023-01-01/39e8c3c5439352b809a7be44c03f56cf40961a4df2a24ece53343b178f314f99/936341f39e2a42c59316d7d59ce42f8f9aa09cb9e7ff87a790853ee7ebdf6f37.CHECKSUM",
+      "checksum_verified": true,
+      "csv_member": "ETHUSDT-1m-2023-01-01.csv",
+      "csv_sha256": "d3d14df29e694fea6d8bcc545f7ef0b16936098da9e2b1620f076d5af2fdae19",
+      "preview_lines": [
+        "open_time,open,high,low,close,volume,close_time,quote_volume,count,taker_buy_volume,taker_buy_quote_volume,ignore",
+        "1672531200000,1196.10000000,1196.10000000,1195.77000000,1196.03000000,0,1672531259999,0,60,0,0,0",
+        "1672531260000,1196.02000000,1196.27000000,1196.02000000,1196.03000000,0,1672531319999,0,60,0,0,0"
+      ],
+      "completed_at_utc": "2026-10-15T06:13:28.813046+00:00"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "kind": "fundingRate",
+      "period": "2023-01",
+      "url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2023-01.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2023-01.zip.CHECKSUM",
+      "started_at_utc": "2026-10-15T06:13:18.847977+00:00",
+      "sha256": "5647d5978092d220eb14e11c7854d86815d0eb6204197e37b4808cc599e986f3",
+      "bytes": 819,
+      "path": "data/raw/fundingRate/ETHUSDT/2023-01/5647d5978092d220eb14e11c7854d86815d0eb6204197e37b4808cc599e986f3/ETHUSDT-fundingRate-2023-01.zip",
+      "checksum_path": "data/raw/fundingRate/ETHUSDT/2023-01/5647d5978092d220eb14e11c7854d86815d0eb6204197e37b4808cc599e986f3/6b0deef20e42b5e1eab99f0e0f3433a7bb1a333c3699028de6d392fb38ec1a26.CHECKSUM",
+      "checksum_verified": true,
+      "csv_member": "ETHUSDT-fundingRate-2023-01.csv",
+      "csv_sha256": "3d0a0068da875bb28eb16cac30ea2d88b45b134de6982e33d57e6ab38548466c",
+      "preview_lines": [
+        "calc_time,funding_interval_hours,last_funding_rate",
+        "1672531200000,8,0.00010000",
+        "1672560000008,8,0.00010000"
+      ],
+      "completed_at_utc": "2026-10-15T06:13:28.806145+00:00"
+    }
+  ]
+}

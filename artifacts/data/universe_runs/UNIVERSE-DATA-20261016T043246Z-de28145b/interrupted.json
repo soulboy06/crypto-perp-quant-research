@@ -1,0 +1,1024 @@
+{
+  "status": "interrupted_before_full_manifest",
+  "reason": "Funding REST 403 and observed mark gaps not recoverable from official daily/REST; common complete window recorded before strategy run.",
+  "completed_partitions": 912,
+  "errors": [
+    {
+      "symbol": "XRPUSDT",
+      "kind": "klines",
+      "period": "2023-11",
+      "error": "ValueError: Invalid trade volumes",
+      "repair_error": null
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "fundingRate",
+      "period": "2024-08",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "XRPUSDT",
+      "kind": "fundingRate",
+      "period": "2024-08",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "BNBUSDT",
+      "kind": "fundingRate",
+      "period": "2024-08",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "kind": "fundingRate",
+      "period": "2024-08",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LTCUSDT",
+      "kind": "fundingRate",
+      "period": "2024-07",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "XRPUSDT",
+      "kind": "markPriceKlines",
+      "period": "2024-08",
+      "error": "ValueError: Missing or extra minute bars",
+      "repair_error": "REST did not recover all gaps with matching overlap evidence"
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "kind": "markPriceKlines",
+      "period": "2024-08",
+      "error": "ValueError: Missing or extra minute bars",
+      "repair_error": "REST did not recover all gaps with matching overlap evidence"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "markPriceKlines",
+      "period": "2024-08",
+      "error": "ValueError: Missing or extra minute bars",
+      "repair_error": "REST did not recover all gaps with matching overlap evidence"
+    },
+    {
+      "symbol": "ADAUSDT",
+      "kind": "markPriceKlines",
+      "period": "2024-08",
+      "error": "ValueError: Missing or extra minute bars",
+      "repair_error": "REST did not recover all gaps with matching overlap evidence"
+    },
+    {
+      "symbol": "BNBUSDT",
+      "kind": "fundingRate",
+      "period": "2024-09",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LINKUSDT",
+      "kind": "fundingRate",
+      "period": "2024-08",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "ADAUSDT",
+      "kind": "fundingRate",
+      "period": "2024-08",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LTCUSDT",
+      "kind": "fundingRate",
+      "period": "2024-08",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "AVAXUSDT",
+      "kind": "fundingRate",
+      "period": "2024-08",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LTCUSDT",
+      "kind": "markPriceKlines",
+      "period": "2024-08",
+      "error": "ValueError: Missing or extra minute bars",
+      "repair_error": "REST did not recover all gaps with matching overlap evidence"
+    },
+    {
+      "symbol": "LINKUSDT",
+      "kind": "markPriceKlines",
+      "period": "2024-08",
+      "error": "ValueError: Missing or extra minute bars",
+      "repair_error": "REST did not recover all gaps with matching overlap evidence"
+    },
+    {
+      "symbol": "AVAXUSDT",
+      "kind": "markPriceKlines",
+      "period": "2024-08",
+      "error": "ValueError: Missing or extra minute bars",
+      "repair_error": "REST did not recover all gaps with matching overlap evidence"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "fundingRate",
+      "period": "2024-09",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "ADAUSDT",
+      "kind": "fundingRate",
+      "period": "2024-09",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LINKUSDT",
+      "kind": "fundingRate",
+      "period": "2024-09",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "XRPUSDT",
+      "kind": "fundingRate",
+      "period": "2024-09",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "kind": "fundingRate",
+      "period": "2024-09",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "AVAXUSDT",
+      "kind": "fundingRate",
+      "period": "2024-09",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LTCUSDT",
+      "kind": "fundingRate",
+      "period": "2024-09",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "kind": "fundingRate",
+      "period": "2024-10",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "BNBUSDT",
+      "kind": "fundingRate",
+      "period": "2024-10",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "fundingRate",
+      "period": "2024-10",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "XRPUSDT",
+      "kind": "fundingRate",
+      "period": "2024-10",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "BNBUSDT",
+      "kind": "fundingRate",
+      "period": "2024-11",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LTCUSDT",
+      "kind": "fundingRate",
+      "period": "2024-10",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "ADAUSDT",
+      "kind": "fundingRate",
+      "period": "2024-10",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LINKUSDT",
+      "kind": "fundingRate",
+      "period": "2024-10",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "AVAXUSDT",
+      "kind": "fundingRate",
+      "period": "2024-10",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "fundingRate",
+      "period": "2024-11",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "XRPUSDT",
+      "kind": "fundingRate",
+      "period": "2024-11",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "ADAUSDT",
+      "kind": "fundingRate",
+      "period": "2024-11",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LINKUSDT",
+      "kind": "fundingRate",
+      "period": "2024-11",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "kind": "fundingRate",
+      "period": "2024-11",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "AVAXUSDT",
+      "kind": "fundingRate",
+      "period": "2024-11",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LTCUSDT",
+      "kind": "fundingRate",
+      "period": "2024-11",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "kind": "fundingRate",
+      "period": "2024-12",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "fundingRate",
+      "period": "2024-12",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "BNBUSDT",
+      "kind": "fundingRate",
+      "period": "2024-12",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "XRPUSDT",
+      "kind": "fundingRate",
+      "period": "2024-12",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LINKUSDT",
+      "kind": "fundingRate",
+      "period": "2024-12",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "AVAXUSDT",
+      "kind": "fundingRate",
+      "period": "2024-12",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LTCUSDT",
+      "kind": "fundingRate",
+      "period": "2024-12",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "BNBUSDT",
+      "kind": "fundingRate",
+      "period": "2025-01",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "ADAUSDT",
+      "kind": "fundingRate",
+      "period": "2024-12",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "fundingRate",
+      "period": "2025-01",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "kind": "fundingRate",
+      "period": "2025-01",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "ADAUSDT",
+      "kind": "fundingRate",
+      "period": "2025-01",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "XRPUSDT",
+      "kind": "fundingRate",
+      "period": "2025-01",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "AVAXUSDT",
+      "kind": "fundingRate",
+      "period": "2025-01",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LINKUSDT",
+      "kind": "fundingRate",
+      "period": "2025-01",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "XRPUSDT",
+      "kind": "fundingRate",
+      "period": "2025-02",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LTCUSDT",
+      "kind": "fundingRate",
+      "period": "2025-01",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "kind": "fundingRate",
+      "period": "2025-02",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "BNBUSDT",
+      "kind": "fundingRate",
+      "period": "2025-02",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "fundingRate",
+      "period": "2025-02",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "ADAUSDT",
+      "kind": "fundingRate",
+      "period": "2025-02",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "AVAXUSDT",
+      "kind": "fundingRate",
+      "period": "2025-02",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LTCUSDT",
+      "kind": "fundingRate",
+      "period": "2025-02",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "BNBUSDT",
+      "kind": "fundingRate",
+      "period": "2025-03",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LINKUSDT",
+      "kind": "fundingRate",
+      "period": "2025-02",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "fundingRate",
+      "period": "2025-03",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LINKUSDT",
+      "kind": "fundingRate",
+      "period": "2025-03",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "XRPUSDT",
+      "kind": "fundingRate",
+      "period": "2025-03",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "AVAXUSDT",
+      "kind": "fundingRate",
+      "period": "2025-03",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "kind": "fundingRate",
+      "period": "2025-03",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "ADAUSDT",
+      "kind": "fundingRate",
+      "period": "2025-03",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "kind": "fundingRate",
+      "period": "2025-04",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "XRPUSDT",
+      "kind": "fundingRate",
+      "period": "2025-04",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LTCUSDT",
+      "kind": "fundingRate",
+      "period": "2025-03",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "BNBUSDT",
+      "kind": "fundingRate",
+      "period": "2025-04",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "fundingRate",
+      "period": "2025-04",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "BNBUSDT",
+      "kind": "fundingRate",
+      "period": "2025-05",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "ADAUSDT",
+      "kind": "fundingRate",
+      "period": "2025-04",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LTCUSDT",
+      "kind": "fundingRate",
+      "period": "2025-04",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LINKUSDT",
+      "kind": "fundingRate",
+      "period": "2025-04",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "AVAXUSDT",
+      "kind": "fundingRate",
+      "period": "2025-04",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "fundingRate",
+      "period": "2025-05",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "ADAUSDT",
+      "kind": "fundingRate",
+      "period": "2025-05",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "kind": "fundingRate",
+      "period": "2025-05",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "AVAXUSDT",
+      "kind": "fundingRate",
+      "period": "2025-05",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LINKUSDT",
+      "kind": "fundingRate",
+      "period": "2025-05",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "XRPUSDT",
+      "kind": "fundingRate",
+      "period": "2025-05",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LTCUSDT",
+      "kind": "fundingRate",
+      "period": "2025-05",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "kind": "fundingRate",
+      "period": "2025-06",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "XRPUSDT",
+      "kind": "fundingRate",
+      "period": "2025-06",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "fundingRate",
+      "period": "2025-06",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "BNBUSDT",
+      "kind": "fundingRate",
+      "period": "2025-06",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "AVAXUSDT",
+      "kind": "fundingRate",
+      "period": "2025-06",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LTCUSDT",
+      "kind": "fundingRate",
+      "period": "2025-06",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "BNBUSDT",
+      "kind": "fundingRate",
+      "period": "2025-07",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LINKUSDT",
+      "kind": "fundingRate",
+      "period": "2025-06",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "ADAUSDT",
+      "kind": "fundingRate",
+      "period": "2025-06",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "fundingRate",
+      "period": "2025-07",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "XRPUSDT",
+      "kind": "fundingRate",
+      "period": "2025-07",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "kind": "fundingRate",
+      "period": "2025-07",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LINKUSDT",
+      "kind": "fundingRate",
+      "period": "2025-07",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "AVAXUSDT",
+      "kind": "fundingRate",
+      "period": "2025-07",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "ADAUSDT",
+      "kind": "fundingRate",
+      "period": "2025-07",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "BNBUSDT",
+      "kind": "fundingRate",
+      "period": "2025-08",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LTCUSDT",
+      "kind": "fundingRate",
+      "period": "2025-07",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "kind": "fundingRate",
+      "period": "2025-08",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "XRPUSDT",
+      "kind": "fundingRate",
+      "period": "2025-08",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "fundingRate",
+      "period": "2025-08",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "BNBUSDT",
+      "kind": "fundingRate",
+      "period": "2025-09",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "AVAXUSDT",
+      "kind": "fundingRate",
+      "period": "2025-08",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LTCUSDT",
+      "kind": "fundingRate",
+      "period": "2025-08",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "ADAUSDT",
+      "kind": "fundingRate",
+      "period": "2025-08",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LINKUSDT",
+      "kind": "fundingRate",
+      "period": "2025-08",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "fundingRate",
+      "period": "2025-09",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "AVAXUSDT",
+      "kind": "fundingRate",
+      "period": "2025-09",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LINKUSDT",
+      "kind": "fundingRate",
+      "period": "2025-09",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "ADAUSDT",
+      "kind": "fundingRate",
+      "period": "2025-09",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "XRPUSDT",
+      "kind": "fundingRate",
+      "period": "2025-09",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "kind": "fundingRate",
+      "period": "2025-09",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "BNBUSDT",
+      "kind": "fundingRate",
+      "period": "2025-10",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LTCUSDT",
+      "kind": "fundingRate",
+      "period": "2025-09",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "kind": "fundingRate",
+      "period": "2025-10",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "fundingRate",
+      "period": "2025-10",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "XRPUSDT",
+      "kind": "fundingRate",
+      "period": "2025-10",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "BNBUSDT",
+      "kind": "fundingRate",
+      "period": "2025-11",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "AVAXUSDT",
+      "kind": "fundingRate",
+      "period": "2025-10",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LINKUSDT",
+      "kind": "fundingRate",
+      "period": "2025-10",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "ADAUSDT",
+      "kind": "fundingRate",
+      "period": "2025-10",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LTCUSDT",
+      "kind": "fundingRate",
+      "period": "2025-10",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "fundingRate",
+      "period": "2025-11",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "AVAXUSDT",
+      "kind": "fundingRate",
+      "period": "2025-11",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "ADAUSDT",
+      "kind": "fundingRate",
+      "period": "2025-11",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "XRPUSDT",
+      "kind": "fundingRate",
+      "period": "2025-11",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LINKUSDT",
+      "kind": "fundingRate",
+      "period": "2025-11",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "kind": "fundingRate",
+      "period": "2025-11",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "fundingRate",
+      "period": "2025-12",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LTCUSDT",
+      "kind": "fundingRate",
+      "period": "2025-11",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "BNBUSDT",
+      "kind": "fundingRate",
+      "period": "2025-12",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "kind": "fundingRate",
+      "period": "2025-12",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "XRPUSDT",
+      "kind": "fundingRate",
+      "period": "2025-12",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "ADAUSDT",
+      "kind": "fundingRate",
+      "period": "2025-12",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LINKUSDT",
+      "kind": "fundingRate",
+      "period": "2025-12",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "LTCUSDT",
+      "kind": "fundingRate",
+      "period": "2025-12",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    },
+    {
+      "symbol": "AVAXUSDT",
+      "kind": "fundingRate",
+      "period": "2025-12",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "repair_error": null
+    }
+  ],
+  "all_raw_and_validated_data_retained": true,
+  "strategy_backtest_executed": false
+}

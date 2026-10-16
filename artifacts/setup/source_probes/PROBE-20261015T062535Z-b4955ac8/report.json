@@ -1,0 +1,64 @@
+{
+  "run_id": "PROBE-20261015T062535Z-b4955ac8",
+  "report_path": "D:\\量化\\artifacts\\setup\\source_probes\\PROBE-20261015T062535Z-b4955ac8\\report.json",
+  "checked_at_utc": "2026-10-15T06:25:46.203700+00:00",
+  "history_records_downloaded": false,
+  "holdout_history_accessed": false,
+  "note": "Archive HEAD responses only establish object availability, not integrity or coverage.",
+  "results": [
+    {
+      "name": "exchange_info",
+      "url": "https://fapi.binance.com/fapi/v1/exchangeInfo",
+      "method": "GET",
+      "status": 200,
+      "content_length": "1151285",
+      "verified_symbols": [
+        "BTCUSDT",
+        "ETHUSDT"
+      ],
+      "sha256": "ec640f5da5e18bbb61715448bc87887d421811a7906c33ab71e68a79e21c98c7"
+    },
+    {
+      "name": "BTCUSDT_klines",
+      "url": "https://data.binance.vision/data/futures/um/daily/klines/BTCUSDT/1m/BTCUSDT-1m-2023-01-01.zip",
+      "method": "HEAD",
+      "status": 200,
+      "content_length": "54209"
+    },
+    {
+      "name": "BTCUSDT_markPriceKlines",
+      "url": "https://data.binance.vision/data/futures/um/daily/markPriceKlines/BTCUSDT/1m/BTCUSDT-1m-2023-01-01.zip",
+      "method": "HEAD",
+      "status": 200,
+      "content_length": "32912"
+    },
+    {
+      "name": "BTCUSDT_fundingRate",
+      "url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2023-01.zip",
+      "method": "HEAD",
+      "status": 200,
+      "content_length": "863"
+    },
+    {
+      "name": "ETHUSDT_klines",
+      "url": "https://data.binance.vision/data/futures/um/daily/klines/ETHUSDT/1m/ETHUSDT-1m-2023-01-01.zip",
+      "method": "HEAD",
+      "status": 200,
+      "content_length": "57717"
+    },
+    {
+      "name": "ETHUSDT_markPriceKlines",
+      "url": "https://data.binance.vision/data/futures/um/daily/markPriceKlines/ETHUSDT/1m/ETHUSDT-1m-2023-01-01.zip",
+      "method": "HEAD",
+      "status": 200,
+      "content_length": "32226"
+    },
+    {
+      "name": "ETHUSDT_fundingRate",
+      "url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2023-01.zip",
+      "method": "HEAD",
+      "status": 200,
+      "content_length": "819"
+    }
+  ]
+}

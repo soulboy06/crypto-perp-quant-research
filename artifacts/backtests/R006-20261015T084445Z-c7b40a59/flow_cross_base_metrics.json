@@ -1,0 +1,53 @@
+{
+  "account": "flow_cross_base",
+  "scope": "development_screening_under_proxy_rules",
+  "initial_equity": 100,
+  "ending_equity": "86.4477271829696637873",
+  "net_return": -0.13552272817030342,
+  "cagr": -0.047341832013222174,
+  "max_adverse_bound_drawdown": 0.20043505881059223,
+  "daily_sharpe_zero_risk_free": -1.1346590460472568,
+  "daily_sortino_zero_target": -1.8610999378637005,
+  "calmar": -0.23619536569178454,
+  "holding_limit_hours": 72,
+  "round_trips": 200,
+  "win_rate": 0.17,
+  "profit_factor": 0.5963964991367676,
+  "fees": "7.561779636",
+  "funding": "-0.2459131810303362127",
+  "gross_turnover": "12602.96606",
+  "annual": {
+    "2023": {
+      "start_equity": 100.0,
+      "end_equity": 86.44772718296966,
+      "return": -0.13552272817030342
+    },
+    "2024": {
+      "start_equity": 86.44772718296966,
+      "end_equity": 86.44772718296966,
+      "return": 0.0
+    },
+    "2025": {
+      "start_equity": 86.44772718296966,
+      "end_equity": 86.44772718296966,
+      "return": 0.0
+    }
+  },
+  "signals": {
+    "BTCUSDT_short": 291,
+    "ETHUSDT_short": 164,
+    "ETHUSDT_long": 144,
+    "BTCUSDT_long": 184
+  },
+  "rejections": {
+    "Entry rejected: budget_or_minimum_order": 392,
+    "R002:higher_4h_direction_mismatch": 191
+  },
+  "liquidation_proxy_events": 0,
+  "execution_ambiguities": 0,
+  "halt_reasons": [
+    "drawdown_halt"
+  ],
+  "formal_selection_eligible": false,
+  "holdout_read": false
+}

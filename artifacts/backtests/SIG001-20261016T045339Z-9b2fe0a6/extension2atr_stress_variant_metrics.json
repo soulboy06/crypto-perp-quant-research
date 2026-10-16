@@ -1,0 +1,77 @@
+{
+  "account": "extension2atr_stress",
+  "scope": "development_screening_under_proxy_rules",
+  "initial_equity": 100,
+  "ending_equity": "92.8840242682764303394",
+  "net_return": -0.07115975731723567,
+  "cagr": -0.048063865277917506,
+  "max_adverse_bound_drawdown": 0.1379643168952755,
+  "daily_sharpe_zero_risk_free": -1.0606895972001955,
+  "daily_sortino_zero_target": -1.6556848457475801,
+  "calmar": -0.34837896029595333,
+  "holding_limit_hours": 72,
+  "round_trips": 61,
+  "win_rate": 0.18032786885245902,
+  "profit_factor": 0.6163086377865497,
+  "fees": "1.5863615700",
+  "funding": "-0.3321241617235696606",
+  "gross_turnover": "2349.885950",
+  "annual": {
+    "2023": {
+      "start_equity": 100.0,
+      "end_equity": 92.88402426827643,
+      "return": -0.07115975731723567
+    },
+    "2024": {
+      "start_equity": 92.88402426827643,
+      "end_equity": 92.88402426827643,
+      "return": 0.0
+    }
+  },
+  "signals": {
+    "BNBUSDT_short": 100,
+    "XRPUSDT_short": 72,
+    "BTCUSDT_long": 144,
+    "ETHUSDT_long": 123,
+    "SOLUSDT_long": 155,
+    "DOGEUSDT_long": 119,
+    "ADAUSDT_long": 153,
+    "LTCUSDT_long": 138,
+    "XRPUSDT_long": 123,
+    "LINKUSDT_long": 204,
+    "AVAXUSDT_long": 179,
+    "BNBUSDT_long": 155,
+    "AVAXUSDT_short": 115,
+    "BTCUSDT_short": 82,
+    "DOGEUSDT_short": 68,
+    "ETHUSDT_short": 76,
+    "SOLUSDT_short": 86,
+    "LINKUSDT_short": 89,
+    "LTCUSDT_short": 93,
+    "ADAUSDT_short": 118
+  },
+  "rejections": {
+    "SIG001:overextended_breakout": 1027,
+    "R002:higher_4h_direction_mismatch": 868,
+    "R004:efficiency_below_threshold": 408,
+    "Entry rejected: budget_or_minimum_order": 28
+  },
+  "liquidation_proxy_events": 1,
+  "execution_ambiguities": 1,
+  "halt_reasons": [
+    "liquidation_required:AVAXUSDT"
+  ],
+  "formal_selection_eligible": false,
+  "holdout_read": false,
+  "research_design": "SIG-001-v1",
+  "entry_filter": "closed_4h_ema20_ema50",
+  "entry_filter_counts": {
+    "higher_4h_pass": 1524,
+    "efficiency_pass": 1116,
+    "extension_reject": 1027,
+    "higher_4h_direction_mismatch": 868,
+    "extension_pass": 89,
+    "efficiency_reject": 408
+  },
+  "only_entry_rule_changed": true
+}

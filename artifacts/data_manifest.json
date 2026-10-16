@@ -1,0 +1,15 @@
+{
+  "scope": "warmup_and_development_only",
+  "complete_development_coverage": true,
+  "execution_ready": false,
+  "holdout_history_requested": false,
+  "full_manifest": "artifacts/data/full_runs/RECONCILED-20261015T065056Z-d83c78dc/manifest.json",
+  "full_manifest_sha256": "95335c1759e2ebc4a543b5d91551ef26665df9b3b65b07a6fb4c6e5337e31cf7",
+  "minute_rows": 6664320,
+  "development_funding_valuations": 6576,
+  "exact_funding_valuations": 4756,
+  "proxy_funding_valuations": 1820,
+  "data_policy_id": "DATA-001-v1",
+  "historical_margin_rules_verified": false,
+  "historical_order_filters_verified": false
+}

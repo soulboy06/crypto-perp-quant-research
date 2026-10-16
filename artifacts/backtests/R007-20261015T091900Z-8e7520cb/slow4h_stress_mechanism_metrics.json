@@ -1,0 +1,80 @@
+{
+  "account": "slow4h_stress",
+  "scope": "development_screening_under_proxy_rules",
+  "initial_equity": 100,
+  "ending_equity": "114.5460125931884437909",
+  "net_return": 0.1454601259318844,
+  "cagr": 0.04626585902671554,
+  "max_adverse_bound_drawdown": 0.06530108779416934,
+  "daily_sharpe_zero_risk_free": 0.8125721891141372,
+  "daily_sortino_zero_target": 1.6881169162215126,
+  "calmar": 0.7085005868898645,
+  "holding_limit_hours": 72,
+  "round_trips": 139,
+  "win_rate": 0.302158273381295,
+  "profit_factor": 1.3842175702494648,
+  "fees": "4.347156804",
+  "funding": "-0.8782506028115562091",
+  "gross_turnover": "7245.26134",
+  "annual": {
+    "2023": {
+      "start_equity": 100.0,
+      "end_equity": 103.07116056427567,
+      "return": 0.030711605642756767
+    },
+    "2024": {
+      "start_equity": 103.07116056427567,
+      "end_equity": 109.2810198066083,
+      "return": 0.060248271275262555
+    },
+    "2025": {
+      "start_equity": 109.2810198066083,
+      "end_equity": 114.54601259318845,
+      "return": 0.04817847413848697
+    }
+  },
+  "signals": {
+    "BTCUSDT_long": 393,
+    "ETHUSDT_long": 299,
+    "BTCUSDT_short": 297,
+    "ETHUSDT_short": 240
+  },
+  "rejections": {
+    "R002:higher_4h_direction_mismatch": 425,
+    "Entry rejected: budget_or_minimum_order": 664,
+    "stop_outside_assumed_liquidation_buffer": 1
+  },
+  "liquidation_proxy_events": 0,
+  "execution_ambiguities": 1,
+  "halt_reasons": [],
+  "formal_selection_eligible": false,
+  "holdout_read": false,
+  "research_design": "R007-v1",
+  "entry_filter": "closed_4h_ema20_ema50",
+  "entry_filter_counts": {
+    "higher_4h_direction_mismatch": 425,
+    "higher_4h_pass": 804
+  },
+  "only_entry_rule_changed": true,
+  "case": "slow4h",
+  "parent_strategy": "R002_trend",
+  "only_changed_field": "entry_sampling_and_channel_use_complete_4h_bars",
+  "changed_value": "4h_close_breaks_prior_12_complete_4h_bar_range",
+  "sizing_diagnostics": {
+    "reserve_rejected": 664,
+    "rejected_binding:stop_risk": 664,
+    "rejected_filter:below_min_notional": 664,
+    "reserve_passed": 139,
+    "rejected_filter:rounded_quantity_zero": 433,
+    "rejected_filter:below_min_quantity": 433
+  },
+  "entry_mechanism_replaced": true,
+  "entry_origins": {
+    "candidates_inside_breakout": 325,
+    "filled_inside_breakout": 57,
+    "candidates_outside_breakout": 479,
+    "filled_outside_breakout": 82
+  },
+  "entry_timeframe_hours": 4,
+  "exits_remain_hourly": true
+}

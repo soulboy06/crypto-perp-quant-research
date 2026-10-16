@@ -1,0 +1,147 @@
+{
+  "run_id": "UNIV-20261016T044113Z-18a106d5",
+  "new_strategy_runs": 0,
+  "holdout_read": false,
+  "results": {
+    "base": {
+      "n": 140,
+      "winners": 29,
+      "win_rate": 0.20714285714285716,
+      "average_net_win": 0.8703167498866945,
+      "average_net_loss": 0.3588467198978303,
+      "descriptive_breakeven_win_rate_at_observed_payoffs": 0.29194385345729235,
+      "gross_after_adverse_fills": -11.3922,
+      "fees": 3.174023304,
+      "funding": -0.02657685794502034,
+      "net": -14.59280016194502,
+      "exits": {
+        "stop": {
+          "n": 92,
+          "net": -36.21057700351276
+        },
+        "hourly_exit": {
+          "n": 39,
+          "net": 7.827609251930382
+        },
+        "time_limit": {
+          "n": 9,
+          "net": 13.790167589637354
+        }
+      },
+      "last_exit_utc": "2023-07-09T19:32:59.999999+00:00",
+      "control_at_first_common_hour_after_halt": {
+        "time_us": "1688932800000000",
+        "equity": "100.0388550171909996449"
+      },
+      "control_closed_trades_until_halt": {
+        "n": 30,
+        "winners": 10,
+        "win_rate": 0.3333333333333333,
+        "average_net_win": 0.756197479264541,
+        "average_net_loss": 0.3761559887727205,
+        "descriptive_breakeven_win_rate_at_observed_payoffs": 0.3321895498096736,
+        "gross_after_adverse_fills": 1.1699599999999999,
+        "fees": 0.949006248,
+        "funding": -0.18209873480900035,
+        "net": 0.038855017190999666,
+        "exits": {
+          "hourly_exit": {
+            "n": 10,
+            "net": 1.9238355911136307
+          },
+          "stop": {
+            "n": 16,
+            "net": -7.013722622439789
+          },
+          "time_limit": {
+            "n": 4,
+            "net": 5.128742048517157
+          }
+        }
+      },
+      "multiple_position_hours": 705.9833333241667,
+      "all_same_direction_share_of_multiple_position_time": 0.9834981940085363,
+      "original_entries_absent_before_halt": {
+        "n": 19,
+        "same_time_reserve_refused": 19,
+        "refused_with_other_positions": 15,
+        "original_path_net_sum_not_counterfactual_contribution": -0.6308174035618058
+      },
+      "multiple_coin_stop_days": 19,
+      "stop_trades_on_multiple_coin_stop_days": 44,
+      "new_eight_coin_net": -15.139219927663987
+    },
+    "stress": {
+      "n": 138,
+      "winners": 29,
+      "win_rate": 0.21014492753623187,
+      "average_net_win": 0.7992919995509112,
+      "average_net_loss": 0.3496073585624998,
+      "descriptive_breakeven_win_rate_at_observed_payoffs": 0.304297635901359,
+      "gross_after_adverse_fills": -11.94661,
+      "fees": 2.95197165,
+      "funding": -0.029152446336052754,
+      "net": -14.927734096336053,
+      "exits": {
+        "stop": {
+          "n": 89,
+          "net": -34.363392720331106
+        },
+        "hourly_exit": {
+          "n": 39,
+          "net": 7.324011876818403
+        },
+        "time_limit": {
+          "n": 9,
+          "net": 12.314762527176647
+        },
+        "account_protection": {
+          "n": 1,
+          "net": -0.20311578
+        }
+      },
+      "last_exit_utc": "2023-07-06T21:41:59.999999+00:00",
+      "control_at_first_common_hour_after_halt": {
+        "time_us": "1688680800000000",
+        "equity": "99.9054101819606935042"
+      },
+      "control_closed_trades_until_halt": {
+        "n": 22,
+        "winners": 8,
+        "win_rate": 0.36363636363636365,
+        "average_net_win": 0.5834205015992531,
+        "average_net_loss": 0.34013955934523793,
+        "descriptive_breakeven_win_rate_at_observed_payoffs": 0.36829175895435506,
+        "gross_after_adverse_fills": 0.7160099999999999,
+        "fees": 0.658260654,
+        "funding": -0.1523391640393065,
+        "net": -0.09458981803930652,
+        "exits": {
+          "hourly_exit": {
+            "n": 9,
+            "net": 1.5107169808695236
+          },
+          "stop": {
+            "n": 10,
+            "net": -4.2102955780886955
+          },
+          "time_limit": {
+            "n": 3,
+            "net": 2.6049887791798656
+          }
+        }
+      },
+      "multiple_position_hours": 709.9666666577778,
+      "all_same_direction_share_of_multiple_position_time": 0.9835907789099938,
+      "original_entries_absent_before_halt": {
+        "n": 12,
+        "same_time_reserve_refused": 12,
+        "refused_with_other_positions": 10,
+        "original_path_net_sum_not_counterfactual_contribution": 0.5400709227852066
+      },
+      "multiple_coin_stop_days": 19,
+      "stop_trades_on_multiple_coin_stop_days": 45,
+      "new_eight_coin_net": -15.012165665591455
+    }
+  }
+}

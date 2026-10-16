@@ -1,0 +1,69 @@
+{
+  "account": "control2_stress",
+  "scope": "development_screening_under_proxy_rules",
+  "initial_equity": 100,
+  "ending_equity": "106.6585939687313485997",
+  "net_return": 0.06658593968731363,
+  "cagr": 0.043953039515620684,
+  "max_adverse_bound_drawdown": 0.04734382580893555,
+  "daily_sharpe_zero_risk_free": 0.8574285721961055,
+  "daily_sortino_zero_target": 1.6951965512185192,
+  "calmar": 0.9283795461102153,
+  "holding_limit_hours": 72,
+  "round_trips": 64,
+  "win_rate": 0.34375,
+  "profit_factor": 1.4135100791055262,
+  "fees": "2.028524544",
+  "funding": "-0.5741214872686514003",
+  "gross_turnover": "3380.87424",
+  "annual": {
+    "2023": {
+      "start_equity": 100.0,
+      "end_equity": 103.44474939637242,
+      "return": 0.03444749396372426
+    },
+    "2024": {
+      "start_equity": 103.44474939637242,
+      "end_equity": 106.65859396873135,
+      "return": 0.031068223289365315
+    }
+  },
+  "signals": {
+    "BTCUSDT_long": 276,
+    "ETHUSDT_long": 211,
+    "BTCUSDT_short": 163,
+    "ETHUSDT_short": 126
+  },
+  "rejections": {
+    "R002:higher_4h_direction_mismatch": 301,
+    "Entry rejected: budget_or_minimum_order": 289,
+    "R004:efficiency_below_threshold": 122
+  },
+  "liquidation_proxy_events": 0,
+  "execution_ambiguities": 0,
+  "halt_reasons": [],
+  "formal_selection_eligible": false,
+  "holdout_read": false,
+  "research_design": "UNIV-001-v1",
+  "entry_filter": "closed_4h_ema20_ema50",
+  "entry_filter_counts": {
+    "higher_4h_direction_mismatch": 301,
+    "higher_4h_pass": 475,
+    "efficiency_pass": 353,
+    "efficiency_reject": 122
+  },
+  "only_entry_rule_changed": false,
+  "case": "efficiency24",
+  "parent_strategy": "R002_trend",
+  "only_changed_field": "market.symbols_only",
+  "changed_value": "BTCUSDT,ETHUSDT",
+  "sizing_diagnostics": {
+    "reserve_rejected": 289,
+    "rejected_binding:stop_risk": 289,
+    "rejected_filter:below_min_notional": 289,
+    "reserve_passed": 64,
+    "rejected_filter:rounded_quantity_zero": 188,
+    "rejected_filter:below_min_quantity": 188
+  },
+  "trailing_diagnostics": {}
+}

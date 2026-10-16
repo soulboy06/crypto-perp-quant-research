@@ -1,0 +1,19 @@
+{
+  "new_critical_checks_passed": 4,
+  "parent_financial_and_strategy_sources_unchanged": {
+    "ledger.py": true,
+    "risk.py": true,
+    "margin.py": true,
+    "config.py": true,
+    "signals.py": true,
+    "universe_engine.py": true
+  },
+  "ten_coin_controls": {
+    "base_trades": true,
+    "base_daily_equity": true,
+    "stress_trades": true,
+    "stress_daily_equity": true
+  },
+  "holdout_read": false,
+  "extra_parameter_trials": 0
+}

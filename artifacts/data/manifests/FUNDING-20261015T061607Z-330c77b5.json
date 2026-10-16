@@ -1,0 +1,41 @@
+{
+  "run_id": "FUNDING-20261015T061607Z-330c77b5",
+  "scope": "development_sample_only",
+  "holdout_history_requested": false,
+  "complete_development_coverage": false,
+  "script_sha256": "519bc1dec46047a7dbbe3f02191dc5e39952905f7bdbf499692ecb9075c306b5",
+  "results": [
+    {
+      "symbol": "BTCUSDT",
+      "kind": "fundingRate",
+      "period": "2023-01",
+      "url": "https://fapi.binance.com/fapi/v1/fundingRate?symbol=BTCUSDT&startTime=1672531200000&endTime=1675209599999&limit=1000",
+      "path": "data/raw/funding_api/BTCUSDT/2023-01/531a59831024b8f87a586b8da9e2d5817d70db63515bf773f44de754cc5be904.json",
+      "sha256": "531a59831024b8f87a586b8da9e2d5817d70db63515bf773f44de754cc5be904",
+      "rows": 93,
+      "example": {
+        "symbol": "BTCUSDT",
+        "fundingTime": 1672531200000,
+        "fundingRate": "0.00010000",
+        "markPrice": "",
+        "rateType": "Regular"
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "kind": "fundingRate",
+      "period": "2023-01",
+      "url": "https://fapi.binance.com/fapi/v1/fundingRate?symbol=ETHUSDT&startTime=1672531200000&endTime=1675209599999&limit=1000",
+      "path": "data/raw/funding_api/ETHUSDT/2023-01/4d3092ce6413bd27f43b0fd2c01286a2a525198702faadefb5b775371db9d91d.json",
+      "sha256": "4d3092ce6413bd27f43b0fd2c01286a2a525198702faadefb5b775371db9d91d",
+      "rows": 93,
+      "example": {
+        "symbol": "ETHUSDT",
+        "fundingTime": 1672531200000,
+        "fundingRate": "0.00010000",
+        "markPrice": "",
+        "rateType": "Regular"
+      }
+    }
+  ]
+}

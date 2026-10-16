@@ -1,0 +1,356 @@
+{
+  "run_id": "UNIV-20261016T044113Z-18a106d5",
+  "summary_sha256": "ae42a1e7d45fba546c401e61d3ddc7dda32fff32a7c2c719b7e4f71f94546f19",
+  "details": {
+    "control2_base": {
+      "by_symbol": {
+        "BTCUSDT": {
+          "trades": 1,
+          "gross_pnl": 2.4141,
+          "fees": 0.06311394,
+          "funding": -0.01468372316571103,
+          "net_pnl": 2.336302336834289
+        },
+        "ETHUSDT": {
+          "trades": 78,
+          "gross_pnl": 5.742049999999999,
+          "fees": 2.533120614,
+          "funding": -0.6660542221751479,
+          "net_pnl": 2.5428751638248532
+        },
+        "BNBUSDT": {
+          "trades": 0,
+          "gross_pnl": 0,
+          "fees": 0,
+          "funding": 0,
+          "net_pnl": 0
+        },
+        "SOLUSDT": {
+          "trades": 0,
+          "gross_pnl": 0,
+          "fees": 0,
+          "funding": 0,
+          "net_pnl": 0
+        },
+        "XRPUSDT": {
+          "trades": 0,
+          "gross_pnl": 0,
+          "fees": 0,
+          "funding": 0,
+          "net_pnl": 0
+        },
+        "DOGEUSDT": {
+          "trades": 0,
+          "gross_pnl": 0,
+          "fees": 0,
+          "funding": 0,
+          "net_pnl": 0
+        },
+        "ADAUSDT": {
+          "trades": 0,
+          "gross_pnl": 0,
+          "fees": 0,
+          "funding": 0,
+          "net_pnl": 0
+        },
+        "LINKUSDT": {
+          "trades": 0,
+          "gross_pnl": 0,
+          "fees": 0,
+          "funding": 0,
+          "net_pnl": 0
+        },
+        "AVAXUSDT": {
+          "trades": 0,
+          "gross_pnl": 0,
+          "fees": 0,
+          "funding": 0,
+          "net_pnl": 0
+        },
+        "LTCUSDT": {
+          "trades": 0,
+          "gross_pnl": 0,
+          "fees": 0,
+          "funding": 0,
+          "net_pnl": 0
+        }
+      },
+      "maximum_simultaneous_positions": 2,
+      "sizing_diagnostics": {
+        "reserve_rejected": 262,
+        "rejected_binding:stop_risk": 262,
+        "rejected_filter:below_min_notional": 262,
+        "reserve_passed": 79,
+        "rejected_filter:rounded_quantity_zero": 179,
+        "rejected_filter:below_min_quantity": 179
+      },
+      "execution_ambiguities": 0,
+      "liquidation_proxy_events": 0,
+      "halt_reasons": []
+    },
+    "control2_stress": {
+      "by_symbol": {
+        "BTCUSDT": {
+          "trades": 0,
+          "gross_pnl": 0,
+          "fees": 0,
+          "funding": 0,
+          "net_pnl": 0
+        },
+        "ETHUSDT": {
+          "trades": 64,
+          "gross_pnl": 9.26124,
+          "fees": 2.028524544,
+          "funding": -0.5741214872686514,
+          "net_pnl": 6.658593968731348
+        },
+        "BNBUSDT": {
+          "trades": 0,
+          "gross_pnl": 0,
+          "fees": 0,
+          "funding": 0,
+          "net_pnl": 0
+        },
+        "SOLUSDT": {
+          "trades": 0,
+          "gross_pnl": 0,
+          "fees": 0,
+          "funding": 0,
+          "net_pnl": 0
+        },
+        "XRPUSDT": {
+          "trades": 0,
+          "gross_pnl": 0,
+          "fees": 0,
+          "funding": 0,
+          "net_pnl": 0
+        },
+        "DOGEUSDT": {
+          "trades": 0,
+          "gross_pnl": 0,
+          "fees": 0,
+          "funding": 0,
+          "net_pnl": 0
+        },
+        "ADAUSDT": {
+          "trades": 0,
+          "gross_pnl": 0,
+          "fees": 0,
+          "funding": 0,
+          "net_pnl": 0
+        },
+        "LINKUSDT": {
+          "trades": 0,
+          "gross_pnl": 0,
+          "fees": 0,
+          "funding": 0,
+          "net_pnl": 0
+        },
+        "AVAXUSDT": {
+          "trades": 0,
+          "gross_pnl": 0,
+          "fees": 0,
+          "funding": 0,
+          "net_pnl": 0
+        },
+        "LTCUSDT": {
+          "trades": 0,
+          "gross_pnl": 0,
+          "fees": 0,
+          "funding": 0,
+          "net_pnl": 0
+        }
+      },
+      "maximum_simultaneous_positions": 1,
+      "sizing_diagnostics": {
+        "reserve_rejected": 289,
+        "rejected_binding:stop_risk": 289,
+        "rejected_filter:below_min_notional": 289,
+        "reserve_passed": 64,
+        "rejected_filter:rounded_quantity_zero": 188,
+        "rejected_filter:below_min_quantity": 188
+      },
+      "execution_ambiguities": 0,
+      "liquidation_proxy_events": 0,
+      "halt_reasons": []
+    },
+    "universe10_base": {
+      "by_symbol": {
+        "BTCUSDT": {
+          "trades": 0,
+          "gross_pnl": 0,
+          "fees": 0,
+          "funding": 0,
+          "net_pnl": 0
+        },
+        "ETHUSDT": {
+          "trades": 11,
+          "gross_pnl": 0.95167,
+          "fees": 0.333088122,
+          "funding": -0.07216211228103384,
+          "net_pnl": 0.546419765718966
+        },
+        "BNBUSDT": {
+          "trades": 24,
+          "gross_pnl": -1.6768000000000005,
+          "fees": 0.71407152,
+          "funding": 0.02508647332838454,
+          "net_pnl": -2.3657850466716153
+        },
+        "SOLUSDT": {
+          "trades": 26,
+          "gross_pnl": -0.6902999999999996,
+          "fees": 0.47218422,
+          "funding": 0.25280445589355444,
+          "net_pnl": -0.9096797641064457
+        },
+        "XRPUSDT": {
+          "trades": 24,
+          "gross_pnl": -6.01459,
+          "fees": 0.50459145,
+          "funding": -0.06717135371616001,
+          "net_pnl": -6.58635280371616
+        },
+        "DOGEUSDT": {
+          "trades": 14,
+          "gross_pnl": -2.099,
+          "fees": 0.285203976,
+          "funding": 0.004014381354441301,
+          "net_pnl": -2.3801895946455587
+        },
+        "ADAUSDT": {
+          "trades": 22,
+          "gross_pnl": -1.0102,
+          "fees": 0.43996728,
+          "funding": -0.0706556055431228,
+          "net_pnl": -1.5208228855431227
+        },
+        "LINKUSDT": {
+          "trades": 5,
+          "gross_pnl": 0.9474400000000001,
+          "fees": 0.140650452,
+          "funding": -0.01771115835396,
+          "net_pnl": 0.7890783896460399
+        },
+        "AVAXUSDT": {
+          "trades": 10,
+          "gross_pnl": -0.6020000000000001,
+          "fees": 0.1765248,
+          "funding": -0.0608277885115832,
+          "net_pnl": -0.8393525885115831
+        },
+        "LTCUSDT": {
+          "trades": 4,
+          "gross_pnl": -1.19842,
+          "fees": 0.107741484,
+          "funding": -0.019954150115540758,
+          "net_pnl": -1.3261156341155407
+        }
+      },
+      "maximum_simultaneous_positions": 3,
+      "sizing_diagnostics": {
+        "reserve_passed": 140,
+        "reserve_rejected": 446,
+        "rejected_binding:stop_risk": 446,
+        "rejected_filter:below_min_notional": 446,
+        "rejected_filter:rounded_quantity_zero": 357,
+        "rejected_filter:below_min_quantity": 357
+      },
+      "execution_ambiguities": 0,
+      "liquidation_proxy_events": 0,
+      "halt_reasons": [
+        "drawdown_halt"
+      ]
+    },
+    "universe10_stress": {
+      "by_symbol": {
+        "BTCUSDT": {
+          "trades": 0,
+          "gross_pnl": 0,
+          "fees": 0,
+          "funding": 0,
+          "net_pnl": 0
+        },
+        "ETHUSDT": {
+          "trades": 11,
+          "gross_pnl": 0.47031,
+          "fees": 0.314891934,
+          "funding": -0.07098649674459713,
+          "net_pnl": 0.08443156925540293
+        },
+        "BNBUSDT": {
+          "trades": 26,
+          "gross_pnl": -2.8451000000000004,
+          "fees": 0.68544642,
+          "funding": 0.023317597255390822,
+          "net_pnl": -3.507228822744609
+        },
+        "SOLUSDT": {
+          "trades": 25,
+          "gross_pnl": -0.27180000000000004,
+          "fees": 0.4428342,
+          "funding": 0.24225546614800808,
+          "net_pnl": -0.4723787338519921
+        },
+        "XRPUSDT": {
+          "trades": 24,
+          "gross_pnl": -6.16928,
+          "fees": 0.483033972,
+          "funding": -0.06492888207676879,
+          "net_pnl": -6.717242854076769
+        },
+        "DOGEUSDT": {
+          "trades": 15,
+          "gross_pnl": -2.10032,
+          "fees": 0.2859015,
+          "funding": -0.0006875898743389981,
+          "net_pnl": -2.386909089874339
+        },
+        "ADAUSDT": {
+          "trades": 22,
+          "gross_pnl": -1.2193999999999998,
+          "fees": 0.41712036,
+          "funding": -0.06727884783933841,
+          "net_pnl": -1.7037992078393382
+        },
+        "LINKUSDT": {
+          "trades": 2,
+          "gross_pnl": 1.7254900000000002,
+          "fees": 0.061199382,
+          "funding": -0.013807428339619999,
+          "net_pnl": 1.65048318966038
+        },
+        "AVAXUSDT": {
+          "trades": 9,
+          "gross_pnl": -0.3340000000000001,
+          "fees": 0.1598856,
+          "funding": -0.058183297218583195,
+          "net_pnl": -0.5520688972185832
+        },
+        "LTCUSDT": {
+          "trades": 4,
+          "gross_pnl": -1.20251,
+          "fees": 0.101658282,
+          "funding": -0.018852967646205147,
+          "net_pnl": -1.3230212496462053
+        }
+      },
+      "maximum_simultaneous_positions": 3,
+      "sizing_diagnostics": {
+        "reserve_passed": 138,
+        "reserve_rejected": 447,
+        "rejected_binding:stop_risk": 447,
+        "rejected_filter:below_min_notional": 447,
+        "rejected_filter:rounded_quantity_zero": 350,
+        "rejected_filter:below_min_quantity": 350
+      },
+      "execution_ambiguities": 0,
+      "liquidation_proxy_events": 0,
+      "halt_reasons": [
+        "drawdown_halt"
+      ]
+    }
+  },
+  "formal_selection_eligible": false,
+  "holdout_read": false
+}

@@ -1,0 +1,5 @@
+{
+  "status": "superseded_holding_deadline_bug",
+  "reason": "Hourly decision timeout could exceed hard 24/72-hour holding limit by up to one hour. Replaced with a minute-level hard deadline before reporting final results.",
+  "use_for_selection": false
+}

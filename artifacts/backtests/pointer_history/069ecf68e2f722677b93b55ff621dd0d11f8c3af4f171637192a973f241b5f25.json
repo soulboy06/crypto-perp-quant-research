@@ -1,0 +1,9 @@
+{
+  "run_id": "SCREEN-20261015T071529Z-2ee50a78",
+  "scope": "development_screening_proxy_rules",
+  "summary": "artifacts/backtests/SCREEN-20261015T071529Z-2ee50a78/summary.json",
+  "report": "artifacts/backtests/SCREEN-20261015T071529Z-2ee50a78/report.md",
+  "summary_sha256": "af87cbbb7cf3f13b66e673394212426cc83a4b6cd11c942dcd7967faa9593b4b",
+  "holdout_read": false,
+  "formal_selection_eligible": false
+}

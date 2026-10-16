@@ -1,0 +1,363 @@
+{
+  "run_id": "R006-20261015T084445Z-c7b40a59",
+  "research_design": "R006-v1",
+  "runtime_seconds": 49.242329,
+  "decision": "独立买卖压力入口未通过固定改进门槛，不替换研究基准。",
+  "gate": {
+    "prespecified_development_gate_passed": false,
+    "failed_conditions": [
+      "base: 年化提升不足1个百分点",
+      "base: 回撤超过门槛",
+      "base: 收益回撤比下降",
+      "base: 改善半年不足4/6",
+      "base: 重采样未支持稳定改善",
+      "base: 未过原有年度收益门槛",
+      "base: 交易或风险保护条件未过",
+      "stress: 年化提升不足1个百分点",
+      "stress: 回撤超过门槛",
+      "stress: 收益回撤比下降",
+      "stress: 改善半年不足4/6",
+      "stress: 重采样未支持稳定改善",
+      "stress: 未过原有年度收益门槛",
+      "stress: 交易或风险保护条件未过"
+    ],
+    "formal_selection_eligible": false
+  },
+  "comparisons": [
+    {
+      "account": "flow_cross_base",
+      "metrics": {
+        "account": "flow_cross_base",
+        "scope": "development_screening_under_proxy_rules",
+        "initial_equity": 100,
+        "ending_equity": "86.4477271829696637873",
+        "net_return": -0.13552272817030342,
+        "cagr": -0.047341832013222174,
+        "max_adverse_bound_drawdown": 0.20043505881059223,
+        "daily_sharpe_zero_risk_free": -1.1346590460472568,
+        "daily_sortino_zero_target": -1.8610999378637005,
+        "calmar": -0.23619536569178454,
+        "holding_limit_hours": 72,
+        "round_trips": 200,
+        "win_rate": 0.17,
+        "profit_factor": 0.5963964991367676,
+        "fees": "7.561779636",
+        "funding": "-0.2459131810303362127",
+        "gross_turnover": "12602.96606",
+        "annual": {
+          "2023": {
+            "start_equity": 100.0,
+            "end_equity": 86.44772718296966,
+            "return": -0.13552272817030342
+          },
+          "2024": {
+            "start_equity": 86.44772718296966,
+            "end_equity": 86.44772718296966,
+            "return": 0.0
+          },
+          "2025": {
+            "start_equity": 86.44772718296966,
+            "end_equity": 86.44772718296966,
+            "return": 0.0
+          }
+        },
+        "signals": {
+          "BTCUSDT_short": 291,
+          "ETHUSDT_short": 164,
+          "ETHUSDT_long": 144,
+          "BTCUSDT_long": 184
+        },
+        "rejections": {
+          "Entry rejected: budget_or_minimum_order": 392,
+          "R002:higher_4h_direction_mismatch": 191
+        },
+        "liquidation_proxy_events": 0,
+        "execution_ambiguities": 0,
+        "halt_reasons": [
+          "drawdown_halt"
+        ],
+        "formal_selection_eligible": false,
+        "holdout_read": false,
+        "research_design": "R006-v1",
+        "entry_filter": "closed_4h_ema20_ema50",
+        "entry_filter_counts": {
+          "higher_4h_pass": 592,
+          "higher_4h_direction_mismatch": 191
+        },
+        "only_entry_rule_changed": true,
+        "case": "flow_cross",
+        "parent_strategy": "R002_trend",
+        "only_changed_field": "replace_48h_breakout_entry_with_hourly_taker_share_threshold_cross",
+        "changed_value": "previous_lt_0.55_current_ge_0.55_long_previous_gt_0.45_current_le_0.45_short",
+        "sizing_diagnostics": {
+          "reserve_rejected": 392,
+          "rejected_binding:stop_risk": 392,
+          "rejected_filter:below_min_notional": 392,
+          "reserve_passed": 200,
+          "rejected_filter:rounded_quantity_zero": 138,
+          "rejected_filter:below_min_quantity": 138
+        },
+        "entry_mechanism_replaced": true,
+        "original_breakout_required": false,
+        "entry_origins": {
+          "candidates_outside_breakout": 542,
+          "filled_outside_breakout": 191,
+          "candidates_inside_breakout": 50,
+          "filled_inside_breakout": 9
+        }
+      },
+      "improvement_vs_reference": -0.11191787964139799,
+      "improved_halfyears": 0,
+      "halfyears": [
+        {
+          "segment": "2023H1",
+          "return": -0.07123797190906556,
+          "reference_return": 0.004708904747267262,
+          "improvement": -0.07594687665633282
+        },
+        {
+          "segment": "2023H2",
+          "return": -0.06921553026169125,
+          "reference_return": 0.02570736947824126,
+          "improvement": -0.09492289973993251
+        },
+        {
+          "segment": "2024H1",
+          "return": 0.0,
+          "reference_return": 0.01771352355206468,
+          "improvement": -0.01771352355206468
+        },
+        {
+          "segment": "2024H2",
+          "return": 0.0,
+          "reference_return": 0.046176520578750324,
+          "improvement": -0.046176520578750324
+        },
+        {
+          "segment": "2025H1",
+          "return": 0.0,
+          "reference_return": 0.03042141857551872,
+          "improvement": -0.03042141857551872
+        },
+        {
+          "segment": "2025H2",
+          "return": 0.0,
+          "reference_return": 0.06732187189056082,
+          "improvement": -0.06732187189056082
+        }
+      ],
+      "uncertainty_vs_reference": {
+        "method": "paired_circular_moving_block_daily_log_returns",
+        "block_days": 14,
+        "resamples": 2000,
+        "seed": 20261015,
+        "cagr_improvement_lower_95": -0.20243153329105754,
+        "cagr_improvement_upper_95": -0.02285885513823689,
+        "cagr_improvement_median": -0.11124032269864188,
+        "independent_validation": false,
+        "selection_adjusted": false,
+        "probability_of_future_profit": null
+      },
+      "cash_identity_error": "0E-19",
+      "holding_deadline_respected": true,
+      "signal_timing_audited": true,
+      "audited_signal_candidates": 592,
+      "new_opportunities": {
+        "outside_breakout": {
+          "trades": 191,
+          "net_pnl": -9.911456372542137
+        },
+        "inside_breakout": {
+          "trades": 9,
+          "net_pnl": -3.6408164444882
+        }
+      },
+      "unavailable_sizing_diagnostics": 0,
+      "by_symbol": {
+        "BTCUSDT": 7,
+        "ETHUSDT": 193
+      },
+      "net_pnl_by_symbol": {
+        "BTCUSDT": 4.531449733829342,
+        "ETHUSDT": -18.08372255085968
+      },
+      "gross_pnl_at_execution_prices": -5.74458,
+      "last_trade_exit_utc": "2023-07-31T04:55:59.999999",
+      "top5_share_of_positive_trade_pnl": 0.5758726707292526,
+      "net_pnl_less_largest_winner": -18.217245401555417
+    },
+    {
+      "account": "flow_cross_stress",
+      "metrics": {
+        "account": "flow_cross_stress",
+        "scope": "development_screening_under_proxy_rules",
+        "initial_equity": 100,
+        "ending_equity": "87.3137709314808061820",
+        "net_return": -0.12686229068519195,
+        "cagr": -0.04417401311708313,
+        "max_adverse_bound_drawdown": 0.20072484637622204,
+        "daily_sharpe_zero_risk_free": -1.1497613709610426,
+        "daily_sortino_zero_target": -1.8626649028664146,
+        "calmar": -0.220072471916541,
+        "holding_limit_hours": 72,
+        "round_trips": 184,
+        "win_rate": 0.15217391304347827,
+        "profit_factor": 0.5991661330461521,
+        "fees": "6.365468466",
+        "funding": "-0.2579306025191938180",
+        "gross_turnover": "10609.11411",
+        "annual": {
+          "2023": {
+            "start_equity": 100.0,
+            "end_equity": 87.3137709314808,
+            "return": -0.12686229068519195
+          },
+          "2024": {
+            "start_equity": 87.3137709314808,
+            "end_equity": 87.3137709314808,
+            "return": 0.0
+          },
+          "2025": {
+            "start_equity": 87.3137709314808,
+            "end_equity": 87.3137709314808,
+            "return": 0.0
+          }
+        },
+        "signals": {
+          "BTCUSDT_short": 282,
+          "ETHUSDT_short": 161,
+          "ETHUSDT_long": 136,
+          "BTCUSDT_long": 189
+        },
+        "rejections": {
+          "Entry rejected: budget_or_minimum_order": 398,
+          "R002:higher_4h_direction_mismatch": 186
+        },
+        "liquidation_proxy_events": 0,
+        "execution_ambiguities": 0,
+        "halt_reasons": [
+          "drawdown_halt"
+        ],
+        "formal_selection_eligible": false,
+        "holdout_read": false,
+        "research_design": "R006-v1",
+        "entry_filter": "closed_4h_ema20_ema50",
+        "entry_filter_counts": {
+          "higher_4h_pass": 582,
+          "higher_4h_direction_mismatch": 186
+        },
+        "only_entry_rule_changed": true,
+        "case": "flow_cross",
+        "parent_strategy": "R002_trend",
+        "only_changed_field": "replace_48h_breakout_entry_with_hourly_taker_share_threshold_cross",
+        "changed_value": "previous_lt_0.55_current_ge_0.55_long_previous_gt_0.45_current_le_0.45_short",
+        "sizing_diagnostics": {
+          "reserve_rejected": 398,
+          "rejected_binding:stop_risk": 398,
+          "rejected_filter:below_min_notional": 398,
+          "reserve_passed": 184,
+          "rejected_filter:rounded_quantity_zero": 154,
+          "rejected_filter:below_min_quantity": 154
+        },
+        "entry_mechanism_replaced": true,
+        "original_breakout_required": false,
+        "entry_origins": {
+          "candidates_outside_breakout": 533,
+          "filled_outside_breakout": 179,
+          "candidates_inside_breakout": 49,
+          "filled_inside_breakout": 5
+        }
+      },
+      "improvement_vs_reference": -0.09013157264645755,
+      "improved_halfyears": 1,
+      "halfyears": [
+        {
+          "segment": "2023H1",
+          "return": -0.07120082108787462,
+          "reference_return": 0.003269960419581386,
+          "improvement": -0.07447078150745601
+        },
+        {
+          "segment": "2023H2",
+          "return": -0.05992842248473129,
+          "reference_return": 0.031075916527096847,
+          "improvement": -0.09100433901182814
+        },
+        {
+          "segment": "2024H1",
+          "return": 0.0,
+          "reference_return": 0.031068223289365315,
+          "improvement": -0.031068223289365315
+        },
+        {
+          "segment": "2024H2",
+          "return": 0.0,
+          "reference_return": 0.03143712214649241,
+          "improvement": -0.03143712214649241
+        },
+        {
+          "segment": "2025H1",
+          "return": 0.0,
+          "reference_return": -0.012172178616954188,
+          "improvement": 0.012172178616954188
+        },
+        {
+          "segment": "2025H2",
+          "return": 0.0,
+          "reference_return": 0.05311497093449913,
+          "improvement": -0.05311497093449913
+        }
+      ],
+      "uncertainty_vs_reference": {
+        "method": "paired_circular_moving_block_daily_log_returns",
+        "block_days": 14,
+        "resamples": 2000,
+        "seed": 20261015,
+        "cagr_improvement_lower_95": -0.17204439216917733,
+        "cagr_improvement_upper_95": -0.003337591204092461,
+        "cagr_improvement_median": -0.0908968323715833,
+        "independent_validation": false,
+        "selection_adjusted": false,
+        "probability_of_future_profit": null
+      },
+      "cash_identity_error": "0E-19",
+      "holding_deadline_respected": true,
+      "signal_timing_audited": true,
+      "audited_signal_candidates": 582,
+      "new_opportunities": {
+        "outside_breakout": {
+          "trades": 179,
+          "net_pnl": -10.540980779519193
+        },
+        "inside_breakout": {
+          "trades": 5,
+          "net_pnl": -2.145248289
+        }
+      },
+      "unavailable_sizing_diagnostics": 0,
+      "by_symbol": {
+        "ETHUSDT": 183,
+        "BTCUSDT": 1
+      },
+      "net_pnl_by_symbol": {
+        "BTCUSDT": 0.7709847099406641,
+        "ETHUSDT": -13.457213778459858
+      },
+      "gross_pnl_at_execution_prices": -6.06283,
+      "last_trade_exit_utc": "2023-07-28T22:01:59.999999",
+      "top5_share_of_positive_trade_pnl": 0.5972192889099421,
+      "net_pnl_less_largest_winner": -17.65697880416522
+    }
+  ],
+  "retained_development_candidates": [],
+  "research_baseline_retained": "R002-20261015T074202Z-0befec75",
+  "new_accounts": 2,
+  "new_checks_passed": 6,
+  "valid_candidate_cost_configurations_total": 26,
+  "superseded_debug_accounts_total": 8,
+  "holdout_read": false,
+  "independent_validation": false,
+  "selection_bias_corrected": false,
+  "formal_selection_eligible": false,
+  "background_tasks_remaining": 0
+}

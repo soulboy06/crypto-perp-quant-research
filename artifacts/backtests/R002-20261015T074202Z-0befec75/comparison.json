@@ -1,0 +1,134 @@
+{
+  "research_design": "R002-v1",
+  "run_id": "R002-20261015T074202Z-0befec75",
+  "runtime_seconds": 54.177967,
+  "comparisons": [
+    {
+      "account": "trend_base",
+      "old_net_return": -0.01737330765271705,
+      "new_net_return": 0.15049572039311832,
+      "improvement_percentage_points": 16.786902804583537,
+      "old_pressure_path_drawdown": 0.14100282484030754,
+      "new_pressure_path_drawdown": 0.09834657856196069,
+      "old_trades": 268,
+      "new_trades": 186,
+      "old_fees": "8.473881102",
+      "new_fees": "5.968697226",
+      "new_gross_pnl_at_execution_prices": "22.11379",
+      "new_by_symbol": {
+        "ETHUSDT": 184,
+        "BTCUSDT": 2
+      },
+      "filter_counts": {
+        "higher_4h_direction_mismatch": 720,
+        "higher_4h_pass": 1114
+      }
+    },
+    {
+      "account": "trend_stress",
+      "old_net_return": -0.031160443175081265,
+      "new_net_return": 0.10048974058643712,
+      "improvement_percentage_points": 13.165018376151838,
+      "old_pressure_path_drawdown": 0.13122806331480305,
+      "new_pressure_path_drawdown": 0.09593375341163854,
+      "old_trades": 227,
+      "new_trades": 161,
+      "old_fees": "6.855365976",
+      "new_fees": "4.975654650",
+      "new_gross_pnl_at_execution_prices": "16.01543",
+      "new_by_symbol": {
+        "ETHUSDT": 161
+      },
+      "filter_counts": {
+        "higher_4h_direction_mismatch": 720,
+        "higher_4h_pass": 1154
+      }
+    },
+    {
+      "account": "mean_reversion_base",
+      "old_net_return": -0.16551634306354968,
+      "new_net_return": -0.03208660936988894,
+      "improvement_percentage_points": 13.342973369366074,
+      "old_pressure_path_drawdown": 0.19233648754986046,
+      "new_pressure_path_drawdown": 0.051737724138874286,
+      "old_trades": 313,
+      "new_trades": 81,
+      "old_fees": "10.873407864",
+      "new_fees": "2.552117208",
+      "new_gross_pnl_at_execution_prices": "-0.67466",
+      "new_by_symbol": {
+        "ETHUSDT": 81
+      },
+      "filter_counts": {
+        "net_room_below_stop_risk": 1546,
+        "net_room_pass": 391
+      }
+    },
+    {
+      "account": "mean_reversion_stress",
+      "old_net_return": -0.16240063400310756,
+      "new_net_return": -0.03606814451366802,
+      "improvement_percentage_points": 12.633248948943955,
+      "old_pressure_path_drawdown": 0.1869187432156037,
+      "new_pressure_path_drawdown": 0.04885349160812831,
+      "old_trades": 267,
+      "new_trades": 54,
+      "old_fees": "8.782238718",
+      "new_fees": "1.602615810",
+      "new_gross_pnl_at_execution_prices": "-2.01667",
+      "new_by_symbol": {
+        "ETHUSDT": 54
+      },
+      "filter_counts": {
+        "net_room_below_stop_risk": 1652,
+        "net_room_pass": 320
+      }
+    }
+  ],
+  "gate": {
+    "trend": {
+      "numerical_screen_passed": true,
+      "failed_conditions": [],
+      "formal_selection_eligible": false
+    },
+    "mean_reversion": {
+      "numerical_screen_passed": false,
+      "failed_conditions": [
+        "基础成本后收益不为正",
+        "压力成本后收益不为正",
+        "基础场景三个年度中正收益不足两个"
+      ],
+      "formal_selection_eligible": false
+    }
+  },
+  "cash_and_deadline_checks": [
+    {
+      "account": "trend_base",
+      "cash_identity_error": "0E-19",
+      "holding_deadline_respected": true
+    },
+    {
+      "account": "trend_stress",
+      "cash_identity_error": "0E-19",
+      "holding_deadline_respected": true
+    },
+    {
+      "account": "mean_reversion_base",
+      "cash_identity_error": "0E-19",
+      "holding_deadline_respected": true
+    },
+    {
+      "account": "mean_reversion_stress",
+      "cash_identity_error": "0E-19",
+      "holding_deadline_respected": true
+    }
+  ],
+  "new_filter_checks_passed": 4,
+  "new_accounts": 4,
+  "baseline_replayed": false,
+  "data_checksum_rescan": false,
+  "holdout_read": false,
+  "parameter_search": false,
+  "formal_selection_eligible": false,
+  "stage_background_tasks_remaining": 0
+}

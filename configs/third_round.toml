@@ -1,0 +1,65 @@
+design_id = "R003-v1"
+parent_design = "R002-v1"
+baseline_run = "R002-20261015T074202Z-0befec75"
+scope = "known_development_data_only_not_independent_validation"
+maximum_accounts = 4
+candidate_cases = ["breakout24", "hold168"]
+cost_scenarios = ["base", "stress"]
+parameter_search = false
+combine_changes = false
+holdout_locked = true
+formal_selection_eligible = false
+stop_after_prespecified_cases = true
+
+[breakout24]
+changed_field = "strategies.trend.breakout_hours"
+value = 24
+maximum_holding_hours = 72
+hypothesis = "enter_established_4h_direction_earlier_using_one_day_instead_of_two_day_breakout"
+
+[hold168]
+changed_field = "strategies.trend.max_holding_hours"
+value = 168
+breakout_hours = 48
+hypothesis = "allow_continuing_trends_up_to_one_calendar_week_keep_original_ema50_and_stop_exits"
+
+[diagnostics]
+halfyear_segments = 6
+minimum_improved_halfyears_each_cost = 4
+minimum_cagr_improvement_percentage_points_each_cost = "1"
+maximum_drawdown_increase_percentage_points_each_cost = "2"
+absolute_maximum_drawdown = "0.20"
+require_non_decreasing_calmar_each_cost = true
+bootstrap_method = "paired_circular_moving_block_daily_log_returns"
+bootstrap_block_days = 14
+bootstrap_resamples = 2000
+bootstrap_seed = 20261015
+bootstrap_interval_percent = 95
+require_positive_lower_improvement_bound_each_cost = true
+uncertainty_is = "conditional_development_diagnostic_not_selection_adjusted_confidence_or_future_probability"
+report_top_five_winner_concentration = true
+
+[unchanged]
+initial_usdt = "100"
+stop_equity_usdt = "50"
+baseline_gross_leverage_cap = "1"
+maximum_effective_leverage = "10"
+per_trade_risk_fraction = "0.005"
+total_open_risk_fraction = "0.01"
+entry_delay_seconds = 60
+higher_timeframe_gate = "closed_4h_ema20_ema50_from_R002"
+exit_ema_hours = 50
+stop_atr_multiple = "2"
+execution_policy = "EXEC-001-v1"
+fees_and_slippage = "unchanged_R001_base_and_stress"
+development = "2023-2025_already_observed"
+warmup = "2022-11_and_2022-12"
+candidate_holdout_read = false
+
+[research_context]
+prior_valid_candidate_cost_configurations = 8
+prior_superseded_debug_accounts = 8
+new_candidate_cost_configurations = 4
+all_completed_runs_must_be_reported = true
+reference_overfitting = "https://www.davidhbailey.com/dhbpapers/backtest-prob.pdf"
+reference_trend_hypothesis_only = "https://www.aqr.com/Insights/Research/Journal-Article/Time-Series-Momentum"

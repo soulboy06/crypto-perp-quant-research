@@ -1,0 +1,75 @@
+{
+  "account": "risk05_base",
+  "scope": "development_screening_under_proxy_rules",
+  "initial_equity": 100,
+  "ending_equity": "120.6714491888305180129",
+  "net_return": 0.20671449188830526,
+  "cagr": 0.06457604762817581,
+  "max_adverse_bound_drawdown": 0.06071805001365599,
+  "daily_sharpe_zero_risk_free": 1.018965237057132,
+  "daily_sortino_zero_target": 2.097056129281646,
+  "calmar": 1.0635395506550709,
+  "holding_limit_hours": 72,
+  "round_trips": 142,
+  "win_rate": 0.3028169014084507,
+  "profit_factor": 1.4933412994136972,
+  "fees": "4.523335380",
+  "funding": "-1.0263154311694819871",
+  "gross_turnover": "7538.89230",
+  "annual": {
+    "2023": {
+      "start_equity": 100.0,
+      "end_equity": 103.05373277796842,
+      "return": 0.030537327779684098
+    },
+    "2024": {
+      "start_equity": 103.05373277796842,
+      "end_equity": 109.72213299880075,
+      "return": 0.06470799301563912
+    },
+    "2025": {
+      "start_equity": 109.72213299880075,
+      "end_equity": 120.67144918883052,
+      "return": 0.09979131731014967
+    }
+  },
+  "signals": {
+    "BTCUSDT_long": 626,
+    "ETHUSDT_long": 437,
+    "BTCUSDT_short": 457,
+    "ETHUSDT_short": 350
+  },
+  "rejections": {
+    "R002:higher_4h_direction_mismatch": 720,
+    "Entry rejected: budget_or_minimum_order": 670,
+    "R004:efficiency_below_threshold": 338
+  },
+  "liquidation_proxy_events": 0,
+  "execution_ambiguities": 0,
+  "halt_reasons": [],
+  "formal_selection_eligible": false,
+  "holdout_read": false,
+  "research_design": "R008-v1",
+  "entry_filter": "closed_4h_ema20_ema50",
+  "entry_filter_counts": {
+    "higher_4h_direction_mismatch": 720,
+    "higher_4h_pass": 1150,
+    "efficiency_pass": 812,
+    "efficiency_reject": 338
+  },
+  "only_entry_rule_changed": false,
+  "case": "risk05",
+  "reference_strategy": "R004_efficiency24",
+  "only_risk_budget_changed": true,
+  "per_trade_risk_fraction": "0.005",
+  "total_open_risk_fraction": "0.01",
+  "sizing_diagnostics": {
+    "reserve_rejected": 670,
+    "rejected_binding:stop_risk": 670,
+    "rejected_filter:below_min_notional": 670,
+    "reserve_passed": 142,
+    "rejected_filter:rounded_quantity_zero": 484,
+    "rejected_filter:below_min_quantity": 484
+  },
+  "trailing_diagnostics": {}
+}

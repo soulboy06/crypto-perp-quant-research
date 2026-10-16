@@ -1,0 +1,17 @@
+{
+  "run_id": "DEVELOPMENT-20261015T063811Z-f5b56f9c",
+  "scope": "warmup_and_development_only",
+  "expected_archives": 228,
+  "config_sha256": "671f1dad457754bc44c6c6c4be30c81433810d7dd83aededbd512b9c65836ffb",
+  "source_sha256": {
+    "full_data.py": "e29f9eaddcf3123b102134d43714b8e95461f53973b9136a0a1fca06dfee01ff",
+    "quality.py": "3b15d8039ee8a49dcdc21e5b693d8c66a87aa63e26dd093c785ae4da6e8996c4",
+    "archive.py": "791f448841f1c6cddbce865b229fe98497b39ab2ee5961079ad196d4c605b02c",
+    "config.py": "62863ce4268bfc298e65f0f42797441d854ab3d1396f18e5e19c3c45536a6fd3"
+  },
+  "range_start": "2022-11-01T00:00:00Z",
+  "range_end_exclusive": "2026-01-01T00:00:00Z",
+  "holdout_history_requested": false,
+  "historical_margin_rules_verified": false,
+  "strategy_backtest_executed": false
+}

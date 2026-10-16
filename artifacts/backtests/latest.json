@@ -1,0 +1,25 @@
+{
+  "run_id": "SIG001-20261016T045339Z-9b2fe0a6",
+  "research_design_id": "SIG-001-v1",
+  "scope": "common_complete_2023_to_2024H1_development_proxy_rules",
+  "summary": "artifacts/backtests/SIG001-20261016T045339Z-9b2fe0a6/summary.json",
+  "report": "artifacts/backtests/SIG001-20261016T045339Z-9b2fe0a6/comparison.md",
+  "summary_sha256": "0bc7c7a7f3d3a78d4db1a6be925ea1d3de10e9f703a2fcb747650a9641129527",
+  "research_baseline_retained": "UNIV-20261016T044113Z-18a106d5",
+  "retained_development_candidates": [],
+  "holdout_read": false,
+  "formal_selection_eligible": false,
+  "full_2023_2025_result": false,
+  "expanded_symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "BNBUSDT",
+    "SOLUSDT",
+    "XRPUSDT",
+    "DOGEUSDT",
+    "ADAUSDT",
+    "LINKUSDT",
+    "AVAXUSDT",
+    "LTCUSDT"
+  ]
+}

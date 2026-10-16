@@ -1,0 +1,22 @@
+# Local secrets and machine state
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+secrets.json
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.cache/
+.DS_Store
+Thumbs.db
+
+# Public market ZIP archives duplicate the included canonical price tables.
+# Keep their immutable manifests and download scripts in the repository.
+/data/raw/

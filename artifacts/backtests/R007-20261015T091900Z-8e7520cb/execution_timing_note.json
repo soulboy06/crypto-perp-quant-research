@@ -1,0 +1,66 @@
+[
+  {
+    "account": "slow4h_base",
+    "execution_ambiguities": 1,
+    "liquidation_proxy_events": 0,
+    "funding_timing_flagged_trades": [
+      {
+        "symbol": "ETHUSDT",
+        "side": "long",
+        "entry_time_us": "1746100860000000",
+        "exit_time_us": "1746172859999999",
+        "quantity": "0.014",
+        "entry_price": "1844.40",
+        "exit_price": "1813.03",
+        "stop_price": "1813.40",
+        "gross_pnl": "-0.43918",
+        "funding": "0.0014377771681289730",
+        "fees": "0.030722412",
+        "net_pnl": "-0.4684646348318710270",
+        "exit_reason": "stop",
+        "funding_timing_ambiguous": "True",
+        "entry_mechanism": "slow4h",
+        "legacy_breakout_overlap": "False",
+        "entry_signal_available_us": "1746100800000000"
+      }
+    ]
+  },
+  {
+    "account": "slow4h_stress",
+    "execution_ambiguities": 1,
+    "liquidation_proxy_events": 0,
+    "funding_timing_flagged_trades": [
+      {
+        "symbol": "ETHUSDT",
+        "side": "long",
+        "entry_time_us": "1746100860000000",
+        "exit_time_us": "1746172859999999",
+        "quantity": "0.013",
+        "entry_price": "1845.14",
+        "exit_price": "1812.31",
+        "stop_price": "1813.40",
+        "gross_pnl": "-0.42679",
+        "funding": "0.0013350787989769035",
+        "fees": "0.028528110",
+        "net_pnl": "-0.4539830312010230965",
+        "exit_reason": "stop",
+        "funding_timing_ambiguous": "True",
+        "entry_mechanism": "slow4h",
+        "legacy_breakout_overlap": "False",
+        "entry_signal_available_us": "1746100800000000"
+      }
+    ]
+  },
+  {
+    "account": "compression_breakout_base",
+    "execution_ambiguities": 0,
+    "liquidation_proxy_events": 0,
+    "funding_timing_flagged_trades": []
+  },
+  {
+    "account": "compression_breakout_stress",
+    "execution_ambiguities": 0,
+    "liquidation_proxy_events": 0,
+    "funding_timing_flagged_trades": []
+  }
+]

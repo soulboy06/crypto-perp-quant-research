@@ -1,0 +1,48 @@
+{
+  "run_id": "UNIVERSE-DATA-20261016T044037Z-0a87479e",
+  "design_id": "UNIV-001-v1",
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "BNBUSDT",
+    "SOLUSDT",
+    "XRPUSDT",
+    "DOGEUSDT",
+    "ADAUSDT",
+    "LINKUSDT",
+    "AVAXUSDT",
+    "LTCUSDT"
+  ],
+  "new_symbols": [
+    "BNBUSDT",
+    "SOLUSDT",
+    "XRPUSDT",
+    "DOGEUSDT",
+    "ADAUSDT",
+    "LINKUSDT",
+    "AVAXUSDT",
+    "LTCUSDT"
+  ],
+  "base_manifest": "artifacts/data/full_runs/RECONCILED-20261015T065056Z-d83c78dc/manifest.json",
+  "base_manifest_sha256": "95335c1759e2ebc4a543b5d91551ef26665df9b3b65b07a6fb4c6e5337e31cf7",
+  "plan_sha256": "9e132407d8b9a050f4d2485098f28d5a526aadea97828f2e757d4356b7cadb3b",
+  "holdout_history_requested": false,
+  "historical_order_filters_verified": false,
+  "historical_margin_rules_verified": false,
+  "survivorship_bias": "current_surviving_major_coins_selected_after_development_period_no_historical_membership_claim",
+  "scope": "warmup_and_common_complete_development_window_only",
+  "range_end_exclusive": "2024-07-01T00:00:00Z",
+  "coverage_policy": {
+    "policy_id": "UNIV-COVERAGE-001-v1",
+    "parent_design": "UNIV-001-v1",
+    "requested_full_end_exclusive": "2026-01-01T00:00:00Z",
+    "common_complete_end_exclusive": "2024-07-01T00:00:00Z",
+    "reason": "funding_REST_403_from_some_July2024_partitions_and_unrecoverable_observed_mark_gaps_on_2024Aug12",
+    "declared_before_any_expanded_universe_backtest": true,
+    "same_dates_for_two_and_ten_coin_accounts": true,
+    "date_selection_uses_returns": false,
+    "full_2023_2025_result_claim_permitted": false,
+    "allow_missing_price_fill": false
+  },
+  "full_2023_2025_coverage": false
+}

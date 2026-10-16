@@ -1,0 +1,13 @@
+{
+  "run_id": "R008-20261015T103951Z-2ccf37f2",
+  "research_design_id": "R008-v1",
+  "scope": "development_risk_budget_sensitivity",
+  "summary": "artifacts/backtests/R008-20261015T103951Z-2ccf37f2/summary.json",
+  "report": "artifacts/backtests/R008-20261015T103951Z-2ccf37f2/comparison.md",
+  "summary_sha256": "325dbce63afb8d83e310a5770b2d1f6c5818d6b09aa696438f22e47614780d01",
+  "strategy_reference": "R004-20261015T081913Z-2a03f944:efficiency24",
+  "default_per_trade_risk_fraction": "0.005",
+  "default_risk_changed": false,
+  "holdout_read": false,
+  "formal_selection_eligible": false
+}

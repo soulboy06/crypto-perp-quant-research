@@ -1,0 +1,269 @@
+{
+  "run_id": "R002-20261015T074202Z-0befec75",
+  "phase": "development_screening",
+  "started_at_utc": "2026-10-15T07:42:02.952460+00:00",
+  "config_sha256": "671f1dad457754bc44c6c6c4be30c81433810d7dd83aededbd512b9c65836ffb",
+  "execution_policy_sha256": "95adf2bc0f334daade739bec1f32b6c58a80161a7808084375a5fb56c0e811a3",
+  "data_manifest": "artifacts/data/full_runs/RECONCILED-20261015T065056Z-d83c78dc/manifest.json",
+  "data_manifest_sha256": "95335c1759e2ebc4a543b5d91551ef26665df9b3b65b07a6fb4c6e5337e31cf7",
+  "current_rule_snapshot_sha256": "97bea1b0b3ce4dfc6456af0949b2658b1e10400700b7d6f2fcc2af2bfb07ba04",
+  "source_sha256": {
+    "engine.py": "a6266c8aea8d643e609ad77bc93c95e1fe19b1b27a26c74f3f36a841ff6bdc77",
+    "signals.py": "4b75a80347f2d908cd12c17534f33b2779bd8de2058679aa103af9d1fd520628",
+    "ledger.py": "d634b887854cd92ad233bd7fe1ac7e6b5259e2e9b459c0ad8cb3989e34867949",
+    "risk.py": "2c760151a71268f5ecdc833b07a84a80cbe38a7ea68fa90834d30e29c8c0be2a",
+    "margin.py": "0f867fb14c02b82fb12ac21ea0aceaa7ffc2259dc77f0ce3c4d199264d802212",
+    "config.py": "62863ce4268bfc298e65f0f42797441d854ab3d1396f18e5e19c3c45536a6fd3",
+    "variants.py": "5616efb61a487d195515b127a8c1a0ab9e8e9cfb3b069bdd7f8d1fb71347f159"
+  },
+  "strategy_accounts": 4,
+  "parameter_search": false,
+  "holdout_read": false,
+  "formal_selection_eligible": false,
+  "historical_margin_rules_verified": false,
+  "historical_order_filters_verified": false,
+  "research_design_id": "R002-v1",
+  "variant_plan_sha256": "221b4c1a99d7aac03a5ece94db9b3e008ab4f73d8831d8e6be1d796bfb89bbbb",
+  "baseline_run": "SCREEN-20261015T071529Z-2ee50a78",
+  "baseline_summary_sha256": "af87cbbb7cf3f13b66e673394212426cc83a4b6cd11c942dcd7967faa9593b4b",
+  "maximum_accounts_this_design": 4,
+  "single_change_per_mechanism": true,
+  "completed_at_utc": "2026-10-15T07:42:57.130427+00:00",
+  "status": "completed",
+  "accounts": [
+    {
+      "account": "trend_base",
+      "scope": "development_screening_under_proxy_rules",
+      "initial_equity": 100,
+      "ending_equity": "115.0495720393118398820",
+      "net_return": 0.15049572039311832,
+      "cagr": 0.047795394401984215,
+      "max_adverse_bound_drawdown": 0.09834657856196069,
+      "daily_sharpe_zero_risk_free": 0.712734744508307,
+      "daily_sortino_zero_target": 1.4177873185273147,
+      "calmar": 0.485989396894697,
+      "round_trips": 186,
+      "win_rate": 0.27956989247311825,
+      "profit_factor": 1.2846284260067866,
+      "fees": "5.968697226",
+      "funding": "-1.0955207346881601180",
+      "gross_turnover": "9947.82871",
+      "annual": {
+        "2023": {
+          "start_equity": 100.0,
+          "end_equity": 99.19409948268583,
+          "return": -0.008059005173141731
+        },
+        "2024": {
+          "start_equity": 99.19409948268583,
+          "end_equity": 106.55611736815611,
+          "return": 0.07421830455505374
+        },
+        "2025": {
+          "start_equity": 106.55611736815611,
+          "end_equity": 115.04957203931184,
+          "return": 0.07970874766214009
+        }
+      },
+      "signals": {
+        "BTCUSDT_long": 626,
+        "ETHUSDT_long": 424,
+        "BTCUSDT_short": 457,
+        "ETHUSDT_short": 327
+      },
+      "rejections": {
+        "R002:higher_4h_direction_mismatch": 720,
+        "Entry rejected: budget_or_minimum_order": 928
+      },
+      "liquidation_proxy_events": 0,
+      "execution_ambiguities": 0,
+      "halt_reasons": [],
+      "formal_selection_eligible": false,
+      "holdout_read": false,
+      "research_design": "R002-v1",
+      "entry_filter": "closed_4h_ema20_ema50",
+      "entry_filter_counts": {
+        "higher_4h_direction_mismatch": 720,
+        "higher_4h_pass": 1114
+      },
+      "only_entry_rule_changed": true
+    },
+    {
+      "account": "trend_stress",
+      "scope": "development_screening_under_proxy_rules",
+      "initial_equity": 100,
+      "ending_equity": "110.0489740586437191729",
+      "net_return": 0.10048974058643712,
+      "cagr": 0.03240322277168395,
+      "max_adverse_bound_drawdown": 0.09593375341163854,
+      "daily_sharpe_zero_risk_free": 0.5511192980635452,
+      "daily_sortino_zero_target": 1.1061563390253697,
+      "calmar": 0.33776665270925216,
+      "round_trips": 161,
+      "win_rate": 0.2670807453416149,
+      "profit_factor": 1.217780423948117,
+      "fees": "4.975654650",
+      "funding": "-0.9908012913562808271",
+      "gross_turnover": "8292.75775",
+      "annual": {
+        "2023": {
+          "start_equity": 100.0,
+          "end_equity": 101.39754262631305,
+          "return": 0.013975426263130641
+        },
+        "2024": {
+          "start_equity": 101.39754262631305,
+          "end_equity": 106.43505105737529,
+          "return": 0.04968077431252249
+        },
+        "2025": {
+          "start_equity": 106.43505105737529,
+          "end_equity": 110.04897405864372,
+          "return": 0.033954256284617124
+        }
+      },
+      "signals": {
+        "BTCUSDT_long": 630,
+        "ETHUSDT_long": 445,
+        "BTCUSDT_short": 457,
+        "ETHUSDT_short": 342
+      },
+      "rejections": {
+        "R002:higher_4h_direction_mismatch": 720,
+        "Entry rejected: budget_or_minimum_order": 993
+      },
+      "liquidation_proxy_events": 0,
+      "execution_ambiguities": 0,
+      "halt_reasons": [],
+      "formal_selection_eligible": false,
+      "holdout_read": false,
+      "research_design": "R002-v1",
+      "entry_filter": "closed_4h_ema20_ema50",
+      "entry_filter_counts": {
+        "higher_4h_direction_mismatch": 720,
+        "higher_4h_pass": 1154
+      },
+      "only_entry_rule_changed": true
+    },
+    {
+      "account": "mean_reversion_base",
+      "scope": "development_screening_under_proxy_rules",
+      "initial_equity": 100,
+      "ending_equity": "96.7913390630111136267",
+      "net_return": -0.03208660936988894,
+      "cagr": -0.010802203311708447,
+      "max_adverse_bound_drawdown": 0.051737724138874286,
+      "daily_sharpe_zero_risk_free": -0.46936940321666026,
+      "daily_sortino_zero_target": -0.6307131855080812,
+      "calmar": -0.2087877557720397,
+      "round_trips": 81,
+      "win_rate": 0.49382716049382713,
+      "profit_factor": 0.8075677330715654,
+      "fees": "2.552117208",
+      "funding": "0.0181162710111136267",
+      "gross_turnover": "4253.52868",
+      "annual": {
+        "2023": {
+          "start_equity": 100.0,
+          "end_equity": 97.47547936874021,
+          "return": -0.025245206312597857
+        },
+        "2024": {
+          "start_equity": 97.47547936874021,
+          "end_equity": 97.38913577253624,
+          "return": -0.0008857981182872621
+        },
+        "2025": {
+          "start_equity": 97.38913577253624,
+          "end_equity": 96.79133906301111,
+          "return": -0.006138227891469894
+        }
+      },
+      "signals": {
+        "ETHUSDT_short": 497,
+        "BTCUSDT_short": 459,
+        "ETHUSDT_long": 477,
+        "BTCUSDT_long": 505
+      },
+      "rejections": {
+        "R002:net_room_below_stop_risk": 1546,
+        "Entry rejected: budget_or_minimum_order": 310,
+        "stop_crossed_before_entry": 1
+      },
+      "liquidation_proxy_events": 0,
+      "execution_ambiguities": 0,
+      "halt_reasons": [],
+      "formal_selection_eligible": false,
+      "holdout_read": false,
+      "research_design": "R002-v1",
+      "entry_filter": "net_reversion_room_ge_stop_risk",
+      "entry_filter_counts": {
+        "net_room_below_stop_risk": 1546,
+        "net_room_pass": 391
+      },
+      "only_entry_rule_changed": true
+    },
+    {
+      "account": "mean_reversion_stress",
+      "scope": "development_screening_under_proxy_rules",
+      "initial_equity": 100,
+      "ending_equity": "96.3931855486332011038",
+      "net_return": -0.03606814451366802,
+      "cagr": -0.012159191997382135,
+      "max_adverse_bound_drawdown": 0.04885349160812831,
+      "daily_sharpe_zero_risk_free": -0.6962443580199308,
+      "daily_sortino_zero_target": -0.9166166400395699,
+      "calmar": -0.24889095123262533,
+      "round_trips": 54,
+      "win_rate": 0.4444444444444444,
+      "profit_factor": 0.6863281036590668,
+      "fees": "1.602615810",
+      "funding": "0.0124713586332011038",
+      "gross_turnover": "2671.02635",
+      "annual": {
+        "2023": {
+          "start_equity": 100.0,
+          "end_equity": 98.17543841187229,
+          "return": -0.018245615881277044
+        },
+        "2024": {
+          "start_equity": 98.17543841187229,
+          "end_equity": 97.27880866144612,
+          "return": -0.009132933500786367
+        },
+        "2025": {
+          "start_equity": 97.27880866144612,
+          "end_equity": 96.3931855486332,
+          "return": -0.009103967503293564
+        }
+      },
+      "signals": {
+        "ETHUSDT_short": 511,
+        "BTCUSDT_short": 459,
+        "ETHUSDT_long": 498,
+        "BTCUSDT_long": 505
+      },
+      "rejections": {
+        "R002:net_room_below_stop_risk": 1652,
+        "Entry rejected: budget_or_minimum_order": 266,
+        "stop_crossed_before_entry": 1
+      },
+      "liquidation_proxy_events": 0,
+      "execution_ambiguities": 0,
+      "halt_reasons": [],
+      "formal_selection_eligible": false,
+      "holdout_read": false,
+      "research_design": "R002-v1",
+      "entry_filter": "net_reversion_room_ge_stop_risk",
+      "entry_filter_counts": {
+        "net_room_below_stop_risk": 1652,
+        "net_room_pass": 320
+      },
+      "only_entry_rule_changed": true
+    }
+  ],
+  "cash_reference_ending_equity": 100,
+  "leverage_sensitivity_run": false,
+  "selection": "not_permitted_under_unverified_rules",
+  "funding_events_consumed": 6576
+}

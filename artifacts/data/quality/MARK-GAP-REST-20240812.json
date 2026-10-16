@@ -1,0 +1,34 @@
+{
+  "scope": "development_gap_recovery_probe",
+  "holdout_history_requested": false,
+  "results": [
+    {
+      "symbol": "BTCUSDT",
+      "url": "https://fapi.binance.com/fapi/v1/markPriceKlines?symbol=BTCUSDT&interval=1m&startTime=1723456860000&endTime=1723457159999&limit=10",
+      "path": "data/raw/mark_gap_api/BTCUSDT/2024-08-12/d038d1f480ab005b4646258cca245d52378aa4ed0e44e974f063de7cd33be59a.json",
+      "sha256": "d038d1f480ab005b4646258cca245d52378aa4ed0e44e974f063de7cd33be59a",
+      "rows": 5,
+      "observed_open_times": [
+        1723456860000,
+        1723456920000,
+        1723456980000,
+        1723457040000,
+        1723457100000
+      ]
+    },
+    {
+      "symbol": "ETHUSDT",
+      "url": "https://fapi.binance.com/fapi/v1/markPriceKlines?symbol=ETHUSDT&interval=1m&startTime=1723456860000&endTime=1723457159999&limit=10",
+      "path": "data/raw/mark_gap_api/ETHUSDT/2024-08-12/369756138643a06f0dd36f0a9005f972b85f11c6a5ea051f97453ee043af36d0.json",
+      "sha256": "369756138643a06f0dd36f0a9005f972b85f11c6a5ea051f97453ee043af36d0",
+      "rows": 5,
+      "observed_open_times": [
+        1723456860000,
+        1723456920000,
+        1723456980000,
+        1723457040000,
+        1723457100000
+      ]
+    }
+  ]
+}

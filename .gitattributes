@@ -1,0 +1,3 @@
+# Preserve exact source/data bytes: research manifests bind SHA-256 hashes.
+# Disable automatic LF/CRLF conversion, including on Windows clones.
+* -text

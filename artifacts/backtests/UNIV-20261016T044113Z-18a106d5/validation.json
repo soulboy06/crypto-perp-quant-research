@@ -1,0 +1,19 @@
+{
+  "new_critical_checks_passed": 6,
+  "unchanged_financial_core": {
+    "ledger.py": true,
+    "risk.py": true,
+    "margin.py": true,
+    "config.py": true,
+    "signals.py": true
+  },
+  "same_window_prefix_controls": {
+    "base_trades_prefix_before_forced_terminal_close": true,
+    "base_daily_equity_prefix_before_forced_terminal_close": true,
+    "stress_trades_prefix_before_forced_terminal_close": true,
+    "stress_daily_equity_prefix_before_forced_terminal_close": true
+  },
+  "shared_capital_usdt": 100,
+  "holdout_read": false,
+  "full_2023_2025_result": false
+}

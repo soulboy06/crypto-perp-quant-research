@@ -1,0 +1,14 @@
+{
+  "scope": "development_sample_only",
+  "complete_development_coverage": false,
+  "execution_ready": false,
+  "holdout_history_requested": false,
+  "archive_manifest": "artifacts/data/manifests/SAMPLE-20261015T061308Z-a752e6fa.json",
+  "funding_rest_manifest": "artifacts/data/manifests/FUNDING-20261015T061607Z-330c77b5.json",
+  "boundary_manifest": "artifacts/data/manifests/BOUNDARY-20261015T062421Z-17c4a437.json",
+  "schema_quality_report": "artifacts/data/quality/QUALITY-20261015T062107Z-c4fea892.json",
+  "funding_proxy_report": "artifacts/data/quality/VALUATION-20261015T062535Z-55fbf454.json",
+  "data_policy_id": "DATA-001-v1",
+  "exact_funding_settlement_prices_recovered": false,
+  "historical_margin_rules_verified": false
+}

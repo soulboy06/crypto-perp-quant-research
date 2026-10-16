@@ -1,0 +1,71 @@
+{
+  "events": [
+    {
+      "cost": "base",
+      "symbol": "AVAXUSDT",
+      "side": "long",
+      "entry_time_us": "1699498860000000",
+      "exit_time_us": "1699546379999999",
+      "quantity": "1",
+      "entry_price": "13.2010",
+      "exit_price": "11.7670",
+      "stop_price": "12.9000",
+      "gross_pnl": "-1.4340",
+      "funding": "-0.0076942615271120",
+      "fees": "0.1914858000",
+      "net_pnl": "-1.6331800615271120",
+      "exit_reason": "liquidation_proxy",
+      "funding_timing_ambiguous": "False",
+      "local_stop_alternative_net_pnl": "-0.3273530615271120",
+      "full_path_counterfactual_replayed": false,
+      "exit_utc": "2023-11-09T16:12:59.999999+00:00",
+      "minute_trade_OHLC": [
+        "13.2800",
+        "13.2890",
+        "11.7700",
+        "11.7730"
+      ],
+      "minute_mark_OHLC": [
+        "13.31550551",
+        "13.31550551",
+        "12.01115060",
+        "12.01115060"
+      ],
+      "intraminute_stop_and_liquidation_order_unresolved": true
+    },
+    {
+      "cost": "stress",
+      "symbol": "AVAXUSDT",
+      "side": "long",
+      "entry_time_us": "1699498860000000",
+      "exit_time_us": "1699546379999999",
+      "quantity": "1",
+      "entry_price": "13.2060",
+      "exit_price": "11.7620",
+      "stop_price": "12.9000",
+      "gross_pnl": "-1.4440",
+      "funding": "-0.0076942615271120",
+      "fees": "0.1914108000",
+      "net_pnl": "-1.6431050615271120",
+      "exit_reason": "liquidation_proxy",
+      "funding_timing_ambiguous": "False",
+      "local_stop_alternative_net_pnl": "-0.3373530615271120",
+      "full_path_counterfactual_replayed": false,
+      "exit_utc": "2023-11-09T16:12:59.999999+00:00",
+      "minute_trade_OHLC": [
+        "13.2800",
+        "13.2890",
+        "11.7700",
+        "11.7730"
+      ],
+      "minute_mark_OHLC": [
+        "13.31550551",
+        "13.31550551",
+        "12.01115060",
+        "12.01115060"
+      ],
+      "intraminute_stop_and_liquidation_order_unresolved": true
+    }
+  ],
+  "financial_results_changed": false
+}

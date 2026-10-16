@@ -1,0 +1,10 @@
+{
+  "run_id": "R002-20261015T074202Z-0befec75",
+  "research_design_id": "R002-v1",
+  "scope": "development_screening_proxy_rules",
+  "summary": "artifacts/backtests/R002-20261015T074202Z-0befec75/summary.json",
+  "report": "artifacts/backtests/R002-20261015T074202Z-0befec75/comparison.md",
+  "summary_sha256": "90ebe9656aa57b9e015dd36091fb344140affeb6c60560f9c8293ba81bc4611e",
+  "holdout_read": false,
+  "formal_selection_eligible": false
+}

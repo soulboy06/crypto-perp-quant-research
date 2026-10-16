@@ -1,0 +1,62 @@
+{
+  "checked_at_utc": "2026-10-15T06:07:44.380543+00:00",
+  "history_records_downloaded": false,
+  "holdout_history_accessed": false,
+  "note": "Archive HEAD responses only establish object availability, not integrity or coverage.",
+  "results": [
+    {
+      "name": "exchange_info",
+      "url": "https://fapi.binance.com/fapi/v1/exchangeInfo",
+      "method": "GET",
+      "status": 200,
+      "content_length": "1151285",
+      "verified_symbols": [
+        "BTCUSDT",
+        "ETHUSDT"
+      ],
+      "sha256": "f3c68921669ef2e1762c2318e2ab662a92cfecb9af3b619aaf53874d4f8b610d"
+    },
+    {
+      "name": "BTCUSDT_klines",
+      "url": "https://data.binance.vision/data/futures/um/daily/klines/BTCUSDT/1m/BTCUSDT-1m-2023-01-01.zip",
+      "method": "HEAD",
+      "status": 200,
+      "content_length": "54209"
+    },
+    {
+      "name": "BTCUSDT_markPriceKlines",
+      "url": "https://data.binance.vision/data/futures/um/daily/markPriceKlines/BTCUSDT/1m/BTCUSDT-1m-2023-01-01.zip",
+      "method": "HEAD",
+      "status": 200,
+      "content_length": "32912"
+    },
+    {
+      "name": "BTCUSDT_fundingRate",
+      "url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2023-01.zip",
+      "method": "HEAD",
+      "status": 200,
+      "content_length": "863"
+    },
+    {
+      "name": "ETHUSDT_klines",
+      "url": "https://data.binance.vision/data/futures/um/daily/klines/ETHUSDT/1m/ETHUSDT-1m-2023-01-01.zip",
+      "method": "HEAD",
+      "status": 200,
+      "content_length": "57717"
+    },
+    {
+      "name": "ETHUSDT_markPriceKlines",
+      "url": "https://data.binance.vision/data/futures/um/daily/markPriceKlines/ETHUSDT/1m/ETHUSDT-1m-2023-01-01.zip",
+      "method": "HEAD",
+      "status": 200,
+      "content_length": "32226"
+    },
+    {
+      "name": "ETHUSDT_fundingRate",
+      "url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2023-01.zip",
+      "method": "HEAD",
+      "status": 200,
+      "content_length": "819"
+    }
+  ]
+}

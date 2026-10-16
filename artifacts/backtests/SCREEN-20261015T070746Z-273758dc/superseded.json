@@ -1,0 +1,6 @@
+{
+  "status": "debug_run_superseded_for_implementation_correction",
+  "reason": "Existing-position remaining stop-risk reserved paid entry friction again; wallet charges were not duplicated. Corrected to unpaid exit friction only before publishing results.",
+  "parameter_search": false,
+  "use_for_selection": false
+}

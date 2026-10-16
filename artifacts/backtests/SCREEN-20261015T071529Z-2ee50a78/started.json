@@ -1,0 +1,24 @@
+{
+  "run_id": "SCREEN-20261015T071529Z-2ee50a78",
+  "phase": "development_screening",
+  "started_at_utc": "2026-10-15T07:15:29.258211+00:00",
+  "config_sha256": "671f1dad457754bc44c6c6c4be30c81433810d7dd83aededbd512b9c65836ffb",
+  "execution_policy_sha256": "95adf2bc0f334daade739bec1f32b6c58a80161a7808084375a5fb56c0e811a3",
+  "data_manifest": "artifacts/data/full_runs/RECONCILED-20261015T065056Z-d83c78dc/manifest.json",
+  "data_manifest_sha256": "95335c1759e2ebc4a543b5d91551ef26665df9b3b65b07a6fb4c6e5337e31cf7",
+  "current_rule_snapshot_sha256": "97bea1b0b3ce4dfc6456af0949b2658b1e10400700b7d6f2fcc2af2bfb07ba04",
+  "source_sha256": {
+    "engine.py": "05d07427a6a37ee2b937a9e63b12dbcd58790fe06cc547ef080cc84364175c6c",
+    "signals.py": "4b75a80347f2d908cd12c17534f33b2779bd8de2058679aa103af9d1fd520628",
+    "ledger.py": "d634b887854cd92ad233bd7fe1ac7e6b5259e2e9b459c0ad8cb3989e34867949",
+    "risk.py": "2c760151a71268f5ecdc833b07a84a80cbe38a7ea68fa90834d30e29c8c0be2a",
+    "margin.py": "0f867fb14c02b82fb12ac21ea0aceaa7ffc2259dc77f0ce3c4d199264d802212",
+    "config.py": "62863ce4268bfc298e65f0f42797441d854ab3d1396f18e5e19c3c45536a6fd3"
+  },
+  "strategy_accounts": 4,
+  "parameter_search": false,
+  "holdout_read": false,
+  "formal_selection_eligible": false,
+  "historical_margin_rules_verified": false,
+  "historical_order_filters_verified": false
+}

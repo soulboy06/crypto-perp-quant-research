@@ -1,0 +1,13 @@
+{
+  "run_id": "R005-20261015T083046Z-92fa588c",
+  "research_design_id": "R005-v1",
+  "scope": "development_screening_proxy_rules",
+  "summary": "artifacts/backtests/R005-20261015T083046Z-92fa588c/summary.json",
+  "report": "artifacts/backtests/R005-20261015T083046Z-92fa588c/comparison.md",
+  "summary_sha256": "986a9193bdff4b15866c5e6aa182c2594b148c2dfdea5f94dc78e61752c43f02",
+  "research_baseline_retained": "R002-20261015T074202Z-0befec75",
+  "reference_research_case": "R004-20261015T081913Z-2a03f944:efficiency24",
+  "retained_development_candidates": [],
+  "holdout_read": false,
+  "formal_selection_eligible": false
+}

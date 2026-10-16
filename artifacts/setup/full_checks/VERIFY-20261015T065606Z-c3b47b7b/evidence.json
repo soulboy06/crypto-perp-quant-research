@@ -1,0 +1,23 @@
+{
+  "scope": "local_full_data_integrity_and_new_module_regressions",
+  "network_requests": 0,
+  "verified_data_files": 539,
+  "tests_run": 12,
+  "tests_passed": true,
+  "test_failures": 0,
+  "test_errors": 0,
+  "full_manifest": "artifacts/data/full_runs/RECONCILED-20261015T065056Z-d83c78dc/manifest.json",
+  "full_manifest_sha256": "95335c1759e2ebc4a543b5d91551ef26665df9b3b65b07a6fb4c6e5337e31cf7",
+  "execution_ready": false,
+  "readiness_missing": [
+    "engine_implemented",
+    "market_data_verified",
+    "funding_data_verified",
+    "exchange_filters_verified",
+    "margin_rules_verified",
+    "liquidation_model_verified",
+    "missing:margin_rules"
+  ],
+  "holdout_history_read": false,
+  "strategy_backtest_executed": false
+}

@@ -1,0 +1,75 @@
+{
+  "account": "universe10_base",
+  "scope": "development_screening_under_proxy_rules",
+  "initial_equity": 100,
+  "ending_equity": "85.4071998380549796544",
+  "net_return": -0.1459280016194502,
+  "cagr": -0.09990591165937424,
+  "max_adverse_bound_drawdown": 0.2000116501512956,
+  "daily_sharpe_zero_risk_free": -1.230138499752876,
+  "daily_sortino_zero_target": -1.9208967458768411,
+  "calmar": -0.4995004620170976,
+  "holding_limit_hours": 72,
+  "round_trips": 140,
+  "win_rate": 0.20714285714285716,
+  "profit_factor": 0.633641159760185,
+  "fees": "3.1740233040",
+  "funding": "-0.0265768579450203456",
+  "gross_turnover": "5290.038840",
+  "annual": {
+    "2023": {
+      "start_equity": 100.0,
+      "end_equity": 85.40719983805498,
+      "return": -0.1459280016194502
+    },
+    "2024": {
+      "start_equity": 85.40719983805498,
+      "end_equity": 85.40719983805498,
+      "return": 0.0
+    }
+  },
+  "signals": {
+    "BNBUSDT_short": 66,
+    "XRPUSDT_short": 39,
+    "BTCUSDT_long": 96,
+    "ETHUSDT_long": 70,
+    "SOLUSDT_long": 77,
+    "DOGEUSDT_long": 60,
+    "ADAUSDT_long": 81,
+    "LTCUSDT_long": 85,
+    "XRPUSDT_long": 72,
+    "LINKUSDT_long": 119,
+    "AVAXUSDT_long": 116,
+    "BNBUSDT_long": 95,
+    "AVAXUSDT_short": 77,
+    "BTCUSDT_short": 54,
+    "DOGEUSDT_short": 40,
+    "ETHUSDT_short": 43,
+    "SOLUSDT_short": 54,
+    "LINKUSDT_short": 57,
+    "LTCUSDT_short": 58,
+    "ADAUSDT_short": 68
+  },
+  "rejections": {
+    "R002:higher_4h_direction_mismatch": 601,
+    "Entry rejected: budget_or_minimum_order": 446,
+    "R004:efficiency_below_threshold": 238,
+    "stop_outside_assumed_liquidation_buffer": 2
+  },
+  "liquidation_proxy_events": 0,
+  "execution_ambiguities": 0,
+  "halt_reasons": [
+    "drawdown_halt"
+  ],
+  "formal_selection_eligible": false,
+  "holdout_read": false,
+  "research_design": "UNIV-001-v1",
+  "entry_filter": "closed_4h_ema20_ema50",
+  "entry_filter_counts": {
+    "higher_4h_pass": 826,
+    "efficiency_pass": 588,
+    "higher_4h_direction_mismatch": 601,
+    "efficiency_reject": 238
+  },
+  "only_entry_rule_changed": false
+}

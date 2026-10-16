@@ -1,0 +1,34 @@
+{
+  "run_id": "UNIVERSE-DATA-20261016T043246Z-de28145b",
+  "design_id": "UNIV-001-v1",
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "BNBUSDT",
+    "SOLUSDT",
+    "XRPUSDT",
+    "DOGEUSDT",
+    "ADAUSDT",
+    "LINKUSDT",
+    "AVAXUSDT",
+    "LTCUSDT"
+  ],
+  "new_symbols": [
+    "BNBUSDT",
+    "SOLUSDT",
+    "XRPUSDT",
+    "DOGEUSDT",
+    "ADAUSDT",
+    "LINKUSDT",
+    "AVAXUSDT",
+    "LTCUSDT"
+  ],
+  "base_manifest": "artifacts/data/full_runs/RECONCILED-20261015T065056Z-d83c78dc/manifest.json",
+  "base_manifest_sha256": "95335c1759e2ebc4a543b5d91551ef26665df9b3b65b07a6fb4c6e5337e31cf7",
+  "plan_sha256": "9e132407d8b9a050f4d2485098f28d5a526aadea97828f2e757d4356b7cadb3b",
+  "holdout_history_requested": false,
+  "historical_order_filters_verified": false,
+  "historical_margin_rules_verified": false,
+  "survivorship_bias": "current_surviving_major_coins_selected_after_development_period_no_historical_membership_claim",
+  "scope": "warmup_and_development_only"
+}

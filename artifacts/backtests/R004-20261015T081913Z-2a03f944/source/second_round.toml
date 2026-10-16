@@ -1,0 +1,40 @@
+design_id = "R002-v1"
+parent_design = "R001-v1"
+baseline_run = "SCREEN-20261015T071529Z-2ee50a78"
+scope = "development_screening_only"
+maximum_accounts = 4
+parameter_search = false
+holdout_locked = true
+formal_selection_eligible = false
+
+[trend_filter]
+timeframe_hours = 4
+alignment = "UTC_00_04_08_12_16_20"
+fast_ema_bars = 20
+slow_ema_bars = 50
+long_condition = "last_closed_4h_ema20_greater_than_ema50"
+short_condition = "last_closed_4h_ema20_less_than_ema50"
+missing_context = "reject_entry"
+partial_4h_bar_allowed = false
+change = "entry_filter_only"
+
+[mean_reversion_space]
+evaluation_time = "entry_minute_after_original_60_second_delay"
+target = "signal_hour_sma20_frozen_for_entry_gate_only"
+minimum_net_reward_risk = "1"
+target_exit = "adverse_price_and_tick_rounding"
+costs = "entry_and_exit_fees_plus_existing_funding_buffer"
+risk = "adverse_stop_execution_plus_entry_and_exit_fees_plus_existing_gap_and_funding_buffers"
+change = "entry_filter_only_keep_original_dynamic_mean_exit_and_24h_deadline"
+
+[unchanged]
+capital_usdt = "100"
+stop_equity_usdt = "50"
+maximum_effective_leverage = "10"
+baseline_gross_leverage_cap = "1"
+per_trade_risk_fraction = "0.005"
+total_open_risk_fraction = "0.01"
+engine_policy = "EXEC-001-v1"
+execution_costs = "R001-v1"
+data_range = "2022-11-01_to_2026-01-01_exclusive"
+candidate_holdout_read = false

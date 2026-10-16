@@ -1,0 +1,83 @@
+design_id = "R007-v1"
+parent_design = "R002-v1"
+baseline_run = "R002-20261015T074202Z-0befec75"
+reference_run = "R004-20261015T081913Z-2a03f944"
+reference_case = "efficiency24"
+flow_filter_run = "R005-20261015T083046Z-92fa588c"
+flow_filter_case = "taker_pressure"
+maximum_accounts = 4
+candidate_cases = ["slow4h", "compression_breakout"]
+cost_scenarios = ["base", "stress"]
+parameter_search = false
+combine_changes = false
+holdout_locked = true
+formal_selection_eligible = false
+stop_after_prespecified_cases = true
+scope = "two_fixed_entry_mechanisms_observed_development_not_independent_validation"
+
+[slow4h]
+changed_field = "entry_sampling_and_channel_use_complete_4h_bars"
+value = "4h_close_breaks_prior_12_complete_4h_bar_range"
+entry_timeframe_hours = 4
+channel_bars = 12
+utc_close_hours = [0,4,8,12,16,20]
+price_state = "original_1h_EMA200"
+exit_stop_policy = "retain_original_hourly_EMA50_and_1h_ATR14_2ATR_stop_72h_deadline"
+not_a_full_4h_strategy_conversion = true
+current_4h_bar_excluded_from_channel = true
+hypothesis = "slower_entry_observation_may_reduce_short_term_false_breakouts"
+
+[compression_breakout]
+changed_field = "replace_48h_breakout_with_preceding_compression_then_expansion_breakout"
+value = "prior_6h_TR_mean_le_0.75_previous_nonoverlap_24h_TR_mean_then_current_TR_ge_1.5_recent_mean_and_close_breaks_prior_6h_range"
+recent_hours = 6
+background_hours = 24
+maximum_compression_ratio = "0.75"
+minimum_expansion_ratio = "1.5"
+true_range = "max(high-low,abs(high-previous_close),abs(low-previous_close))"
+windows = "30_completed_hours_before_signal_recent_last6_background_first24_no_overlap_signal_hour_excluded"
+price_state = "original_1h_EMA200"
+zero_range_policy = "reject_if_recent_or_background_mean_nonpositive"
+hypothesis = "a_preexisting_tight_range_then_directional_expansion_may_offer_different_entries"
+
+[diagnostics]
+reference_for_improvement = "R004_efficiency24_already_observed_development"
+halfyear_segments = 6
+minimum_improved_halfyears_each_cost = 4
+minimum_cagr_improvement_percentage_points_each_cost = "1"
+maximum_drawdown_increase_percentage_points_each_cost = "2"
+absolute_maximum_drawdown = "0.20"
+require_non_decreasing_calmar_each_cost = true
+bootstrap_block_days = 14
+bootstrap_resamples = 2000
+bootstrap_seed = 20261015
+bootstrap_interval_percent = 95
+require_positive_lower_improvement_bound_each_cost = true
+uncertainty_is = "conditional_development_diagnostic_not_selection_adjusted_confidence_or_future_probability"
+report_all_accounts = true
+report_new_filled_entries_outside_legacy_breakout = true
+report_top_five_winner_concentration = true
+report_sizing_rejections = true
+
+[unchanged]
+initial_usdt = "100"
+stop_equity_usdt = "50"
+per_trade_risk_fraction = "0.005"
+total_open_risk_fraction = "0.01"
+baseline_gross_leverage_cap = "1"
+maximum_effective_leverage = "10"
+holding_hours = 72
+direction_gate = "R002_complete_4h_EMA20_EMA50"
+exit = "original_1h_EMA50_2ATR14_stop_72h_hard_limit_account_guards"
+entry_delay_seconds = 60
+costs = "original_base_stress_actual_funding"
+data = "2023-2025_seen_development_2022NovDec_warmup_2026_locked"
+
+[research_context]
+prior_valid_candidate_cost_configurations = 26
+prior_superseded_debug_accounts = 8
+new_candidate_cost_configurations = 4
+thresholds_are = "one_research_default_per_mechanism_not_optimized_or_claimed_established_edge"
+anti_overfit_limit = "two_mechanisms_four_accounts_no_added_variants_after_results"
+independent_validation_claimed = false
+factor_ic_claimed = false

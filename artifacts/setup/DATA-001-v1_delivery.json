@@ -1,0 +1,124 @@
+{
+  "stage": "DATA-001-v1",
+  "recorded_at_utc": "2026-10-15T06:32:28.337318+00:00",
+  "timezone_for_user_dates": "Asia/Shanghai",
+  "trading_config_unchanged_sha256": "671f1dad457754bc44c6c6c4be30c81433810d7dd83aededbd512b9c65836ffb",
+  "policy_sha256": "ce01b61c0b19ab540a32433f5a87872a9f28f2e7ec24e89025fd5367f474ae4a",
+  "source_bundle": "artifacts/design/DATA-001-v1/source_snapshot.zip",
+  "source_bundle_sha256": "8bd7bade355d21200066c3cb3a51cd1d6f68a6a23aac59cdd1f726aad5b90b8e",
+  "files": {
+    "run.py": "a4c773d81a3ae3143b14fba1fa5ccfb3d1581f467d4264a6a3bbe8d594c16b11",
+    "README.md": "47cbbe28a58489544fece2787a1df246c9fbbdfcb21bb2501efc6c2f93c08f02",
+    "src/perpquant/__init__.py": "c5774e39d9c1af5c613eb222f1199662645e2ef8ef399fbb6c1a12b352e8c908",
+    "src/perpquant/__main__.py": "5fd74dc8027abee6ef47b7a9b37620a72604480700ead29dea27ae41dd1a7bd7",
+    "src/perpquant/archive.py": "791f448841f1c6cddbce865b229fe98497b39ab2ee5961079ad196d4c605b02c",
+    "src/perpquant/config.py": "62863ce4268bfc298e65f0f42797441d854ab3d1396f18e5e19c3c45536a6fd3",
+    "src/perpquant/margin.py": "0f867fb14c02b82fb12ac21ea0aceaa7ffc2259dc77f0ce3c4d199264d802212",
+    "src/perpquant/quality.py": "3b15d8039ee8a49dcdc21e5b693d8c66a87aa63e26dd093c785ae4da6e8996c4",
+    "src/perpquant/risk.py": "2c760151a71268f5ecdc833b07a84a80cbe38a7ea68fa90834d30e29c8c0be2a",
+    "scripts/audit_funding_proxy.py": "84abbc635210ac047a90fb9514c5a86d11b3d4c66b04dde9fc7a761096193c52",
+    "scripts/audit_sample.py": "73e6a8982d7d08b0b63bb19bf1c6ea8b17b3a9f22840854289ae8f5f6e63c036",
+    "scripts/download_boundary_sample.py": "5236a281c0200049c0af033243ecd40c4615f6041f4f7299cc0516b482625d74",
+    "scripts/download_funding_sample.py": "81654527ef2d3653fa7dcd469998096939c9492e54f36af73f22a2401885a611",
+    "scripts/download_sample.py": "670f863d0892ab2ff3ba522aeb71f6ca9ca517a04cb49d5740e90da12158b613",
+    "scripts/probe_sources.py": "c757ae67cdeec19e9d7cb42a46c75f0954ee9675b3a877364359c6e894dc3d83",
+    "tests/test_data.py": "1d53a08f0f70e54a6b441eb5573436aaa8b64f85d78a7e33d1e4d8d330904ab0",
+    "tests/test_margin.py": "679690081359d4bdb19985c0b25d8c146a566d0f3016ccea49e815ef11457ef4",
+    "tests/test_risk.py": "5a103cb540ecdc84bc5c22ac5736beef6a2a47c900579b4475c9cc069dec4f6e",
+    "configs/data_policy.toml": "ce01b61c0b19ab540a32433f5a87872a9f28f2e7ec24e89025fd5367f474ae4a",
+    "configs/first_round.toml": "671f1dad457754bc44c6c6c4be30c81433810d7dd83aededbd512b9c65836ffb",
+    "docs/小样本数据验收.md": "fef5390715e4ce79c0ee7371fbc56604cda7869293d4ecebe05358dc414b469f",
+    "docs/第一轮实验方案.md": "5a1391a7c20f33d8933cb52085aeae7218d8c6ed4a947d406701ac367098bb99",
+    "docs/系统设计草案.md": "cdcc3ed26a97cc5d4904561f6e11c5f83e2f4215fd764b270b47d0bcf8f195c8",
+    "docs/规则核对记录.md": "4172d54841fb9f1effa9fddd668a8fde68fbeeb02a2553c39563ee149512bd2a",
+    "docs/调研参考.md": "d247f80891b4e9eae96a01cf7f0c9955b100c2ab91b42f90cbe3a811f18af13f",
+    "docs/逐仓保证金计算说明.md": "a7cd67a32a8dae0cb33d9a6644b71941127a4665b7c692654d603c76bdd9f082",
+    "docs/需求与验收.md": "19dbd0cf63801d7f9e91d125a0ae59a2cca55017a32a4e39294bc62392bd1c19"
+  },
+  "verified_archives": [
+    {
+      "path": "data/raw/klines/BTCUSDT/2023-01-01/62185157e73a1293f3254044aa4be6e2392735ffcc476ea907b581a7b4d8137c/BTCUSDT-1m-2023-01-01.zip",
+      "sha256": "62185157e73a1293f3254044aa4be6e2392735ffcc476ea907b581a7b4d8137c",
+      "bytes": 54209
+    },
+    {
+      "path": "data/raw/markPriceKlines/BTCUSDT/2023-01-01/2ea00a4005b306c5ac2e207d35c42980b412489c93d8745c8add5cbcb9382e55/BTCUSDT-1m-2023-01-01.zip",
+      "sha256": "2ea00a4005b306c5ac2e207d35c42980b412489c93d8745c8add5cbcb9382e55",
+      "bytes": 32912
+    },
+    {
+      "path": "data/raw/fundingRate/BTCUSDT/2023-01/05e3df32f28d0d50f4c5a280adee9368b4a66fc68c6ddca1b3277087ac0d19f5/BTCUSDT-fundingRate-2023-01.zip",
+      "sha256": "05e3df32f28d0d50f4c5a280adee9368b4a66fc68c6ddca1b3277087ac0d19f5",
+      "bytes": 863
+    },
+    {
+      "path": "data/raw/klines/ETHUSDT/2023-01-01/2c03b4a67d78bfc4627d6b12c8e5978220340c773b3f7ddc4ce523328c72260e/ETHUSDT-1m-2023-01-01.zip",
+      "sha256": "2c03b4a67d78bfc4627d6b12c8e5978220340c773b3f7ddc4ce523328c72260e",
+      "bytes": 57717
+    },
+    {
+      "path": "data/raw/markPriceKlines/ETHUSDT/2023-01-01/39e8c3c5439352b809a7be44c03f56cf40961a4df2a24ece53343b178f314f99/ETHUSDT-1m-2023-01-01.zip",
+      "sha256": "39e8c3c5439352b809a7be44c03f56cf40961a4df2a24ece53343b178f314f99",
+      "bytes": 32226
+    },
+    {
+      "path": "data/raw/fundingRate/ETHUSDT/2023-01/5647d5978092d220eb14e11c7854d86815d0eb6204197e37b4808cc599e986f3/ETHUSDT-fundingRate-2023-01.zip",
+      "sha256": "5647d5978092d220eb14e11c7854d86815d0eb6204197e37b4808cc599e986f3",
+      "bytes": 819
+    },
+    {
+      "path": "data/raw/markPriceKlines/BTCUSDT/2022-12-31/184d4f6ab0ad523001c789e7177411a90197a9c66f75468e33944f536f507c78/BTCUSDT-1m-2022-12-31.zip",
+      "sha256": "184d4f6ab0ad523001c789e7177411a90197a9c66f75468e33944f536f507c78",
+      "bytes": 33461
+    },
+    {
+      "path": "data/raw/markPriceKlines/ETHUSDT/2022-12-31/ba0473961a4c9ffc66926646eb2705355548778745cab24a244699c69118e414/ETHUSDT-1m-2022-12-31.zip",
+      "sha256": "ba0473961a4c9ffc66926646eb2705355548778745cab24a244699c69118e414",
+      "bytes": 31863
+    }
+  ],
+  "sample_schema_quality_report": "artifacts/data/quality/QUALITY-20261015T062107Z-c4fea892.json",
+  "funding_proxy_report": "artifacts/data/quality/VALUATION-20261015T062535Z-55fbf454.json",
+  "checks": [
+    {
+      "command": "python -B -m unittest discover -s tests -p test_data.py -v",
+      "methods_passed": 6,
+      "exit_code": 0
+    },
+    {
+      "command": "python -B -m unittest discover -s tests -p test_margin.py -v",
+      "methods_passed": 5,
+      "exit_code": 0,
+      "tiers": "synthetic_fixtures_only"
+    },
+    {
+      "command": "python -B -m unittest discover -s tests -p test_risk.py -k readiness -v",
+      "methods_passed": 1,
+      "exit_code": 0
+    },
+    {
+      "command": "python -B run.py check-readiness",
+      "exit_code": 2,
+      "expected": true
+    },
+    {
+      "source_probe": "artifacts/setup/source_probes/PROBE-20261015T062535Z-b4955ac8/report.json",
+      "requests_with_http_200": 7,
+      "original_rule_and_probe_files_unchanged": true
+    }
+  ],
+  "new_unique_behavior_methods_passed": 11,
+  "modified_existing_behavior_methods_passed": 1,
+  "not_completed": [
+    "full_development_data",
+    "historical_margin_tiers_and_liquidation_fees",
+    "shared_account_ledger",
+    "backtest_engine",
+    "strategy_performance_evaluation"
+  ],
+  "exact_settlement_marks_recovered": false,
+  "holdout_history_requested": false,
+  "execution_ready": false,
+  "background_jobs": [],
+  "next_action": "Expand checksummed development-data preparation, then shared isolated ledger and event replay."
+}

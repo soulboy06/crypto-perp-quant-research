@@ -1,0 +1,60 @@
+{
+  "design_id": "R001-v1",
+  "recorded_date": "2026-10-15",
+  "timezone": "Asia/Shanghai",
+  "python_version": "3.12.10",
+  "config_sha256": "671f1dad457754bc44c6c6c4be30c81433810d7dd83aededbd512b9c65836ffb",
+  "files": {
+    "run.py": "a4c773d81a3ae3143b14fba1fa5ccfb3d1581f467d4264a6a3bbe8d594c16b11",
+    "configs/first_round.toml": "671f1dad457754bc44c6c6c4be30c81433810d7dd83aededbd512b9c65836ffb",
+    "scripts/probe_sources.py": "87e697dcf8b065db554207e02198995696bae13717c372c5ee4b9a048cb9fe6c",
+    "docs/第一轮实验方案.md": "5a1391a7c20f33d8933cb52085aeae7218d8c6ed4a947d406701ac367098bb99",
+    "docs/规则核对记录.md": "d50cec4ef3329feea598b3612d6f06f4eed648960c716229e23b703742a5d95e",
+    "src/perpquant/__init__.py": "c5774e39d9c1af5c613eb222f1199662645e2ef8ef399fbb6c1a12b352e8c908",
+    "src/perpquant/__main__.py": "5fd74dc8027abee6ef47b7a9b37620a72604480700ead29dea27ae41dd1a7bd7",
+    "src/perpquant/config.py": "62863ce4268bfc298e65f0f42797441d854ab3d1396f18e5e19c3c45536a6fd3",
+    "src/perpquant/risk.py": "2c760151a71268f5ecdc833b07a84a80cbe38a7ea68fa90834d30e29c8c0be2a",
+    "tests/test_risk.py": "46dc213fb9ddc548b5ee9d391f312b322355f252629c030262bc9d17dfd15d2c"
+  },
+  "completed_checks": [
+    {
+      "command": "python -B -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "test_methods_passed": 8,
+      "scope": "configuration and entry-size risk boundaries"
+    },
+    {
+      "command": "python -B run.py check-config",
+      "exit_code": 0
+    },
+    {
+      "command": "python -B run.py size-preview --leverage-cap 10",
+      "exit_code": 0,
+      "scope": "synthetic prices and synthetic order minimums only"
+    },
+    {
+      "command": "python -B scripts/probe_sources.py",
+      "exit_code": 0,
+      "get_rule_snapshots": 1,
+      "head_archive_objects": 6
+    },
+    {
+      "command": "python -B run.py check-readiness",
+      "exit_code": 2,
+      "expected": true,
+      "ready": false
+    }
+  ],
+  "not_completed": [
+    "historical_data_download",
+    "full_data_integrity_audit",
+    "historical_margin_rules",
+    "liquidation_model",
+    "account_ledger",
+    "backtest_engine",
+    "strategy_evaluation",
+    "holdout_provenance_audit"
+  ],
+  "background_jobs": [],
+  "next_action": "Implement version-preserving sample archive downloads and checksum/schema checks."
+}

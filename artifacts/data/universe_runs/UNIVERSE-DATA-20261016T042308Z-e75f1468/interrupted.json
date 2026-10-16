@@ -1,0 +1,5 @@
+{
+  "status": "interrupted_before_manifest",
+  "reason": "Interrupted to support observed SOL funding interval transitions; successful partitions retained.",
+  "strategy_backtest_executed": false
+}
