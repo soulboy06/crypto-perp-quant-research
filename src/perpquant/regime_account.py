@@ -61,10 +61,14 @@ class RegimeAccount(CappedAccount):
         self.queue[due] = allowed
 
     def decisions(self, available, features):
+        due = available + MINUTE
+        # Preserve CappedAccount's replacement-batch reservation cleanup.
+        for key, reservation in list(self.direction_slots.pending.items()):
+            if reservation['due'] == due:
+                self.direction_slots.release(key)
         # Step 1: SIG-001 signal generation WITHOUT slot reservation.
         # Call grandparent directly to skip CappedAccount's slot-first ordering.
         ExtensionAccount.decisions(self, available, features)
-        due = available + MINUTE
         if due not in self.queue:
             return
         # Step 2: regime filter FIRST.

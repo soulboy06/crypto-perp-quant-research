@@ -1,9 +1,9 @@
-"""R011 market regime filter: Wilder ADX(14) on BTC daily bars.
+"""R011 market regime filter: Wilder ADX(14) on each coin's daily bars.
 
 Pre-registered design (no tuning):
 - Indicator: Wilder ADX(14), textbook formulation.
 - Timeframe: daily bars built from minute trade data (UTC midnight close).
-- Symbol: BTCUSDT as the global regime proxy (altcoins correlate ~1 in risk events).
+- Scope: each coin uses only its own daily bars; no global BTC proxy.
 - Threshold: ADX > 25 = trending (Wilder's textbook level). Not tuned.
 - Gate: block NEW entries when not trending; exits and position management unchanged.
 - Fail-closed: if ADX not ready (warmup), block entries.
@@ -14,7 +14,6 @@ from .config import require
 
 ADX_PERIOD = 14
 ADX_TREND_THRESHOLD = 25.0
-REGIME_SYMBOL = "BTCUSDT"
 
 
 class DailyADX:

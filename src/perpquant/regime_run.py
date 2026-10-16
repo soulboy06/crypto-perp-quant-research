@@ -7,6 +7,7 @@ import csv
 import gzip
 import itertools
 import json
+import math
 import time
 import tomllib
 from .archive import preserve
@@ -15,52 +16,44 @@ from .engine import MINUTE, stamp_us
 from .ledger import InstrumentRules
 from .margin import Tier
 from .research4 import FourthHour
-from .signal_quality import ExtensionAccount, load_signal_plan, read_csv
+from .signal_quality import load_signal_plan, read_csv
 from .universe_data import SYMBOLS
-from .full_data import sha, relative, specs_for
+from .full_data import sha, relative
 from .phase1 import CappedAccount
+from .phase1_data import window_config
+from .phase1_run import corpus as phase1_corpus
 from .regime_account import RegimeAccount
 from .uncertainty import paired_cagr_diagnostic
 
 
 def regime_window_config(root, scope):
     plan = tomllib.loads((root / 'configs/eleventh_round.toml').read_text(encoding='utf-8'))
-    universe = tomllib.loads((root / 'configs/universe_expansion.toml').read_text(encoding='utf-8'))
-    config = tomllib.loads((root / 'configs/first_round.toml').read_text(encoding='utf-8'))
-    # R011 is a ten-coin experiment: override the two-coin symbols from first_round.toml.
-    config['market']['symbols'] = list(universe['market']['symbols'])
-    window = plan[scope]
-    config['data']['warmup_start'] = window['warmup_start']
-    config['data']['development_start'] = window['start']
-    config['data']['development_end'] = window['end_exclusive']
+    phase_plan, universe, config = window_config(root, scope)
+    require(plan['design_id'] == 'R011-v1-percoin' and not plan['parameter_search']
+            and not plan['formal_selection_eligible'] and plan['holdout_locked']
+            and not plan['phase_2_enabled'] and plan['maximum_accounts_per_run'] == 4
+            and plan['cost_scenarios'] == ['base', 'stress'], 'R011 research scope changed')
+    require(plan['regime']['indicator'] == 'wilder_adx_14'
+            and plan['regime']['scope'] == 'per_coin_each_symbol_own_adx'
+            and D(plan['regime']['threshold']) == 25, 'R011 regime design changed')
+    for key in ('warmup_start', 'start', 'end_exclusive'):
+        require(plan[scope][key] == phase_plan[scope][key], 'R011 window changed: ' + key)
     return plan, universe, config
 
 
-def corpus(root, scope, plan, config):
-    # Reuse Phase 1's frozen-file discipline: SIG-001 reference must be intact.
-    reference = root / 'artifacts/backtests' / plan.get(
-        'baseline_reproduction_run', 'SIG001-20261016T045339Z-9b2fe0a6')
-    if not reference.is_dir():
-        # Fall back to the Phase 1 pointer when no explicit reference is set.
-        pointer = json.loads((root / 'artifacts/backtests/phase1_reproduction_latest.json').read_text(encoding='utf-8'))
-        reference = root / pointer['summary'].rsplit('/', 1)[0]
-    old = json.loads((reference / 'summary.json').read_text(encoding='utf-8'))
-    for name in ('first_round.toml', 'execution_policy.toml', 'data_policy.toml',
-                 'universe_expansion.toml', 'signal_quality.toml', 'phase1.toml'):
-        ref_path = reference / 'source' / name
-        if ref_path.is_file():
-            require((root / 'configs' / name).read_bytes() == ref_path.read_bytes(),
-                    'Frozen settings changed: ' + name)
-    for name in ('engine.py', 'ledger.py', 'risk.py', 'margin.py', 'config.py',
-                 'signals.py', 'universe_engine.py', 'signal_quality.py', 'research4.py',
-                 'phase1.py'):
-        if name in old.get('source_sha256', {}):
-            require(sha(Path(__file__).with_name(name).read_bytes()) == old['source_sha256'][name],
-                    'Frozen source changed: ' + name)
-    return reference, old
+def corpus(root, scope, config, proxy_scenario):
+    # PR #2 owns the observed-data/proxy policy and all hash/whitelist checks.
+    # Reproduction uses the original SIG-001 corpus, never an extension pointer.
+    phase_plan, _, _ = window_config(root, scope)
+    result = phase1_corpus(root, scope, phase_plan, config,
+                           proxy_scenario=proxy_scenario if scope == 'extension' else None)
+    if scope == 'extension':
+        require(result[1].get('funding_rest_verified_all_partitions') is True,
+                'R011 requires the REST-reconciled funding corpus from PR #2')
+    return result
 
 
-def evaluate_gates(metrics, cfg):
+def evaluate_gates(metrics, cfg, folder, scope='extension'):
     """Compute acceptance gates from config [gates].
 
     Compares each candidate (regime) account against its control (cap3) pair
@@ -68,9 +61,9 @@ def evaluate_gates(metrics, cfg):
     'completed' in summary means the run finished; 'gates' says if it passed.
     """
     by_name = {m['account']: m for m in metrics}
-    min_trades = int(cfg.get('minimum_trades', 30))
-    min_cagr_imp = float(cfg.get('minimum_cagr_improvement', '0.01'))
-    max_dd = float(cfg.get('maximum_drawdown', '0.20'))
+    folder = Path(folder)
+    required = {'round_trips', 'net_return', 'cagr', 'max_adverse_bound_drawdown',
+                'calmar', 'halt_reasons', 'liquidation_proxy_events', 'execution_ambiguities'}
     results = {}
     for cost in ('base', 'stress'):
         ctrl = by_name.get(f'control_cap3_{cost}')
@@ -78,59 +71,54 @@ def evaluate_gates(metrics, cfg):
         if not ctrl or not cand:
             results[cost] = {'evaluated': False, 'reason': 'missing_account_pair'}
             continue
-        checks = {}
-        # 1. Minimum trades.
-        checks['min_trades'] = cand.get('trades', 0) >= min_trades
-        # 2. Positive net.
-        checks['positive_net'] = cand.get('net_return', 0) > 0 if cfg.get('require_positive_net') else True
-        # 3. CAGR improvement >= threshold.
-        cagr_c = ctrl.get('cagr', ctrl.get('net_return', 0))
-        cagr_k = cand.get('cagr', cand.get('net_return', 0))
-        checks['cagr_improvement'] = (cagr_k - cagr_c) >= min_cagr_imp
-        # 4. Drawdown within limit.
-        checks['drawdown_limit'] = cand.get('max_drawdown', 1) <= max_dd
-        # 5. Calmar non-decreasing.
-        def calmar(m):
-            dd = m.get('max_drawdown', 0)
-            ret = m.get('net_return', m.get('cagr', 0))
-            return ret / dd if dd > 0 else 0
-        checks['calmar_non_decreasing'] = calmar(cand) >= calmar(ctrl) if cfg.get('require_non_decreasing_calmar') else True
-        # 6. No halts/liquidations/ambiguities.
-        checks['no_halts'] = True
-        for m in (ctrl, cand):
-            for key in ('halts', 'liquidations', 'ambiguities'):
-                if m.get(key):
-                    checks['no_halts'] = False
-        results[cost] = {'evaluated': True, 'checks': checks,
+        if any(not required <= m.keys() for m in (ctrl, cand)):
+            results[cost] = {'evaluated': False, 'reason': 'missing_engine_metrics'}
+            continue
+        def finite(value):
+            return value is not None and math.isfinite(float(value))
+        ci = None
+        try:
+            bd, nd = [read_csv(folder / (m['account'] + '_daily_equity.csv')) for m in (ctrl, cand)]
+            require([x['date'] for x in bd] == [x['date'] for x in nd], 'Unpaired comparison dates')
+            ci = paired_cagr_diagnostic([float(x['equity']) for x in bd],
+                                       [float(x['equity']) for x in nd],
+                                       block_days=cfg['bootstrap_block_days'],
+                                       resamples=cfg['bootstrap_resamples'], seed=cfg['bootstrap_seed'])
+        except (OSError, ValueError, KeyError) as exc:
+            results[cost] = {'evaluated': False, 'reason': 'bootstrap_unavailable', 'error': str(exc)}
+            continue
+        checks = {
+            'min_trades': cand['round_trips'] >= cfg['minimum_trades'],
+            'positive_net': finite(cand['net_return']) and cand['net_return'] > 0
+                            if cfg['require_positive_net'] else True,
+            'cagr_improvement': all(finite(m['cagr']) for m in (ctrl, cand)) and
+                                cand['cagr'] - ctrl['cagr'] >= float(cfg['minimum_cagr_improvement']),
+            'drawdown_limit': finite(cand['max_adverse_bound_drawdown']) and
+                              cand['max_adverse_bound_drawdown'] <= float(cfg['maximum_drawdown']),
+            'calmar_non_decreasing': all(finite(m['calmar']) for m in (ctrl, cand)) and
+                                    cand['calmar'] >= ctrl['calmar']
+                                    if cfg['require_non_decreasing_calmar'] else True,
+            'no_halts': all(not m['halt_reasons'] and m['liquidation_proxy_events'] == 0
+                            and m['execution_ambiguities'] == 0 for m in (ctrl, cand))
+                            if cfg['require_no_halts_liquidations_ambiguities'] else True,
+            'bootstrap_lower_positive': finite(ci['cagr_improvement_lower_95']) and
+                                        ci['cagr_improvement_lower_95'] > 0
+                                        if cfg['require_positive_bootstrap_lower'] else True}
+        results[cost] = {'evaluated': True, 'checks': checks, 'bootstrap': ci,
                          'passed': all(checks.values())}
-    results['overall_passed'] = all(v.get('passed', False) for v in results.values()
-                                    if isinstance(v, dict) and v.get('evaluated'))
+    results['numerical_checks_passed'] = all(results[cost].get('passed', False) for cost in ('base', 'stress'))
+    results['overall_passed'] = scope == 'extension' and results['numerical_checks_passed']
+    results['formal_selection_eligible'] = False
     return results
 
 
-def run(root, scope='extension'):
+def run(root, scope='extension', *, proxy_scenario='spot'):
     root = Path(root).resolve()
     plan, universe, config = regime_window_config(root, scope)
     signal, _, _ = load_signal_plan(root)
-    # Select data manifest per scope: prefer proxy-data manifest (PR #2),
-    # fall back to phase1_latest. Never silently use the wrong window's data.
-    pointer_path = None
-    for candidate in plan[scope].get('data_pointer_candidates', ['artifacts/data/phase1_latest.json']):
-        cand = root / candidate
-        if cand.is_file():
-            pointer_path = cand
-            break
-    require(pointer_path is not None, 'No data manifest found for scope ' + scope)
-    print(json.dumps({'data_pointer': str(pointer_path.relative_to(root))}))
-    pointer = json.loads(pointer_path.read_text(encoding='utf-8'))
-    manifest_path = root / pointer['manifest']
-    manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
-    require(not manifest['holdout_history_requested'], 'Frozen holdout data forbidden')
-    require(manifest['complete_extension_coverage'], 'Extension data incomplete')
-    index = {(x['symbol'], x['kind'], x['period']): x for x in manifest['results']
-             if x.get('audit_passed')}
-    expected = {(x.symbol, x.kind, x.period) for x in specs_for(config)}
-    require(set(index) == expected, 'Incomplete or out-of-scope data inventory')
+    require(proxy_scenario in ('spot', 'ffill'), 'Unknown R011 proxy scenario')
+    proxy_scenario = proxy_scenario if scope == 'extension' else None
+    manifest_path, manifest, index, reference = corpus(root, scope, config, proxy_scenario)
     snapshot = json.loads((root / manifest['rules_path']).read_text(encoding='utf-8'))
     policy = tomllib.loads((root / 'configs/execution_policy.toml').read_text(encoding='utf-8'))
     warmup_start = stamp_us(config['data']['warmup_start'])
@@ -145,25 +133,34 @@ def run(root, scope='extension'):
                                        filters['MIN_NOTIONAL']['notional'], (tier,), start, end,
                                        'R011_CURRENT_RULES_PROXY_NOT_HISTORICAL')
         ticks[symbol], fees[symbol] = D(filters['PRICE_FILTER']['tickSize']), D(x['liquidationFee'])
-    run_id = 'R011-' + scope.upper() + '-' + datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ') + '-' + uuid4().hex[:8]
+    scope_tag = scope.upper() + ('-' + proxy_scenario.upper() if proxy_scenario else '')
+    run_id = 'R011-' + scope_tag + '-' + datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ') + '-' + uuid4().hex[:8]
     folder = root / 'artifacts/backtests' / run_id
     folder.mkdir(parents=True, exist_ok=False)
     sources = {}
     for name in ('regime.py', 'regime_account.py', 'regime_run.py', 'phase1.py',
                  'signal_quality.py', 'universe_engine.py', 'engine.py', 'ledger.py',
-                 'risk.py', 'margin.py', 'config.py', 'signals.py', 'research4.py'):
+                 'risk.py', 'margin.py', 'config.py', 'signals.py', 'research4.py',
+                 'phase1_run.py', 'phase1_data.py', 'universe_data.py', 'uncertainty.py',
+                 'mark_proxy.py'):
         body = Path(__file__).with_name(name).read_bytes()
         sources[name] = sha(body)
         preserve(folder / 'source' / name, body)
     for name in ('eleventh_round.toml', 'tenth_round_proposal.toml', 'phase1.toml',
                  'signal_quality.toml', 'first_round.toml', 'execution_policy.toml',
-                 'data_policy.toml', 'universe_expansion.toml'):
+                 'data_policy.toml', 'universe_expansion.toml', 'mark_proxy.toml'):
         preserve(folder / 'source' / name, (root / 'configs' / name).read_bytes())
     preserve(folder / 'source/test_regime.py', (root / 'tests/test_regime.py').read_bytes())
+    preserve(folder / 'source/test_regime_integration.py', (root / 'tests/test_regime_integration.py').read_bytes())
     metadata = {'run_id': run_id, 'research_design_id': plan['design_id'],
                 'scope': plan[scope]['scope'], 'run_scope': scope, 'window': plan[scope],
                 'plan': plan, 'data_manifest': relative(root, manifest_path),
                 'data_manifest_sha256': sha(manifest_path.read_bytes()),
+                'reference_run': relative(root, reference), 'proxy_scenario': proxy_scenario,
+                'funding_multiplier': 1,
+                'funding_rest_verified_all_partitions': manifest.get('funding_rest_verified_all_partitions', True),
+                'strict_mark_price_coverage': proxy_scenario is None,
+                'proxy_bar_count': manifest.get('proxy_bar_count', 0),
                 'source_sha256': sources,
                 'baseline': 'same_window_R010P1_rerun', 'new_candidate_cost_configurations': 2,
                 'control_accounts': 2, 'holdout_read': False, 'formal_selection_eligible': False,
@@ -174,8 +171,9 @@ def run(root, scope='extension'):
     try:
         for name, cls in [('control_cap3', CappedAccount), ('candidate_regime', RegimeAccount)]:
             for cost in ('base', 'stress'):
+                kwargs = {'regime_threshold': float(plan['regime']['threshold'])} if cls is RegimeAccount else {}
                 accounts.append(cls(config, rules, ticks, fees, cost, folder,
-                                    plan=universe, signal_plan=signal, name=name))
+                                    plan=universe, signal_plan=signal, name=name, **kwargs))
         with gzip.open(root / manifest['funding_valuation_path'], 'rt', encoding='utf-8') as f:
             funding = list(csv.DictReader(f))
         require(all(start <= int(x['event_time_us']) < end for x in funding), 'Funding outside window')
@@ -233,7 +231,7 @@ def run(root, scope='extension'):
                     'regime_allows': a.regime_allows, 'regime_blocks': a.regime_blocks}
         # Acceptance gates (config [gates]): compute pass/fail per account pair.
         gates_cfg = plan.get('gates', {})
-        gates = evaluate_gates(metrics, gates_cfg)
+        gates = evaluate_gates(metrics, gates_cfg, folder, scope)
         summary = {**metadata, 'status': 'completed', 'accounts': metrics,
                    'regime_audit': regime_audit, 'gates': gates,
                    'runtime_seconds': time.monotonic() - clock}

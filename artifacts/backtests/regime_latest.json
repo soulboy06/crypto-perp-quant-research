@@ -1,0 +1,7 @@
+{
+  "summary": "artifacts/backtests/R011-VALIDATION-20261016T095536Z/summary.json",
+  "sha256": "3187097fe7236acd682e70212787353d5a172965e963a327cc23ca429d9d2c14",
+  "report": "docs/第十一轮验证结果.md",
+  "formal_selection_eligible": false,
+  "holdout_read": false
+}

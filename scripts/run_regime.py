@@ -10,9 +10,11 @@ from perpquant.regime_run import run
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--scope', choices=['extension', 'reproduction'], default='extension')
+    parser.add_argument('--proxy-scenario', choices=['spot', 'ffill'], default='spot',
+                        help='Extension only: run both scenarios before interpreting results')
     args = parser.parse_args()
     try:
-        run(ROOT, args.scope)
+        run(ROOT, args.scope, proxy_scenario=args.proxy_scenario)
     except ValueError as exc:
         print('R011 refused or stopped: ' + str(exc), file=sys.stderr)
         sys.exit(2)

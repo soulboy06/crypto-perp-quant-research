@@ -2,6 +2,11 @@
 import math
 import random
 import unittest
+from pathlib import Path
+import sys
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'src'))
 
 from perpquant.regime import DailyADX, ADX_PERIOD, ADX_TREND_THRESHOLD
 

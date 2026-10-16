@@ -28,16 +28,16 @@ warmup_start = "2024-05-01T00:00:00Z"
 start = "2024-07-01T00:00:00Z"
 end_exclusive = "2026-01-01T00:00:00Z"
 scope = "extension_validation_not_independent_holdout"
-# Data manifest: use PR #2's proxy-data manifest when available, else phase1_latest.
-# The runner selects the newest pointer that covers this window with proxy data.
-data_pointer_candidates = ["artifacts/data/phase1_proxy_latest.json", "artifacts/data/phase1_latest.json"]
+# Requires PR #2. phase1_run.corpus validates the selected spot/ffill scenario,
+# its manifest hash, all normalized data hashes, funding and the 14-bar whitelist.
+# Run both scenarios; do not select a proxy according to strategy returns.
 
 [reproduction]
 warmup_start = "2022-11-01T00:00:00Z"
 start = "2023-01-01T00:00:00Z"
 end_exclusive = "2024-07-01T00:00:00Z"
 scope = "development_implementation_diagnostic_not_extension_acceptance"
-data_pointer_candidates = ["artifacts/data/phase1_proxy_latest.json", "artifacts/data/phase1_latest.json"]
+# Uses the frozen SIG-001 reference manifest; no extension-pointer fallback.
 
 [gates]
 minimum_trades = 30
