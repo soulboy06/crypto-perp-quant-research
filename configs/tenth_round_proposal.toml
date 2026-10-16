@@ -73,12 +73,15 @@ note = "group_c_stop_3xATR_means_smaller_position_than_group_a_at_same_risk_budg
 # 必须计入同批待成交订单，并在实际成交时重新检查。
 [portfolio]
 max_same_direction_positions = 3
-same_direction_definition = "open_positions_with_same_side_long_or_short_counted_at_signal_time"
-count_pending_within_batch = true
-pending_definition = "signals_accepted_in_the_same_hourly_batch_not_yet_filled"
-recheck_at_fill = true
-recheck_rule = "at_scheduled_fill_time_recount_open_plus_pending_same_direction_skip_if_at_cap"
-skip_policy = "skip_new_same_direction_signal_when_at_cap_log_reject_reason"
+# 计数口径（修正 2026-10-16 第二轮评审）：不能把当前订单自己算进去，否则合法订单会被误拒。
+# 信号时刻：统计 已持仓 + 同批其他待成交（不含当前订单）；若 ≥ 上限则跳过并记拒单原因，
+#   否则为当前订单预留一个名额。
+# 成交时刻：排除当前订单后重数（已持仓 + 其他待成交）；若（计数 + 1）> 上限则跳过，
+#   否则成交，并把预留名额转换为持仓。
+signal_time_count = "held_plus_other_pending_excluding_current"
+signal_time_rule = "if_count_ge_cap_skip_and_log_else_reserve_one_slot_for_current"
+fill_time_count = "held_plus_other_pending_excluding_current"
+fill_time_rule = "if_count_plus_one_gt_cap_skip_else_fill_and_convert_reservation_to_held"
 opposite_direction_unaffected = true
 # 备选（更精细，需实现相关性计算，当前不采用）：dynamic_correlation_budget
 # alternative = "skip_when_mean_pairwise_correlation_of_open_positions_above_threshold"
@@ -111,9 +114,9 @@ validation_window = "2024-07-01_to_2026-01-01_extension_validation_not_independe
 true_holdout = "2026_frozen"
 holdout_requirement = "data_completeness_acceptance_before_any_validation_run"
 baseline_control = "rerun_UNIV001_or_SIG001_on_same_window_as_control_no_cross_window_annualized_comparison"
-gates_both_costs = ["positive_net", "minimum_30_trades", "cagr_improvement_ge_1pp_vs_UNIV001",
+gates_both_costs = ["positive_net", "minimum_30_trades", "cagr_improvement_ge_1pp_vs_phase_baseline",
     "max_drawdown_le_0.20", "no_halts_liquidations_ambiguities",
-    "calmar_not_decreasing", "bootstrap_14d_block_2000_resamples_lower_bound_positive"]
+    "calmar_not_decreasing_vs_phase_baseline", "bootstrap_14d_block_2000_resamples_lower_bound_positive"]
 bootstrap_seed = 20261016
 # 引用：Bailey et al. 关于回测过拟合。多次在相同开发历史上试规则会增加选择偏差。
 overfitting_warning = "any_parameter_change_after_seeing_holdout_results_invalidates_the_holdout"
@@ -121,11 +124,17 @@ overfitting_warning = "any_parameter_change_after_seeing_holdout_results_invalid
 # ---- 分阶段实验（修正 2026-10-16：一次只改一个变量） ----
 # 原草案把分组参数、放宽止损、加强过滤、限制同向仓位四个改动捆在一起：
 # 即使结果改善，也无法归因是哪个改动起作用。拆分为两阶段。
+# 修正（2026-10-16 第二轮评审）：对照基准必须唯一确定。
+# Phase 1 是"在 SIG-001 上只加仓位限制"，对照只能是同期 SIG-001（不是 UNIV-001）；
+# Phase 2 是"在 Phase 1 上加分组参数"，对照只能是同期 Phase 1。
 [phases]
-phase_1 = "only_add_same_direction_cap_keep_all_other_params_identical_to_SIG001"
+phase_1 = "only_add_same_direction_cap_on_SIG001_keep_all_other_params_identical"
+phase_1_baseline = "same_window_SIG001_rerun"
 phase_1_purpose = "isolate_the_effect_of_correlation_budget"
 phase_2 = "add_grouped_parameters_only_if_phase_1_passes_gates"
-phase_2_purpose = "isolate_the_effect_of_per_group_signal_parameters"
+phase_2_baseline = "same_window_phase_1_rerun"
+phase_2_purpose = "evaluate_grouped_parameter_rules_as_a_package"
+phase_2_limitation = "cannot_attribute_improvement_to_individual_parameters_within_the_package"
 phase_rule = "do_not_combine_phases_do_not_skip_phase_1"
 
 # ---- 实现前置：引擎当前不支持以下能力，需代码变更后才能运行 ----
