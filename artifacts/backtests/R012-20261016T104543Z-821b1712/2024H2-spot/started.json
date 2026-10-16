@@ -1,0 +1,22 @@
+{
+  "design_id": "R012-v1",
+  "case": "2024H2-spot",
+  "window": {
+    "id": "2024H2",
+    "warmup_start": "2024-05-01T00:00:00Z",
+    "start": "2024-07-01T00:00:00Z",
+    "end_exclusive": "2025-01-01T00:00:00Z",
+    "corpus_scope": "extension"
+  },
+  "proxy_scenario": "spot",
+  "input_sha256": "bac1f14e5c65befb58e1bcaa12e58492c6eaf1e68b8b2ad12849d75251fc99dd",
+  "data_manifest": "artifacts/data/mark_proxy_runs/MARK-PROXY-REST-RECOVERED-20261016T061924Z-d5198124/spot_manifest.json",
+  "data_manifest_sha256": "4132481cea7b8228b18d080cb3e6a42c1585410104acd8de12c7e6ceac4917b4",
+  "funding_multiplier": 1,
+  "historical_order_filters_verified": false,
+  "historical_margin_rules_verified": false,
+  "strict_mark_price_coverage": false,
+  "formal_selection_eligible": false,
+  "independent_validation": false,
+  "holdout_read": false
+}

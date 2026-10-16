@@ -1,0 +1,112 @@
+{
+  "design_id": "R001-v1",
+  "mode": "simulation",
+  "market": {
+    "venue": "binance_usdm",
+    "symbols": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "BNBUSDT",
+      "SOLUSDT",
+      "XRPUSDT",
+      "DOGEUSDT",
+      "ADAUSDT",
+      "LINKUSDT",
+      "AVAXUSDT",
+      "LTCUSDT"
+    ],
+    "margin_mode": "isolated",
+    "position_mode": "one_way",
+    "auto_add_margin": false
+  },
+  "account": {
+    "initial_usd": "100",
+    "stop_equity_usd": "50",
+    "usd_per_usdt": "1",
+    "fx_assumption": "constant_parity_research_only"
+  },
+  "risk": {
+    "max_effective_leverage": "10",
+    "venue_leverage": "10",
+    "baseline_leverage_cap": "1",
+    "max_symbol_leverage": "5",
+    "per_trade_risk_fraction": "0.005",
+    "total_open_risk_fraction": "0.01",
+    "daily_loss_pause_fraction": "0.03",
+    "drawdown_halt_fraction": "0.20",
+    "free_collateral_reserve_fraction": "0.20",
+    "gap_buffer_rate": "0.001",
+    "funding_buffer_rate": "0.001",
+    "leverage_scenarios": [
+      "1",
+      "2",
+      "5",
+      "10"
+    ]
+  },
+  "costs": {
+    "base": {
+      "taker_fee_rate": "0.0006",
+      "adverse_price_rate": "0.0002"
+    },
+    "stress": {
+      "taker_fee_rate": "0.0006",
+      "adverse_price_rate": "0.0006"
+    }
+  },
+  "data": {
+    "warmup_start": "2022-11-01T00:00:00Z",
+    "development_start": "2023-01-01T00:00:00Z",
+    "development_end": "2023-07-01T00:00:00Z",
+    "holdout_start": "2026-01-01T00:00:00Z",
+    "holdout_end": "2026-10-01T00:00:00Z",
+    "holdout_locked": true,
+    "signal_interval": "1h",
+    "execution_interval": "1m",
+    "decision_delay_seconds": 60,
+    "funding_required": true,
+    "mark_price_required": true
+  },
+  "strategies": {
+    "trend": {
+      "breakout_hours": 48,
+      "ema_filter_hours": 200,
+      "atr_hours": 14,
+      "stop_atr_multiple": "2",
+      "exit_ema_hours": 50,
+      "max_holding_hours": 72
+    },
+    "mean_reversion": {
+      "mean_hours": 20,
+      "entry_zscore": "2",
+      "trend_filter_hours": 200,
+      "max_trend_distance_atr": "2",
+      "atr_hours": 14,
+      "stop_atr_multiple": "2",
+      "max_holding_hours": 24
+    }
+  },
+  "research": {
+    "max_strategy_accounts": 12,
+    "max_benchmark_accounts": 6,
+    "parameter_search": false,
+    "minimum_positive_development_years": 2,
+    "minimum_worst_year_return": "-0.10",
+    "maximum_drawdown": "0.20",
+    "require_positive_stress_return": true,
+    "require_zero_liquidations": true
+  },
+  "readiness": {
+    "engine_implemented": false,
+    "market_data_verified": false,
+    "funding_data_verified": false,
+    "exchange_filters_verified": false,
+    "margin_rules_verified": false,
+    "liquidation_model_verified": false
+  },
+  "artifacts": {
+    "data_manifest": "artifacts/data_manifest.json",
+    "exchange_rules": "artifacts/rules/exchange_rules.json",
+    "margin_rules": "artifacts/rules/margin_rules.json"
+  }
+}
